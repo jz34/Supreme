@@ -1,0 +1,146 @@
+.navbar-default {
+    color: white;
+    background-color: #E1282A;
+}
+.logo{
+    height: 10%;
+    width: 10%;
+    border: 1px solid black;
+}
+.btn-danger{
+    font-family: "Courier New";
+    font-weight: bold;
+    background-color: #E1282A;
+    border: 1px solid black;
+}
+.link-button:hover{
+    background-color: #E1282A;
+    border: 1px solid black;
+}
+.banner{
+    width:100%;
+}
+.body-pink{
+    background-color: black;
+}
+
+.center-search{
+    display: block;
+    margint-top:100px;
+    margin-left: auto;
+    margin-right:auto;
+}
+.footer-color{
+    background-color: #E1282A;
+}
+
+.supreme-font{
+    font-family: "Courier New";
+    color: white;
+}
+
+.center-input{
+    display: block;
+    margin-left: auto;
+    margin-right:auto;
+    width: 65%;
+    margin-bottom: 8px;
+}
+
+.center-text{
+    text-align: center;
+}
+
+.btn-outline-danger{
+    color: #E1282A;
+}
+
+.footer-padding{
+    margin-bottom: 75px;
+}
+
+.header-padding{
+    margin-bottom: 100px;
+}
+
+.left-column{
+    /*background-color: green;*/
+    width:25%;
+    height: 100%;
+    float:left;
+}
+.right-column{
+    /*background-color: red;*/
+    height: 100%;
+}
+
+.left-border {
+    border: 2px solid #E1282A;
+    height: 80vh;
+}
+
+.right-border {
+    border: 2px solid #E1282A;
+    height: 80vh;
+}
+
+.bottom-button {
+    position:relative;
+    margin-top:95%;
+}
+
+.big-box {
+    margin: 2% 3% 3%;
+}
+
+.input_padding {
+    padding-top: 40%;
+}
+
+.item-text {
+    color: black;
+    font-family: "Courier New";
+}
+
+html, body{
+    height: 100%;
+}
+
+
+.pagination {
+    margin: 50px;
+    display: inline-block;
+}
+
+.pagination a {
+    color: #E1282A;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #E1282A;
+}
+
+.pagination a:hover:not(.active) {background-color: white;}
+
+.white_text {
+    color: white;
+}
+
+.a-no-hover:hover {
+    text-decoration: none;
+}
+
+.a-no-color {
+    color: white;
+}
+
+.a-no-visited:visited {
+    color: white;
+}
+
+
+.supreme-text-logo {
+    font-size: 20px;
+    padding-left: 20px
+}
