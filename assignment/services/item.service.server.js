@@ -5,7 +5,7 @@ module.exports = function (app) {
   app.get("/api/item/:itemId", findItemById);
   app.get("/api/item/:name", findItemByName);
   app.get("/api/item/:category", findItemByCategory);
-  app.get("/api/item", findAllItem);
+  app.get("/api/item/all", findAllItem);
   app.post("/api/item", createItem);
   app.delete("/api/item/:itemId", deleteItem);
 
