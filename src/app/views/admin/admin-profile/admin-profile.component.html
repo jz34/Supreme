@@ -1,3 +1,26 @@
-<p>
-  admin-profile works!
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin</title>
+</head>
+<body class="body-black">
+<nav class="navbar navbar-default header-margin-bottom">
+  <div class="supreme-font">
+    <a class="white_text" href="#"><i class="fa fa-chevron-left"></i></a>
+    <span class="supreme-text-logo"><a class="a-no-color a-no-hover a-no-visited" href="/loggedinhome/user">S U P R E M E</a></span>
+
+  </div>
+</nav>
+
+<div class="supreme-font footer-padding">
+  <p class="center_text supreme-font">Admin</p>
+  <a class="btn btn-outline-danger btn-block center_input" (click)="editItem()">Edit Items</a>
+  <a class="btn btn-outline-danger btn-block center_input" (click)="editUser()">Edit User</a>
+  <a class="btn btn-outline-danger btn-block center_input" (click)="logout()">Logout</a>
+</div>
+
+<div class="card-footer footer-color fixed-bottom">
+  <a class="pull-right white_text"><i class="fa fa-user"></i></a>
+</div>
+
+</body>

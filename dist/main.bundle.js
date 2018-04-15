@@ -222,11 +222,11 @@ var appRoutes = [
     { path: 'loggedinhome/user', component: __WEBPACK_IMPORTED_MODULE_17__views_home_loggedin_home_loggedin_home_component__["a" /* LoggedinHomeComponent */] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_1__views_users_login_login_component__["a" /* LoginComponent */] },
     { path: 'register', component: __WEBPACK_IMPORTED_MODULE_2__views_users_register_register_component__["a" /* RegisterComponent */] },
-    { path: 'user/admin/:uid', component: __WEBPACK_IMPORTED_MODULE_16__views_admin_admin_profile_admin_profile_component__["a" /* AdminProfileComponent */] },
+    { path: 'user/admin', component: __WEBPACK_IMPORTED_MODULE_16__views_admin_admin_profile_admin_profile_component__["a" /* AdminProfileComponent */] },
     { path: 'user/buyer', component: __WEBPACK_IMPORTED_MODULE_7__views_users_profile_buyer_profile_buyer_profile_component__["a" /* BuyerProfileComponent */] },
     { path: 'user/seller', component: __WEBPACK_IMPORTED_MODULE_8__views_users_profile_seller_profile_seller_profile_component__["a" /* SellerProfileComponent */] },
-    { path: 'user/admin/:uid/edititem', component: __WEBPACK_IMPORTED_MODULE_3__views_admin_admin_item_edit_admin_item_edit_component__["a" /* AdminItemEditComponent */] },
-    { path: 'user/admin/:uid/edituser', component: __WEBPACK_IMPORTED_MODULE_4__views_admin_admin_user_edit_admin_user_edit_component__["a" /* AdminUserEditComponent */] },
+    { path: 'user/admin/edititem', component: __WEBPACK_IMPORTED_MODULE_3__views_admin_admin_item_edit_admin_item_edit_component__["a" /* AdminItemEditComponent */] },
+    { path: 'user/admin/edituser', component: __WEBPACK_IMPORTED_MODULE_4__views_admin_admin_user_edit_admin_user_edit_component__["a" /* AdminUserEditComponent */] },
     { path: 'user/seller/:uid/new', component: __WEBPACK_IMPORTED_MODULE_5__views_item_item_edit_item_edit_component__["a" /* ItemEditComponent */] },
     { path: 'user/seller/:uid/item/:iid', component: __WEBPACK_IMPORTED_MODULE_5__views_item_item_edit_item_edit_component__["a" /* ItemEditComponent */] },
     { path: 'user/:uid/item/:iid', component: __WEBPACK_IMPORTED_MODULE_6__views_item_item_display_item_display_component__["a" /* ItemDisplayComponent */] },
@@ -460,17 +460,10 @@ var AdminItemEditComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/views/admin/admin-profile/admin-profile.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/views/admin/admin-profile/admin-profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  admin-profile works!\n</p>\n"
+module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Admin</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" href=\"#\"><i class=\"fa fa-chevron-left\"></i></a>\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\" href=\"/loggedinhome/user\">S U P R E M E</a></span>\n\n  </div>\n</nav>\n\n<div class=\"supreme-font footer-padding\">\n  <p class=\"center_text supreme-font\">Admin</p>\n  <a class=\"btn btn-outline-danger btn-block center_input\" (click)=\"editItem()\">Edit Items</a>\n  <a class=\"btn btn-outline-danger btn-block center_input\" (click)=\"editUser()\">Edit User</a>\n  <a class=\"btn btn-outline-danger btn-block center_input\" (click)=\"logout()\">Logout</a>\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\"><i class=\"fa fa-user\"></i></a>\n</div>\n\n</body>\n"
 
 /***/ }),
 
@@ -480,6 +473,7 @@ module.exports = "<p>\n  admin-profile works!\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminProfileComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -490,18 +484,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AdminProfileComponent = /** @class */ (function () {
-    function AdminProfileComponent() {
+    function AdminProfileComponent(router) {
+        this.router = router;
     }
     AdminProfileComponent.prototype.ngOnInit = function () {
+    };
+    AdminProfileComponent.prototype.editItem = function () {
+        this.router.navigate(['user/admin/edititem']);
+    };
+    AdminProfileComponent.prototype.editUser = function () {
+        this.router.navigate(['user/admin/edituser']);
+    };
+    AdminProfileComponent.prototype.logout = function () {
+        this.router.navigate(['login']);
     };
     AdminProfileComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-admin-profile',
             template: __webpack_require__("./src/app/views/admin/admin-profile/admin-profile.component.html"),
-            styles: [__webpack_require__("./src/app/views/admin/admin-profile/admin-profile.component.css")]
+            styles: [__webpack_require__("./src/app/style.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], AdminProfileComponent);
     return AdminProfileComponent;
 }());
@@ -1063,7 +1068,7 @@ var CreditcardComponent = /** @class */ (function () {
 /***/ "./src/app/views/users/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<head>\n  <title>login</title>\n</head>\n<body class=\"body-black\">\n\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a>\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/home\">S U P R E M E</a></span>\n\n  </div>\n</nav>\n<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger\">\n  {{errorMsg}}\n</div>\n<div class=\"supreme-font footer-padding\">\n  <p class=\"center_text\">Login</p>\n  <form (ngSubmit)=\"login()\" #f=\"ngForm\">\n    <label class=\"center_input white_text\">Username</label>\n    <input placeholder=\"Username\"\n           name=\"username\"\n           type=\"text\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #username=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!username.valid && username.touched\">\n      Please enter username!\n      </span>\n    <label class=\"center_input white_text\">Password</label>\n    <input placeholder=\"Password\"\n           name=\"password\"\n           type=\"password\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #password=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!password.valid && password.touched\">\n      Please enter password!\n      </span>\n    <div>\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" type=\"submit\"\n              [disabled]=\"!f.valid\">\n        Login\n      </button>\n\n      <button class=\"btn btn-outline-danger btn-block center_input\" type=\"button\" (click)=\"register()\" style=\"color: white\">Register</button>\n\n      <a href=\"#\" class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white\"> <span class=\"fa fa-facebook\" style=\"color: white\"></span>Facebook</a>\n\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" routerLink=\"/home\">Cancel\n      </button>\n    </div>\n  </form>\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" href=\" \"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n"
+module.exports = "<head>\n  <title>login</title>\n</head>\n<body class=\"body-black\">\n\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a>\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/home\">S U P R E M E</a></span>\n\n  </div>\n</nav>\n<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger\">\n  {{errorMsg}}\n</div>\n<div class=\"supreme-font footer-padding\">\n  <p class=\"center_text\">Login</p>\n  <form (ngSubmit)=\"login()\" #f=\"ngForm\">\n    <label class=\"center_input white_text\">Username</label>\n    <input placeholder=\"Username\"\n           name=\"username\"\n           type=\"text\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #username=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!username.valid && username.touched\">\n      Please enter username!\n      </span>\n    <label class=\"center_input white_text\">Password</label>\n    <input placeholder=\"Password\"\n           name=\"password\"\n           type=\"password\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #password=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!password.valid && password.touched\">\n      Please enter password!\n      </span>\n    <div>\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" type=\"submit\"\n              [disabled]=\"!f.valid\">\n        Login\n      </button>\n\n      <button class=\"btn btn-outline-danger btn-block center_input\" type=\"button\" (click)=\"register()\" style=\"color: white\">Register</button>\n\n      <a href=\"#\" class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white\"> <span class=\"fa fa-facebook\" style=\"color: white\"></span>Facebook</a>\n\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" routerLink=\"/home\">Cancel\n      </button>\n    </div>\n  </form>\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n"
 
 /***/ }),
 
