@@ -36,7 +36,7 @@
            ngModel
            required
            #username="ngModel"/>
-    <span class="help-block center_text"
+    <span class="help-block center_input"
           *ngIf="!username.valid && username.touched">
       Please enter username!
       </span>
@@ -48,21 +48,21 @@
            ngModel
            required
            #password="ngModel"/>
-    <span class="help-block center_text"
+    <span class="help-block center_input"
           *ngIf="!password.valid && password.touched">
-      Please enter username!
+      Please enter password!
       </span>
     <label class="center_input white_text">Verify Password</label>
     <input placeholder="Verify your password"
            name="verifiedPassword"
-           type="text"
+           type="password"
            class="form-control center_input"
            ngModel
            required
            #verifiedPassword="ngModel"/>
-    <span class="help-block center_text"
+    <span class="help-block center_input"
           *ngIf="!verifiedPassword.valid && verifiedPassword.touched">
-      Please enter username!
+      Please verify password!
       </span>
     <div>
       <button class="btn btn-outline-danger btn-block center_input" style="color: white;" type="submit"
@@ -76,6 +76,6 @@
 
 </div>
 <div class="card-footer footer-color fixed-bottom">
-  <a class="pull-right white_text" href=" "><i class="fa fa-user"></i></a >
+  <a class="pull-right white_text"><i class="fa fa-user"></i></a >
 </div>
 </body>

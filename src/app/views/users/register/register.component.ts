@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
       const user = {username: this.username, password: this.password, userType: this.userType};
       this.userService.register(this.username, this.password, this.userType).subscribe((data: any) => {
           this.sharedService.user = data;
-          this.router.navigate(['/user', this.userType.toLowerCase(), data._id]);
+          this.router.navigate(['/user', this.userType.toLowerCase()]);
         },
         (error: any) => {
           this.errorFlag = true;

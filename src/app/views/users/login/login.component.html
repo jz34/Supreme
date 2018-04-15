@@ -1,3 +1,64 @@
-<p>
-  login works!
-</p>
+<head>
+  <title>login</title>
+</head>
+<body class="body-black">
+
+<nav class="navbar navbar-default header-margin-bottom">
+  <div class="supreme-font">
+    <a class="white_text" routerLink="../"><i class="fa fa-chevron-left"></i></a>
+    <span class="supreme-text-logo"><a class="a-no-color a-no-hover a-no-visited"
+                                       routerLink="/home">S U P R E M E</a></span>
+
+  </div>
+</nav>
+<div *ngIf="errorFlag"
+     class="alert alert-danger">
+  {{errorMsg}}
+</div>
+<div class="supreme-font footer-padding">
+  <p class="center_text">Login</p>
+  <form (ngSubmit)="login()" #f="ngForm">
+    <label class="center_input white_text">Username</label>
+    <input placeholder="Username"
+           name="username"
+           type="text"
+           class="form-control center_input"
+           ngModel
+           required
+           #username="ngModel"/>
+    <span class="help-block center_input"
+          *ngIf="!username.valid && username.touched">
+      Please enter username!
+      </span>
+    <label class="center_input white_text">Password</label>
+    <input placeholder="Password"
+           name="password"
+           type="password"
+           class="form-control center_input"
+           ngModel
+           required
+           #password="ngModel"/>
+    <span class="help-block center_input"
+          *ngIf="!password.valid && password.touched">
+      Please enter password!
+      </span>
+    <div>
+      <button class="btn btn-outline-danger btn-block center_input" style="color: white;" type="submit"
+              [disabled]="!f.valid">
+        Login
+      </button>
+
+      <button class="btn btn-outline-danger btn-block center_input" type="button" (click)="register()" style="color: white">Register</button>
+
+      <a href="#" class="btn btn-outline-danger btn-block center_input" style="color: white"> <span class="fa fa-facebook" style="color: white"></span>Facebook</a>
+
+      <button class="btn btn-outline-danger btn-block center_input" style="color: white;" routerLink="/home">Cancel
+      </button>
+    </div>
+  </form>
+</div>
+
+<div class="card-footer footer-color fixed-bottom">
+  <a class="pull-right white_text" href=" "><i class="fa fa-user"></i></a>
+</div>
+</body>
