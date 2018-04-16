@@ -513,7 +513,7 @@ module.exports = ""
 /***/ "./src/app/views/admin/admin-item-edit/admin-item-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  admin-item-edit works!\n</p>\n"
+module.exports = "<head>\n  <title>Edit Item</title>\n</head>\n\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a>\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/home\">S U P R E M E</a></span>\n  </div>\n</nav>\n\n<!--<div class=\"footer-padding\">-->\n<div class=\"center_text big-box row\">\n  <div class=\"card col-lg-2 col-md-12 col-sm-12 col-xs-12 black-card full-border\">\n    <div class=\"center_input input_padding\">\n      <span><label class=\"supreme-font\">Category</label></span>\n      <select name=\"size\" style=\"margin-bottom: 20px\">\n        <option>Jacket</option>\n        <option>Shirt</option>\n        <option>Top</option>\n        <option>Sweatshirt</option>\n        <option>Pants</option>\n        <option>Hat</option>\n        <option>Bag</option>\n        <option>Skate</option>\n        <option>Accessory</option>\n      </select><br>\n      <button class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\" (click)=\"search()\">Search\n      </button>\n      <br>\n      <button class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\" (click)=\"showAll()\">Show All\n      </button>\n    </div>\n\n  </div>\n\n  <div class=\" card col-lg-10 col-md-12 col-sm-12 col-xs-12 black-card full-border \">\n    <div class=\"card-columns\" style=\"padding: 10px\" id=\"ul1\">\n      <div class=\"card text-center\">\n        <img class=\"card-img-top\" src=\"asset/axe.jpg\" alt=\"Card image cap\">\n        <div class=\"card-body item-text\">\n          Name: Supreme Axe<br>\n          Color: N/A<br>\n          Size: noSize<br>\n          Seller ID: derek777<br>\n          <label class=\"btn btn-outline-danger btn-block center_input supreme-font\">Delete</label>\n          <div class=\"form-check\">\n            <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n            <a class=\"form-check-label\" style=\"color: #E1282A\">\n              Recommended\n            </a>\n          </div>\n        </div>\n      </div>\n      <div class=\"card p-3 text-center\">\n        <img class=\"card-img-top\" src=\"asset/Sweatshirt.png\" alt=\"Card image cap\">\n        <div class=\"card-body item-text\">\n          Name: Supreme tint box logo sweatshirt<br>\n          Color: Tint<br>\n          Size: M<br>\n          Seller ID: Matthew<br>\n          <label class=\"btn btn-outline-danger btn-block center_input supreme-font\">Delete</label>\n          <div class=\"form-check\">\n            <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n            <a class=\"form-check-label\" style=\"color: #E1282A\">\n              Recommended\n            </a>\n          </div>\n        </div>\n      </div>\n      <div class=\"card text-center\">\n        <img class=\"card-img-top\" src=\"asset/Accessory.png\" alt=\"Card image cap\">\n        <div class=\"card-body item-text\">\n          Name: Supreme fire extinguisher<br>\n          Color: Tint<br>\n          Size: noSize<br>\n          Seller ID: Simeng<br>\n          <label class=\"btn btn-outline-danger btn-block center_input supreme-font\">Delete</label>\n          <div class=\"form-check\">\n            <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n            <a class=\"form-check-label\" style=\"color: #E1282A\">\n              Recommended\n            </a>\n          </div>\n        </div>\n      </div>\n      <div class=\"card text-center p-3\">\n        <img class=\"card-img-top\" src=\"asset/Jacket.png\" alt=\"Card image cap\">\n        <div class=\"card-body item-text\">\n          Name: Supreme tnf bandana jacket<br>\n          Color: Blue<br>\n          Size: noSize<br>\n          Seller ID: derek777<br>\n          <label class=\"btn btn-outline-danger btn-block center_input supreme-font\">Delete</label>\n          <div class=\"form-check\">\n            <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n            <a class=\"form-check-label\" style=\"color: #E1282A\">\n              Recommended\n            </a>\n          </div>\n        </div>\n      </div>\n      <div class=\"card text-center\">\n        <img class=\"card-img-top\" src=\"asset/Skate.jpg\" alt=\"Card image cap\">\n        <div class=\"card-body item-text\">\n          Name: Supreme Mendini Skateboard<br>\n          Color: N/A<br>\n          Size: noSize<br>\n          Seller ID: derek777<br>\n          <label class=\"btn btn-outline-danger btn-block center_input supreme-font\">Delete</label>\n          <div class=\"form-check\">\n            <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n            <a class=\"form-check-label\" style=\"color: #E1282A\">Recommended</a>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div id=\"pagenum\">\n      <a class=\"supreme-font\" style=\"color: white\" href=\"#\">1</a>\n      <a class=\"supreme-font\" style=\"color: white\" href=\"#\">2</a>\n      <a class=\"supreme-font\" style=\"color: white\" href=\"#\">3</a>\n    </div>\n  </div>\n</div>\n<!--</div>-->\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" href=\" \"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -556,7 +556,7 @@ var AdminItemEditComponent = /** @class */ (function () {
 /***/ "./src/app/views/admin/admin-profile/admin-profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Admin</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" href=\"#\"><i class=\"fa fa-chevron-left\"></i></a>\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\" href=\"/loggedinhome/user\">S U P R E M E</a></span>\n\n  </div>\n</nav>\n\n<div class=\"supreme-font footer-padding\">\n  <p class=\"center_text supreme-font\">Admin</p>\n  <a class=\"btn btn-outline-danger btn-block center_input\" (click)=\"editItem()\">Edit Items</a>\n  <a class=\"btn btn-outline-danger btn-block center_input\" (click)=\"editUser()\">Edit User</a>\n  <a class=\"btn btn-outline-danger btn-block center_input\" (click)=\"logout()\">Logout</a>\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\"><i class=\"fa fa-user\"></i></a>\n</div>\n\n</body>\n"
+module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Admin</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" href=\" \"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\" href=\"/loggedinhome/user\">S U P R E M E</a ></span>\n\n  </div>\n</nav>\n\n<div class=\"supreme-font footer-padding\">\n  <p class=\"center_text supreme-font\">Admin</p >\n  <a class=\"btn btn-outline-danger btn-block center_input\" (click)=\"editItem()\">Edit Items</a >\n  <a class=\"btn btn-outline-danger btn-block center_input\" (click)=\"editUser()\">Edit User</a >\n  <a class=\"btn btn-outline-danger btn-block center_input\" (click)=\"logout()\">Logout</a >\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\"><i class=\"fa fa-user\"></i></a >\n</div>\n\n</body>\n"
 
 /***/ }),
 
@@ -608,17 +608,10 @@ var AdminProfileComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/views/admin/admin-user-edit/admin-user-edit.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/views/admin/admin-user-edit/admin-user-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  admin-user-edit works!\n</p>\n"
+module.exports = "<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       href=\" \">S U P R E M E</a ></span>\n  </div>\n</nav>\n\n<div class=\"center_text big-box row\">\n  <div class=\"card col-lg-2 col-md-12 col-sm-12 col-xs-12 black-card full-border footer-padding\">\n    <form (ngSubmit)=\"findUser()\" #f=\"ngForm\" class=\"center_input input_padding\">\n      <label class=\"supreme-font\">User Search</label>\n      <input\n        [(ngModel)]=\"search\"\n        style=\"width: 100%\"\n        type=\"text\"\n        placeholder=\"Search..\"\n        name=\"search\"><br>\n      <button type=\"submit\" class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\">Search</button>\n    </form>\n    <button (click)=\"findAllUser()\" class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\">Show\n      All\n    </button>\n  </div>\n\n  <div class=\"card col-lg-10 col-md-12 col-sm-12 col-xs-12 black-card full-border footer-padding\">\n    <div id='content'>\n      <ul id=\"ul1\" class=\"list-group supreme-font list-group-flush\">\n        <div *ngFor=\"let user of userList\">\n          <li class=\"center_input\" style=\"margin-top: 10px\">\n            Username: {{user.username}}<br>\n            UserID: {{user._id}}<br>\n            <span (click)=\"delete(user._id)\" class=\"btn btn-outline-danger btn-block center_input\">Delete</span>\n          </li>\n        </div>\n      </ul>\n      <div id=\"pagenum\"><a href=\"#\" style=\"color: white\">1</a > <a style=\"color: white\" href=\"#\">2</a > <a\n        style=\"color: white\" href=\"#\">3</a >\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" href=\" \"><i class=\"fa fa-user\"></i></a >\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -628,6 +621,10 @@ module.exports = "<p>\n  admin-user-edit works!\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminUserEditComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__ = __webpack_require__("./src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -638,18 +635,52 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 var AdminUserEditComponent = /** @class */ (function () {
-    function AdminUserEditComponent() {
+    function AdminUserEditComponent(userService, router, sharedService, activatedRoute) {
+        this.userService = userService;
+        this.router = router;
+        this.sharedService = sharedService;
+        this.activatedRoute = activatedRoute;
     }
     AdminUserEditComponent.prototype.ngOnInit = function () {
+        this.userList = [{}];
     };
+    // findAllUser() {
+    //   this.userService.findAllUser().subscribe((returnList: any) => {
+    //     this.userList = returnList;
+    //     this.router.navigate(['.'], {relativeTo: this.activatedRoute});
+    //   });
+    // }
+    //
+    // findUser() {
+    //   this.search = this.loginForm.value.search;
+    //   this.userService.findUserByUsernames(this.search).subscribe((returnList: any) => {
+    //     this.userList = returnList;
+    //     this.router.navigate(['.'], {relativeTo: this.activatedRoute});
+    //   });
+    // }
+    AdminUserEditComponent.prototype.delete = function (userId) {
+        var _this = this;
+        this.userService.deleteUser(userId).subscribe(function (data) {
+            _this.router.navigate(['.'], { relativeTo: _this.activatedRoute });
+        });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4__angular_forms__["b" /* NgForm */])
+    ], AdminUserEditComponent.prototype, "loginForm", void 0);
     AdminUserEditComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-admin-user-edit',
             template: __webpack_require__("./src/app/views/admin/admin-user-edit/admin-user-edit.component.html"),
-            styles: [__webpack_require__("./src/app/views/admin/admin-user-edit/admin-user-edit.component.css")]
+            styles: [__webpack_require__("./src/app/style.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_3__services_shared_service__["a" /* SharedService */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]])
     ], AdminUserEditComponent);
     return AdminUserEditComponent;
 }());
@@ -965,17 +996,10 @@ var HomeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/views/home/loggedin-home/loggedin-home.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/views/home/loggedin-home/loggedin-home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  loggedin-home works!\n</p>\n"
+module.exports = "<head>\n  <title>home</title>\n</head>\n<body class=\"body-black\">\n\n<nav class=\"navbar navbar-default\">\n  <span class=\"supreme-font\">S U P R E M E</span>\n  <div>\n    <span class=\"supreme-font pull-right\" style=\"margin-left: 5px\">Welcome {{username}}!</span>\n  </div>\n</nav>\n\n<div id=\"carouselExampleControls\" class=\"carousel slide\" data-ride=\"carousel\">\n  <div class=\"carousel-inner\" style=\"height:270px\">\n    <div class=\"carousel-item active\">\n      < img class=\"d-block w-100\" src=\"../../../assets/full_supreme_lv.jpg\" alt=\"First slide\">\n    </div>\n    <div class=\"carousel-item\">\n      < img class=\"d-block w-100\" src=\"../../../assets/full_supreme_rimova.jpg\" alt=\"Second slide\">\n    </div>\n    <div class=\"carousel-item\">\n      < img class=\"d-block w-100\" src=\"../../../assets/full_supreme_tnf.jpg\" alt=\"Third slide\">\n    </div>\n  </div>\n  <a class=\"carousel-control-prev\" href=\" \" role=\"button\" data-slide=\"prev\">\n    <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Previous</span>\n  </a >\n  <a class=\"carousel-control-next\" href=\"#carouselExampleControls\" role=\"button\" data-slide=\"next\">\n    <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a >\n</div>\n\n<div style=\"margin-top: 10px\">\n  <div>\n    <form style=\"padding-left: 30%\" (ngSubmit)=\"search()\" #f=\"ngForm\">\n      <input class=\"col-7\" type=\"text\" placeholder=\"Search..\" name=\"search\">\n      <button type=\"submit\"><i class=\"fa fa-search\"></i></button>\n    </form>\n  </div>\n</div>\n\n<div class=\"card-columns\" style=\"padding-top: 10px\">\n  <div class=\"card text-center\">\n    <a (click)=\"searchTop()\" class=\"a-no-hover\">\n      < img class=\"card-img-top\" src=\"../../../../assets/Top.png\" alt=\"Card image cap\" href=\"user/searchresult\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchTop()\">Top</h5>\n    </div>\n\n  </div>\n  <div class=\"card p-3 text-center\">\n    <a (click)=\"searchSweatershirt()\" class=\"a-no-hover\">\n      < img class=\"card-img-top\" src=\"../../../../assets/Sweatshirt.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchSweatershirt()\">Sweatshirt</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchAccessory()\" class=\"a-no-hover\">\n      < img class=\"card-img-top\" src=\"../../../../assets/Accessory.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchAccessory()\">Accessory</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center p-3\">\n    <a (click)=\"searchJacket()\" class=\"a-no-hover\">\n      < img class=\"card-img-top\" src=\"../../../../assets/Jacket.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchJacket()\">Jacket</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchSkate()\" class=\"a-no-hover\">\n      < img class=\"card-img-top\" src=\"../../../../assets/Skate.jpg\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchSkate()\">Skate</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchPants()\" class=\"a-no-hover\">\n      < img class=\"card-img-top\" src=\"../../../../assets/Pant.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchPants()\">Pants</h5>\n    </div>\n  </div>\n\n  <div class=\"card p-3 text-center\">\n    <a (click)=\"searchBag()\" class=\"a-no-hover\">\n      < img class=\"card-img-top\" src=\"../../../../assets/Bag.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchBag()\">Bag</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchHat()\" class=\"a-no-hover\">\n      < img class=\"card-img-top\" src=\"../../../../assets/Hat.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchHat()\">Hat</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchShirt()\" class=\"a-no-hover\">\n      < img class=\"card-img-top\" src=\"../../../../assets/Shirt.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchShirt()\">Shirt</h5>\n    </div>\n  </div>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" (click)=\"profile()\"><i class=\"fa fa-user\"></i></a >\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -985,6 +1009,11 @@ module.exports = "<p>\n  loggedin-home works!\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoggedinHomeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_item_service_client__ = __webpack_require__("./src/app/services/item.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_user_service_client__ = __webpack_require__("./src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -995,18 +1024,158 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
+
 var LoggedinHomeComponent = /** @class */ (function () {
-    function LoggedinHomeComponent() {
+    function LoggedinHomeComponent(itemService, userService, activatedRoute, router, sharedService) {
+        this.itemService = itemService;
+        this.userService = userService;
+        this.activatedRoute = activatedRoute;
+        this.router = router;
+        this.sharedService = sharedService;
+        this.items = [{}];
     }
     LoggedinHomeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.activatedRoute.params
+            .subscribe(function (params) {
+            return _this.userService.findUserById(_this.sharedService.user['_id']).subscribe(function (returnUser) {
+                _this.userId = _this.sharedService.user['_id'];
+                console.log(_this.userId);
+                _this.user = returnUser;
+                _this.username = _this.user.username;
+                console.log(_this.username);
+            });
+        });
     };
+    LoggedinHomeComponent.prototype.profile = function () {
+        if (this.user.userType === 'Buyer') {
+            this.router.navigate(['user/buyer']);
+        }
+        if (this.user.userType === 'Seller') {
+            this.router.navigate(['user/seller']);
+        }
+        if (this.user.userType === 'Admin') {
+            this.router.navigate(['user/admin']);
+        }
+    };
+    LoggedinHomeComponent.prototype.search = function () {
+        var _this = this;
+        this.itemName = this.homeForm.value.searchContent;
+        this.itemService.findItemByName(this.itemName).subscribe(function (returnItems) {
+            _this.items = returnItems;
+            console.log(_this.items);
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    LoggedinHomeComponent.prototype.searchTop = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Top').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    LoggedinHomeComponent.prototype.searchSweatershirt = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Sweatershirt').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    LoggedinHomeComponent.prototype.searchAccessory = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Accessory').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    LoggedinHomeComponent.prototype.searchJacket = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Jacket').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    LoggedinHomeComponent.prototype.searchSkate = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Skate').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    LoggedinHomeComponent.prototype.searchPants = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Pants').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    LoggedinHomeComponent.prototype.searchBag = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Bag').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    LoggedinHomeComponent.prototype.searchHat = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Hat').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    LoggedinHomeComponent.prototype.searchShirt = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Shirt').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* NgForm */])
+    ], LoggedinHomeComponent.prototype, "homeForm", void 0);
     LoggedinHomeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-loggedin-home',
             template: __webpack_require__("./src/app/views/home/loggedin-home/loggedin-home.component.html"),
-            styles: [__webpack_require__("./src/app/views/home/loggedin-home/loggedin-home.component.css")]
+            styles: [__webpack_require__("./src/app/style.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_item_service_client__["a" /* ItemService */],
+            __WEBPACK_IMPORTED_MODULE_4__services_user_service_client__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_5__services_shared_service__["a" /* SharedService */]])
     ], LoggedinHomeComponent);
     return LoggedinHomeComponent;
 }());
@@ -1268,7 +1437,7 @@ var CreditcardComponent = /** @class */ (function () {
 /***/ "./src/app/views/users/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<head>\n  <title>login</title>\n</head>\n<body class=\"body-black\">\n\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a>\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/home\">S U P R E M E</a></span>\n\n  </div>\n</nav>\n<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger\">\n  {{errorMsg}}\n</div>\n<div class=\"supreme-font footer-padding\">\n  <p class=\"center_text\">Login</p>\n  <form (ngSubmit)=\"login()\" #f=\"ngForm\">\n    <label class=\"center_input white_text\">Username</label>\n    <input placeholder=\"Username\"\n           name=\"username\"\n           type=\"text\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #username=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!username.valid && username.touched\">\n      Please enter username!\n      </span>\n    <label class=\"center_input white_text\">Password</label>\n    <input placeholder=\"Password\"\n           name=\"password\"\n           type=\"password\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #password=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!password.valid && password.touched\">\n      Please enter password!\n      </span>\n    <div>\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" type=\"submit\"\n              [disabled]=\"!f.valid\">\n        Login\n      </button>\n\n      <button class=\"btn btn-outline-danger btn-block center_input\" type=\"button\" (click)=\"register()\" style=\"color: white\">Register</button>\n\n      <a href=\"#\" class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white\"> <span class=\"fa fa-facebook\" style=\"color: white\"></span>Facebook</a>\n\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" routerLink=\"/home\">Cancel\n      </button>\n    </div>\n  </form>\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n"
+module.exports = "<head>\n  <title>login</title>\n</head>\n<body class=\"body-black\">\n\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a>\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/home\">S U P R E M E</a></span>\n  </div>\n</nav>\n\n<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger\">\n  {{errorMsg}}\n</div>\n<div class=\"supreme-font footer-padding\">\n  <p class=\"center_text\">Login</p>\n  <form (ngSubmit)=\"login()\" #f=\"ngForm\">\n    <label class=\"center_input white_text\">Username</label>\n    <input placeholder=\"Username\"\n           name=\"username\"\n           type=\"text\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #username=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!username.valid && username.touched\">\n      Please enter username!\n      </span>\n    <label class=\"center_input white_text\">Password</label>\n    <input placeholder=\"Password\"\n           name=\"password\"\n           type=\"password\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #password=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!password.valid && password.touched\">\n      Please enter password!\n      </span>\n    <div>\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" type=\"submit\"\n              [disabled]=\"!f.valid\">\n        Login\n      </button>\n\n      <button class=\"btn btn-outline-danger btn-block center_input\" type=\"button\" (click)=\"register()\"\n              style=\"color: white\">Register\n      </button>\n\n      <a href=\"#\" class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white\"> <span\n        class=\"fa fa-facebook\" style=\"color: white\"></span>Facebook</a>\n\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" routerLink=\"/home\">Cancel\n      </button>\n    </div>\n  </form>\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n"
 
 /***/ }),
 

@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('f') homeForm: NgForm;
   items = [{}];
   itemName: String;
+  searchContent: String;
 
   constructor(private itemService: ItemService,
               private activatedRoute: ActivatedRoute,

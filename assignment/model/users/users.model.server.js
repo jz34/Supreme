@@ -9,11 +9,17 @@ User.deleteUser = deleteUser;
 User.updateUser = updateUser;
 User.findUserByUsername = findUserByUsername;
 User.findFacebookUser = findFacebookUser;
-User.findAll = findAll;
+User.findAllUser = findAllUser;
+User.findUserByUsernames = findUserByUsernames;
 
-function findAll() {
-  return User.find();
+function findUserByUsernames(username) {
+  return User.find({username: username});
 }
+
+function findAllUser() {
+  return User.find({});
+}
+
 function findFacebookUser(id) {
   return User.findOne({"facebook.id": id});
 }
@@ -35,7 +41,15 @@ function updateUser(userId, user) {
           firstName: user.firstName,
           lastName: user.lastName,
           email: user.email,
-          phone: user.phone
+          phone: user.phone,
+          address: user.address,
+          zip: user.zip,
+          unit: user.unit,
+          state: user.state,
+          cardNumber: user.cardNumber,
+          cvv: user.cvv,
+          city: user.city,
+          expirationDate: user.expirationDate
         }
       }
     );

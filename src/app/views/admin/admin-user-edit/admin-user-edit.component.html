@@ -1,3 +1,47 @@
-<p>
-  admin-user-edit works!
-</p>
+<body class="body-black">
+<nav class="navbar navbar-default header-margin-bottom">
+  <div class="supreme-font">
+    <a class="white_text" routerLink="../"><i class="fa fa-chevron-left"></i></a >
+    <span class="supreme-text-logo"><a class="a-no-color a-no-hover a-no-visited"
+                                       href=" ">S U P R E M E</a ></span>
+  </div>
+</nav>
+
+<div class="center_text big-box row">
+  <div class="card col-lg-2 col-md-12 col-sm-12 col-xs-12 black-card full-border footer-padding">
+    <form (ngSubmit)="findUser()" #f="ngForm" class="center_input input_padding">
+      <label class="supreme-font">User Search</label>
+      <input
+        [(ngModel)]="search"
+        style="width: 100%"
+        type="text"
+        placeholder="Search.."
+        name="search"><br>
+      <button type="submit" class="btn-outline-danger bottom-button supreme-font" style="color: white">Search</button>
+    </form>
+    <button (click)="findAllUser()" class="btn-outline-danger bottom-button supreme-font" style="color: white">Show
+      All
+    </button>
+  </div>
+
+  <div class="card col-lg-10 col-md-12 col-sm-12 col-xs-12 black-card full-border footer-padding">
+    <div id='content'>
+      <ul id="ul1" class="list-group supreme-font list-group-flush">
+        <div *ngFor="let user of userList">
+          <li class="center_input" style="margin-top: 10px">
+            Username: {{user.username}}<br>
+            UserID: {{user._id}}<br>
+            <span (click)="delete(user._id)" class="btn btn-outline-danger btn-block center_input">Delete</span>
+          </li>
+        </div>
+      </ul>
+      <div id="pagenum"><a href="#" style="color: white">1</a > <a style="color: white" href="#">2</a > <a
+        style="color: white" href="#">3</a >
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card-footer footer-color fixed-bottom">
+  <a class="pull-right white_text" href=" "><i class="fa fa-user"></i></a >
+</div>
+</body>

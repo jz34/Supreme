@@ -32,9 +32,7 @@ export class UserService {
   }
 
   login(username, password) {
-
     this.options.withCredentials = true;
-
     const body = {
       username: username,
       password: password
@@ -89,7 +87,7 @@ export class UserService {
   }
 
   findUserByUsername(username) {
-    const url = this.baseUrl + '/api/user/?username=' + username;
+    const url = this.baseUrl + '/api/username/' + username;
     return this.http.get(url).map((response: Response) => {
       return response.json();
     });
@@ -105,6 +103,19 @@ export class UserService {
   deleteUser(userId) {
     const url = this.baseUrl + '/api/user/' + userId;
     return this.http.delete(url).map((response: Response) => {
+      return response.json();
+    });
+  }
+
+  findAllUser() {
+    const url = this.baseUrl + '/api/users';
+    return this.http.get(url).map((response: Response) => {
+      return response.json();
+    });
+  }
+  findUserByUsernames(username) {
+    const url = this.baseUrl + '/api/usernames/' + username;
+    return this.http.get(url).map((response: Response) => {
       return response.json();
     });
   }

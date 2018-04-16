@@ -1,15 +1,46 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {SharedService} from '../../../services/shared.service';
+import {NgForm} from '@angular/forms';
+import {ItemService} from '../../../services/item.service.client';
 
 @Component({
   selector: 'app-admin-item-edit',
   templateUrl: './admin-item-edit.component.html',
-  styleUrls: ['./admin-item-edit.component.css']
+  styleUrls: ['../../../style.css']
 })
 export class AdminItemEditComponent implements OnInit {
+  itemList: [{}];
+  category: String;
+  itemId: String;
+  @ViewChild('f') loginForm: NgForm;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private itemService: ItemService, private router: Router,
+              private sharedService: SharedService, private activatedRoute: ActivatedRoute) {
   }
 
+  ngOnInit() {
+    this.itemList = [{}];
+  }
+
+  findCategory() {
+    this.category = this.loginForm.value.category;
+    this.itemService.findItemByCategory(this.category).subscribe((returnList: any) => {
+      this.itemList = returnList;
+      this.router.navigate(['.'], {relativeTo: this.activatedRoute});
+    });
+  }
+
+  findAllItem() {
+    this.itemService.findAllItem().subscribe((returnList: any) => {
+      this.itemList = returnList;
+      this.router.navigate(['.'], {relativeTo: this.activatedRoute});
+    });
+  }
+
+  deleteItem(itemId) {
+    this.itemService.deleteItem(itemId).subscribe((data: any) => {
+      this.router.navigate(['.'], {relativeTo: this.activatedRoute});
+    });
+  }
 }

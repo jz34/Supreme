@@ -8,9 +8,9 @@
     <a class="white_text" routerLink="../"><i class="fa fa-chevron-left"></i></a>
     <span class="supreme-text-logo"><a class="a-no-color a-no-hover a-no-visited"
                                        routerLink="/home">S U P R E M E</a></span>
-
   </div>
 </nav>
+
 <div *ngIf="errorFlag"
      class="alert alert-danger">
   {{errorMsg}}
@@ -48,9 +48,12 @@
         Login
       </button>
 
-      <button class="btn btn-outline-danger btn-block center_input" type="button" (click)="register()" style="color: white">Register</button>
+      <button class="btn btn-outline-danger btn-block center_input" type="button" (click)="register()"
+              style="color: white">Register
+      </button>
 
-      <a href="#" class="btn btn-outline-danger btn-block center_input" style="color: white"> <span class="fa fa-facebook" style="color: white"></span>Facebook</a>
+      <a href="#" class="btn btn-outline-danger btn-block center_input" style="color: white"> <span
+        class="fa fa-facebook" style="color: white"></span>Facebook</a>
 
       <button class="btn btn-outline-danger btn-block center_input" style="color: white;" routerLink="/home">Cancel
       </button>
