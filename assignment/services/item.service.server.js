@@ -2,12 +2,12 @@ module.exports = function (app) {
   var itemModel = require("../model/item/item.model.server");
 
   app.put("/api/item/:itemId", updateItem);
-  app.get("/api/item/:itemId", findItemById);
-  app.get("/api/item/:name", findItemByName);
-  app.get("/api/item/:category", findItemByCategory);
-  app.get("/api/item/all", findAllItem);
-  app.post("/api/item", createItem);
-  app.delete("/api/item/:itemId", deleteItem);
+  app.get("/api/item/item/:itemId", findItemById);
+  app.get("/api/items/:name", findItemByName);
+  app.get("/api/items/category/:category", findItemByCategory);
+  //app.get("/api/items", findAllItem);
+  //app.post("/api/item", createItem);
+  //app.delete("/api/item/:itemId", deleteItem);
 
   function createItem(req, res) {
     var newItem = req.body;
@@ -40,7 +40,7 @@ module.exports = function (app) {
   }
 
   function findItemByName(req, res) {
-    var itemname = req.params["name"];
+    var itemname = req.params.name;
     if (itemname) {
       itemModel.findItemByName(itemname).then(function (item) {
         res.json(item);
@@ -50,6 +50,7 @@ module.exports = function (app) {
 
   function findItemByCategory(req, res) {
     var category = req.params["category"];
+    console.log(category);
     if (category) {
       itemModel.findItemByCategory(category).then(function (item) {
         res.json(item);

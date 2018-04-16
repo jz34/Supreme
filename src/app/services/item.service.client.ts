@@ -19,14 +19,15 @@ export class ItemService {
   }
 
   findItemByName(name) {
-    const url = this.baseUrl + '/api/item/?name=' + name;
+    const url = this.baseUrl + '/api/items/' + name;
     return this.http.get(url).map((response: Response) => {
+      //  console.log(response);
       return response.json();
     });
   }
 
   findItemByCategory(category) {
-    const url = this.baseUrl + '/api/item/' + category;
+    const url = this.baseUrl + '/api/items/category/' + category;
     return this.http.get(url).map((response: Response) => {
       return response.json();
     });

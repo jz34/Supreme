@@ -28,6 +28,7 @@ import {SharedService} from './services/shared.service';
 import {APP_BASE_HREF} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
+import {ItemService} from './services/item.service.client';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import {HttpModule} from '@angular/http';
     HttpModule,
     routing
   ],
-  providers: [SharedService, UserService, {provide: APP_BASE_HREF, useValue: '/'}],
+  providers: [SharedService, UserService, ItemService, {provide: APP_BASE_HREF, useValue: '/'}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
