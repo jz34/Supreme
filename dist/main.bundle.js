@@ -95,12 +95,14 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__angular_common__ = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__services_item_service_client__ = __webpack_require__("./src/app/services/item.service.client.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -162,7 +164,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_27__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_2__app_routing__["a" /* routing */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_24__services_shared_service__["a" /* SharedService */], __WEBPACK_IMPORTED_MODULE_23__services_user_service_client__["a" /* UserService */], { provide: __WEBPACK_IMPORTED_MODULE_25__angular_common__["a" /* APP_BASE_HREF */], useValue: '/' }],
+            providers: [__WEBPACK_IMPORTED_MODULE_24__services_shared_service__["a" /* SharedService */], __WEBPACK_IMPORTED_MODULE_23__services_user_service_client__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_28__services_item_service_client__["a" /* ItemService */], { provide: __WEBPACK_IMPORTED_MODULE_25__angular_common__["a" /* APP_BASE_HREF */], useValue: '/' }],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -237,11 +239,102 @@ var appRoutes = [
     { path: 'user/seller/:uid/history', component: __WEBPACK_IMPORTED_MODULE_15__views_users_profile_seller_profile_sale_history_sale_history_component__["a" /* SaleHistoryComponent */] },
     { path: 'user/seller/:uid/creditcard', component: __WEBPACK_IMPORTED_MODULE_18__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */] },
     { path: 'user/buyer/:uid/creditcard', component: __WEBPACK_IMPORTED_MODULE_18__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */] },
-    { path: 'user/:uid/searchresult', component: __WEBPACK_IMPORTED_MODULE_14__views_item_item_list_item_list_component__["a" /* ItemListComponent */] },
+    { path: 'user/searchresult', component: __WEBPACK_IMPORTED_MODULE_14__views_item_item_list_item_list_component__["a" /* ItemListComponent */] },
     { path: 'user/guest/searchresult', component: __WEBPACK_IMPORTED_MODULE_14__views_item_item_list_item_list_component__["a" /* ItemListComponent */] },
     { path: 'user/guest/item/:iid', component: __WEBPACK_IMPORTED_MODULE_6__views_item_item_display_item_display_component__["a" /* ItemDisplayComponent */] },
 ];
 var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["c" /* RouterModule */].forRoot(appRoutes);
+
+
+/***/ }),
+
+/***/ "./src/app/services/item.service.client.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ItemService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ItemService = /** @class */ (function () {
+    function ItemService(http, router) {
+        this.http = http;
+        this.router = router;
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].baseUrl;
+    }
+    ItemService.prototype.findItemById = function (itemId) {
+        var url = this.baseUrl + '/api/item/' + itemId;
+        return this.http.get(url).map(function (response) {
+            return response.json();
+        });
+    };
+    ItemService.prototype.findItemByName = function (name) {
+        var url = this.baseUrl + '/api/items/' + name;
+        return this.http.get(url).map(function (response) {
+            //  console.log(response);
+            return response.json();
+        });
+    };
+    ItemService.prototype.findItemByCategory = function (category) {
+        var url = this.baseUrl + '/api/items/category/' + category;
+        return this.http.get(url).map(function (response) {
+            return response.json();
+        });
+    };
+    ItemService.prototype.updateItem = function (itemId, item) {
+        var url = this.baseUrl + '/api/item/' + itemId;
+        return this.http.put(url, item).map(function (response) {
+            return response.json();
+        });
+    };
+    ItemService.prototype.deleteItem = function (itemId) {
+        var url = this.baseUrl + '/api/item/' + itemId;
+        return this.http.delete(url).map(function (response) {
+            return response.json();
+        });
+    };
+    ItemService.prototype.findAllItem = function () {
+        var url = this.baseUrl + '/api/item/all';
+        return this.http.get(url).map(function (response) {
+            return response.json();
+        });
+    };
+    ItemService.prototype.createItem = function (name, price, color, size, category) {
+        var url = this.baseUrl + '/api/item';
+        var body = {
+            name: name,
+            price: price,
+            color: color,
+            size: size,
+            category: category
+        };
+        return this.http.post(url, body).map(function (response) {
+            return response.json();
+        });
+    };
+    ItemService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]])
+    ], ItemService);
+    return ItemService;
+}());
+
 
 
 /***/ }),
@@ -715,17 +808,10 @@ var SummaryComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/views/home/home.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/views/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<head>\n  <title>home</title>\n</head>\n<body class=\"body-black\">\n\n<nav class=\"navbar navbar-default\">\n  <span class=\"supreme-font\">S U P R E M E</span>\n  <div>\n    <a class=\"btn btn-danger pull-right link-button\" routerLink=\"/login\" style=\"margin-left: 5px\">Login</a>\n    <a class=\"btn btn-danger pull-right link-button\" routerLink=\"/register\">Register</a>\n  </div>\n</nav>\n\n<div id=\"carouselExampleControls\" class=\"carousel slide\" data-ride=\"carousel\">\n  <div class=\"carousel-inner\" style=\"height:270px\">\n    <div class=\"carousel-item active\">\n      <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_lv.jpg\" alt=\"First slide\">\n    </div>\n    <div class=\"carousel-item\">\n      <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_rimova.jpg\" alt=\"Second slide\">\n    </div>\n    <div class=\"carousel-item\">\n      <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_tnf.jpg\" alt=\"Third slide\">\n    </div>\n  </div>\n  <a class=\"carousel-control-prev\" href=\" \" role=\"button\" data-slide=\"prev\">\n    <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Previous</span>\n  </a>\n  <a class=\"carousel-control-next\" href=\"#carouselExampleControls\" role=\"button\" data-slide=\"next\">\n    <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a>\n</div>\n\n<div style=\"margin-top: 10px\">\n  <div>\n    <form style=\"padding-left: 30%\">\n      <input class=\"col-7\" type=\"text\" placeholder=\"Search..\" name=\"search\">\n      <button type=\"submit\"><i class=\"fa fa-search\"></i></button>\n    </form>\n  </div>\n</div>\n\n<div class=\"card-columns\" style=\"padding-top: 10px\">\n  <div class=\"card text-center\">\n    <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../assets/Top.png\" alt=\"Card image cap\" href=\"user/searchresult\">\n    </a>\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Top</h5>\n    </div>\n\n  </div>\n  <div class=\"card p-3 text-center\">\n    <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../assets/Sweatshirt.png\" alt=\"Card image cap\">\n    </a>\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Sweatshirt</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../assets/Accessory.png\" alt=\"Card image cap\">\n    </a>\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Accessory</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center p-3\">\n    <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../assets/Jacket.png\" alt=\"Card image cap\">\n    </a>\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Jacket</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../assets/Skate.jpg\" alt=\"Card image cap\">\n    </a>\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Skate</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../assets/Pant.png\" alt=\"Card image cap\">\n    </a>\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Pants</h5>\n    </div>\n  </div>\n\n  <div class=\"card p-3 text-center\">\n    <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../assets/Bag.png\" alt=\"Card image cap\">\n    </a>\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Bag</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../assets/Hat.png\" alt=\"Card image cap\">\n    </a>\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Hat</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../assets/Shirt.png\" alt=\"Card image cap\">\n    </a>\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Hat</h5>\n    </div>\n  </div>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" href=\".\"><i class=\"fa fa-user\" style=\"color: #E1282A\"></i></a>\n</div>\n</body>\n"
+module.exports = "<head>\n  <title>home</title>\n</head>\n<body class=\"body-black\">\n\n<nav class=\"navbar navbar-default\">\n  <span class=\"supreme-font\">S U P R E M E</span>\n  <div>\n    <a class=\"btn btn-danger pull-right link-button\" routerLink=\"/login\" style=\"margin-left: 5px\">Login</a>\n    <a class=\"btn btn-danger pull-right link-button\" routerLink=\"/register\">Register</a>\n  </div>\n</nav>\n\n<div id=\"carouselExampleControls\" class=\"carousel slide\" data-ride=\"carousel\">\n  <div class=\"carousel-inner\" style=\"height:270px\">\n    <div class=\"carousel-item active\">\n      <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_lv.jpg\" alt=\"First slide\">\n    </div>\n    <div class=\"carousel-item\">\n      <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_rimova.jpg\" alt=\"Second slide\">\n    </div>\n    <div class=\"carousel-item\">\n      <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_tnf.jpg\" alt=\"Third slide\">\n    </div>\n  </div>\n  <a class=\"carousel-control-prev\" href=\" \" role=\"button\" data-slide=\"prev\">\n    <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Previous</span>\n  </a>\n  <a class=\"carousel-control-next\" href=\"#carouselExampleControls\" role=\"button\" data-slide=\"next\">\n    <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a>\n</div>\n\n<div style=\"margin-top: 10px\">\n  <div>\n    <form class=\"form-inline\" style=\"padding-left: 30%\" (ngSubmit)=\"search()\" #f=\"ngForm\">\n      <input class=\"col-7 form-control\"\n             type=\"text\"\n             placeholder=\"Search..\"\n             name=\"searchContent\"\n             [(ngModel)]=\"searchContent\">\n      <button type=\"submit\"><i class=\"fa fa-search\"></i></button>\n    </form>\n  </div>\n</div>\n\n<div class=\"card-columns\" style=\"padding-top: 10px\">\n  <div class=\"card text-center\">\n    <a (click)=\"searchTop()\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../assets/Top.png\" alt=\"Card image cap\" href=\"user/searchresult\">\n    </a>\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchTop()\">Top</h5>\n    </div>\n\n  </div>\n  <div class=\"card p-3 text-center\">\n    <a (click)=\"searchSweatershirt()\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../assets/Sweatshirt.png\" alt=\"Card image cap\">\n    </a>\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchSweatershirt()\">Sweatshirt</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchAccessory()\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../assets/Accessory.png\" alt=\"Card image cap\">\n    </a>\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchAccessory()\">Accessory</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center p-3\">\n    <a (click)=\"searchJacket()\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../assets/Jacket.png\" alt=\"Card image cap\">\n    </a>\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchJacket()\">Jacket</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchSkate()\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../assets/Skate.jpg\" alt=\"Card image cap\">\n    </a>\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchSkate()\">Skate</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchPants()\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../assets/Pant.png\" alt=\"Card image cap\">\n    </a>\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchPants()\">Pants</h5>\n    </div>\n  </div>\n\n  <div class=\"card p-3 text-center\">\n    <a (click)=\"searchBag()\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../assets/Bag.png\" alt=\"Card image cap\">\n    </a>\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchBag()\">Bag</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchHat()\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../assets/Hat.png\" alt=\"Card image cap\">\n    </a>\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchHat()\">Hat</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchShirt()\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../assets/Shirt.png\" alt=\"Card image cap\">\n    </a>\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchShirt()\">Shirt</h5>\n    </div>\n  </div>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" href=\".\"><i class=\"fa fa-user\" style=\"color: #E1282A\"></i></a>\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -735,6 +821,9 @@ module.exports = "<head>\n  <title>home</title>\n</head>\n<body class=\"body-bla
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_item_service_client__ = __webpack_require__("./src/app/services/item.service.client.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -745,18 +834,129 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+    function HomeComponent(itemService, activatedRoute, router) {
+        this.itemService = itemService;
+        this.activatedRoute = activatedRoute;
+        this.router = router;
+        this.items = [{}];
     }
-    HomeComponent.prototype.ngOnInit = function () {
+    HomeComponent.prototype.ngOnInit = function () { };
+    HomeComponent.prototype.search = function () {
+        var _this = this;
+        this.itemName = this.homeForm.value.searchContent;
+        this.itemService.findItemByName(this.itemName).subscribe(function (returnItems) {
+            _this.items = returnItems;
+            console.log(_this.items);
+        });
+        this.router.navigate(['user/searchresult']);
     };
+    HomeComponent.prototype.searchTop = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Top').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    HomeComponent.prototype.searchSweatershirt = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Sweatershirt').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    HomeComponent.prototype.searchAccessory = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Accessory').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    HomeComponent.prototype.searchJacket = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Jacket').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    HomeComponent.prototype.searchSkate = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Skate').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    HomeComponent.prototype.searchPants = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Pants').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    HomeComponent.prototype.searchBag = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Bag').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    HomeComponent.prototype.searchHat = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Hat').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    HomeComponent.prototype.searchShirt = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Shirt').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* NgForm */])
+    ], HomeComponent.prototype, "homeForm", void 0);
     HomeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-home',
             template: __webpack_require__("./src/app/views/home/home.component.html"),
-            styles: [__webpack_require__("./src/app/views/home/home.component.css")]
+            styles: [__webpack_require__("./src/app/style.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_item_service_client__["a" /* ItemService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], HomeComponent);
     return HomeComponent;
 }());

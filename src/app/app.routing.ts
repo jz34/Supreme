@@ -41,7 +41,7 @@ const appRoutes: Routes = [
   {path: 'user/seller/:uid/history', component: SaleHistoryComponent},
   {path: 'user/seller/:uid/creditcard', component: CreditcardComponent},
   {path: 'user/buyer/:uid/creditcard', component: CreditcardComponent},
-  {path: 'user/:uid/searchresult', component: ItemListComponent},
+  {path: 'user/searchresult', component: ItemListComponent},
   {path: 'user/guest/searchresult', component: ItemListComponent},
   {path: 'user/guest/item/:iid', component: ItemDisplayComponent},
 ];

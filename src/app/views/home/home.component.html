@@ -35,8 +35,12 @@
 
 <div style="margin-top: 10px">
   <div>
-    <form style="padding-left: 30%">
-      <input class="col-7" type="text" placeholder="Search.." name="search">
+    <form class="form-inline" style="padding-left: 30%" (ngSubmit)="search()" #f="ngForm">
+      <input class="col-7 form-control"
+             type="text"
+             placeholder="Search.."
+             name="searchContent"
+             [(ngModel)]="searchContent">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
   </div>
@@ -44,83 +48,83 @@
 
 <div class="card-columns" style="padding-top: 10px">
   <div class="card text-center">
-    <a routerLink="/user/searchresult" class="a-no-hover">
+    <a (click)="searchTop()" class="a-no-hover">
       <img class="card-img-top" src="../../../assets/Top.png" alt="Card image cap" href="user/searchresult">
     </a>
     <div class="card-body">
-      <h5 class="card-title" routerLink="/user/searchresult">Top</h5>
+      <h5 class="card-title" (click)="searchTop()">Top</h5>
     </div>
 
   </div>
   <div class="card p-3 text-center">
-    <a routerLink="/user/searchresult" class="a-no-hover">
+    <a (click)="searchSweatershirt()" class="a-no-hover">
       <img class="card-img-top" src="../../../assets/Sweatshirt.png" alt="Card image cap">
     </a>
     <div class="card-body">
-      <h5 class="card-title" routerLink="/user/searchresult">Sweatshirt</h5>
+      <h5 class="card-title" (click)="searchSweatershirt()">Sweatshirt</h5>
     </div>
   </div>
 
   <div class="card text-center">
-    <a routerLink="/user/searchresult" class="a-no-hover">
+    <a (click)="searchAccessory()" class="a-no-hover">
       <img class="card-img-top" src="../../../assets/Accessory.png" alt="Card image cap">
     </a>
     <div class="card-body">
-      <h5 class="card-title" routerLink="/user/searchresult">Accessory</h5>
+      <h5 class="card-title" (click)="searchAccessory()">Accessory</h5>
     </div>
   </div>
 
   <div class="card text-center p-3">
-    <a routerLink="/user/searchresult" class="a-no-hover">
+    <a (click)="searchJacket()" class="a-no-hover">
       <img class="card-img-top" src="../../../assets/Jacket.png" alt="Card image cap">
     </a>
     <div class="card-body">
-      <h5 class="card-title" routerLink="/user/searchresult">Jacket</h5>
+      <h5 class="card-title" (click)="searchJacket()">Jacket</h5>
     </div>
   </div>
 
   <div class="card text-center">
-    <a routerLink="/user/searchresult" class="a-no-hover">
+    <a (click)="searchSkate()" class="a-no-hover">
       <img class="card-img-top" src="../../../assets/Skate.jpg" alt="Card image cap">
     </a>
     <div class="card-body">
-      <h5 class="card-title" routerLink="/user/searchresult">Skate</h5>
+      <h5 class="card-title" (click)="searchSkate()">Skate</h5>
     </div>
   </div>
 
   <div class="card text-center">
-    <a routerLink="/user/searchresult" class="a-no-hover">
+    <a (click)="searchPants()" class="a-no-hover">
       <img class="card-img-top" src="../../../assets/Pant.png" alt="Card image cap">
     </a>
     <div class="card-body">
-      <h5 class="card-title" routerLink="/user/searchresult">Pants</h5>
+      <h5 class="card-title" (click)="searchPants()">Pants</h5>
     </div>
   </div>
 
   <div class="card p-3 text-center">
-    <a routerLink="/user/searchresult" class="a-no-hover">
+    <a (click)="searchBag()" class="a-no-hover">
       <img class="card-img-top" src="../../../assets/Bag.png" alt="Card image cap">
     </a>
     <div class="card-body">
-      <h5 class="card-title" routerLink="/user/searchresult">Bag</h5>
+      <h5 class="card-title" (click)="searchBag()">Bag</h5>
     </div>
   </div>
 
   <div class="card text-center">
-    <a routerLink="/user/searchresult" class="a-no-hover">
+    <a (click)="searchHat()" class="a-no-hover">
       <img class="card-img-top" src="../../../assets/Hat.png" alt="Card image cap">
     </a>
     <div class="card-body">
-      <h5 class="card-title" routerLink="/user/searchresult">Hat</h5>
+      <h5 class="card-title" (click)="searchHat()">Hat</h5>
     </div>
   </div>
 
   <div class="card text-center">
-    <a routerLink="/user/searchresult" class="a-no-hover">
+    <a (click)="searchShirt()" class="a-no-hover">
       <img class="card-img-top" src="../../../assets/Shirt.png" alt="Card image cap">
     </a>
     <div class="card-body">
-      <h5 class="card-title" routerLink="/user/searchresult">Hat</h5>
+      <h5 class="card-title" (click)="searchShirt()">Shirt</h5>
     </div>
   </div>
 
