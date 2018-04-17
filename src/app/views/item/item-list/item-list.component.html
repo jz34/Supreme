@@ -1,3 +1,36 @@
-<p>
-  item-list works!
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Search Result</title>
+</head>
+<body class="body-black">
+<nav class="navbar navbar-default header-margin-bottom">
+  <div class="supreme-font">
+    <a class="white_text" (click)="goHome()"><i class="fa fa-chevron-left"></i></a >
+    <span class="supreme-text-logo"><a class="a-no-color a-no-hover a-no-visited"
+                                       (click)="goHome()">S U P R E M E</a ></span>
+
+  </div>
+</nav>
+<div class="card-columns" style="padding-top: 10px" *ngFor="let item of items">
+  <div class="card text-center">
+    <a (click)="display(item._id)" class="a-no-hover">
+      <img class="card-img-top" src={{item.url}}>
+    </a >
+
+    <div class="card-body" (click)="display(item._id)">
+      <p class="card-text">Name: {{item.name}}</p >
+      <p class="card-text">Color: {{item.color}}</p >
+      <p class="card-text">Size: {{item.size}}</p >
+      <p class="card-text">Category: {{item.category}}</p >
+      <p class="card-text">Price: ${{item.price}}</p >
+    </div>
+  </div>
+</div>
+<div class="card-footer footer-color fixed-bottom">
+  <a class="pull-right white_text" (click)="profile()"><i class="fa fa-user"></i></a >
+</div>
+
+</body>
+
+</html>
