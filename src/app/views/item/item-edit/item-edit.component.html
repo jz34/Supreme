@@ -1,3 +1,98 @@
-<p>
-  item-edit works!
-</p>
+<body class="body-black">
+<nav class="navbar navbar-default header-margin-bottom">
+  <div class="supreme-font">
+    <a class="pull-left white_text" href=" "><i class="fa fa-chevron-left"></i></a >
+    <span class="supreme-text-logo"><a class="a-no-color a-no-hover a-no-visited"
+                                       routerLink="/loggedinhome/user">S U P R E M E</a ></span>
+
+  </div>
+  <div>
+    <a class="pull-right white_text" (click)="f.ngSubmit.emit()"><i class="fa fa-check"></i></a >
+  </div>
+</nav>
+<p class="center_text supreme-font white_text text-font-size">Edit Item</p >
+<form (ngSubmit)="updateOrCreate()" #f="ngForm">
+  <div class="form-group">
+    <div class="center_input input_padding">
+      <label class="white_text supreme-font">Name</label>
+      <input
+        [(ngModel)]="name"
+        name="name"
+        type="text"
+        class="form-control supreme-font"
+        style="color: black"
+        placeholder="{{name}}"
+      >
+    </div>
+
+    <div class="center_input input_padding">
+      <label class="white_text supreme-font">Color</label>
+      <input [(ngModel)]="color"
+             name="color"
+             type="text"
+             class="form-control supreme-font"
+             style="color: black"
+             placeholder="{{color}}">
+    </div>
+
+    <div class="center_input input_padding">
+      <label class="white_text supreme-font">Price</label>
+      <input [(ngModel)]="price"
+             name="price"
+             type="text"
+             class="form-control supreme-font"
+             style="color: black"
+             placeholder="{{price}}">
+    </div>
+    <div class="center_input input_padding">
+      <label class="white_text supreme-font">Image</label>
+      <input [(ngModel)]="imgurl"
+             name="imgurl"
+             type="text"
+             class="form-control supreme-font"
+             style="color: black"
+             placeholder="{{imgurl}}"
+      >
+    </div>
+    <div class="center_input input_padding">
+      <label class="white_text supreme-font">Category</label>
+      <select [(ngModel)]="category"
+              name="category"
+              class="form-control supreme-font"
+              style="color: black">
+        <option value="Jacket">Jacket</option>
+        <option value="Shirt">Shirt</option>
+        <option value="Top">Top</option>
+        <option value="Sweatshirt">Sweatshirt</option>
+        <option value="Pants">Pants</option>
+        <option value="Hat">Hat</option>
+        <option value="Bag">Bag</option>
+        <option value="Skate">Skate</option>
+        <option value="Accessory">Accessory</option>
+      </select>
+    </div>
+
+    <div class="center_input input_padding">
+      <label class="white_text supreme-font">Size</label>
+      <select [(ngModel)]="size"
+              name="size"
+              class="form-control supreme-font"
+              style="color: black">
+        <option value="Small">Small</option>
+        <option value="Medium">Medium</option>
+        <option value="Large">Large</option>
+        <option value="XLarge">XLarge</option>
+        <option value="noSize">noSize</option>
+      </select>
+    </div>
+  </div>
+  <button class="btn btn-outline-danger btn-block center_input supreme-font white_text">Upload Imgage</button>
+  <button class="btn btn-outline-danger btn-block center_input supreme-font white_text">Image from Flickr</button>
+  <button class="btn btn-outline-danger btn-block center_input supreme-font white_text" (click)="delete()">Delete</button>
+  <button class="btn btn-outline-danger btn-block center_input supreme-font white_text" routerLink="../">Cancel</button>
+</form>
+
+<div class=" card-footer footer-color fixed-bottom">
+  <a class="pull-right white_text" href=" "><i class="fa fa-user"></i></a >
+</div>
+</body>

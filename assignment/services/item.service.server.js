@@ -4,10 +4,10 @@ module.exports = function (app) {
   app.put("/api/item/:itemId", updateItem);
   app.get("/api/item/item/:itemId", findItemById);
   app.get("/api/items/:name", findItemByName);
-  app.get("/api/items/category/:category", findItemByCategory);
-  //app.get("/api/items", findAllItem);
-  //app.post("/api/item", createItem);
-  //app.delete("/api/item/:itemId", deleteItem);
+  app.get("/api/category/:category", findItemByCategory);
+  app.get("/api/allitem", findAllItem);
+  app.post("/api/item", createItem);
+  app.delete("/api/item/:itemId", deleteItem);
 
   function createItem(req, res) {
     var newItem = req.body;
@@ -50,7 +50,6 @@ module.exports = function (app) {
 
   function findItemByCategory(req, res) {
     var category = req.params["category"];
-    console.log(category);
     if (category) {
       itemModel.findItemByCategory(category).then(function (item) {
         res.json(item);

@@ -20,11 +20,11 @@ export class AdminItemEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.sharedService.user);
     this.itemList = [{}];
   }
 
   findCategory() {
-    this.category = this.loginForm.value.category;
     this.itemService.findItemByCategory(this.category).subscribe((returnList: any) => {
       this.itemList = returnList;
       this.router.navigate(['.'], {relativeTo: this.activatedRoute});

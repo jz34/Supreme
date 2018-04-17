@@ -29,6 +29,7 @@ import {APP_BASE_HREF} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {ItemService} from './services/item.service.client';
+import { SellerListingComponent } from './views/users/profile/seller-profile/seller-listing/seller-listing.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {ItemService} from './services/item.service.client';
     SaleHistoryComponent,
     AdminProfileComponent,
     LoggedinHomeComponent,
-    CreditcardComponent
+    CreditcardComponent,
+    SellerListingComponent
   ],
   imports: [
     BrowserModule,

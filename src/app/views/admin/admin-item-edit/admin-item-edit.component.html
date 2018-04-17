@@ -38,14 +38,15 @@
   </div>
 
   <div class=" card col-lg-10 col-md-12 col-sm-12 col-xs-12 black-card full-border footer-padding">
-    <div class="card-columns" style="padding: 10px" id="ul1">
+    <div class="card-columns" style="padding: 10px">
       <div class="card text-center" *ngFor="let item of itemList">
         <img class="card-img-top" src={{item.url}} alt="Card image cap">
         <div class="card-body item-text">
           Name: {{item.name}}<br>
           Color: {{item.color}}<br>
           Size: {{item.size}}<br>
-          Seller ID: {{item._seller._id}}<br>
+          Price: ${{item.price}}<br>
+          Seller ID: {{item._seller}}<br>
           <label class="btn btn-outline-danger btn-block center_input supreme-font" (click)="deleteItem(item._id)">Delete</label>
         </div>
       </div>

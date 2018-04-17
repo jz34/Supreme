@@ -1,3 +1,39 @@
-<p>
-  item-display works!
-</p>
+<head>
+  <title>item_display</title>
+</head>
+<body class="body-black">
+<nav class="navbar navbar-default header-margin-bottom">
+  <div class="container-fluid">
+    <div class="supreme-font">
+      <a class="white_text" href=" "><i class="fa fa-chevron-left"></i></a>
+      <span class="supreme-text-logo"><a class="a-no-color a-no-hover a-no-visited"
+                                         routerLink="/home">S U P R E M E</a></span>
+    </div>
+  </div>
+</nav>
+
+<h5 class="center_text supreme-font white_text">{{item.name}}</h5>
+
+<div class="footer-padding">
+  <img class="card-img-top img-display-size center-image" src={{item.url}} alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-text">
+      <div class="center_text">
+        <p class="supreme-font white_text">color: {{item.color}}</p>
+        <p class="supreme-font white_text">Size: {{item.size}}</p>
+        <p class="supreme-font white_text">Category: {{item.category}}</p>
+        <p class="supreme-font white_text">Price: ${{item.color}}</p>
+        <a class="btn btn-danger link-button" routerLink="../">add to cart</a>
+        <a class="btn btn-danger link-button" routerLink="loggedinhome/user">keep shopping</a>
+      </div>
+    </h5>
+  </div>
+</div>
+
+
+<div class=" card-footer footer-color fixed-bottom">
+  <a class="pull-right white_text" href=" "><i class="fa fa-user"></i></a>
+</div>
+</body>
+
+

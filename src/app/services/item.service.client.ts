@@ -27,7 +27,7 @@ export class ItemService {
   }
 
   findItemByCategory(category) {
-    const url = this.baseUrl + '/api/items/category/' + category;
+    const url = this.baseUrl + '/api/category/' + category;
     return this.http.get(url).map((response: Response) => {
       return response.json();
     });
@@ -48,20 +48,22 @@ export class ItemService {
   }
 
   findAllItem() {
-    const url = this.baseUrl + '/api/item/all';
+    const url = this.baseUrl + '/api/allitem';
     return this.http.get(url).map((response: Response) => {
       return response.json();
     });
   }
 
-  createItem(name: String, price: String, color: String, size: String, category: String) {
+  createItem(sellerId: String, name: String, price: Number, color: String, size: String, category: String, imgurl: String) {
     const url = this.baseUrl + '/api/item';
     const body = {
+      _seller: sellerId,
       name: name,
       price: price,
       color: color,
       size: size,
-      category: category
+      category: category,
+      url: imgurl
     };
 
     return this.http.post(url, body).map((response: Response) => {

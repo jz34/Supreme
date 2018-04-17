@@ -229,9 +229,9 @@ var appRoutes = [
     { path: 'user/seller', component: __WEBPACK_IMPORTED_MODULE_8__views_users_profile_seller_profile_seller_profile_component__["a" /* SellerProfileComponent */] },
     { path: 'user/admin/edititem', component: __WEBPACK_IMPORTED_MODULE_3__views_admin_admin_item_edit_admin_item_edit_component__["a" /* AdminItemEditComponent */] },
     { path: 'user/admin/edituser', component: __WEBPACK_IMPORTED_MODULE_4__views_admin_admin_user_edit_admin_user_edit_component__["a" /* AdminUserEditComponent */] },
-    { path: 'user/seller/:uid/new', component: __WEBPACK_IMPORTED_MODULE_5__views_item_item_edit_item_edit_component__["a" /* ItemEditComponent */] },
-    { path: 'user/seller/:uid/item/:iid', component: __WEBPACK_IMPORTED_MODULE_5__views_item_item_edit_item_edit_component__["a" /* ItemEditComponent */] },
-    { path: 'user/:uid/item/:iid', component: __WEBPACK_IMPORTED_MODULE_6__views_item_item_display_item_display_component__["a" /* ItemDisplayComponent */] },
+    { path: 'user/seller/new', component: __WEBPACK_IMPORTED_MODULE_5__views_item_item_edit_item_edit_component__["a" /* ItemEditComponent */] },
+    { path: 'user/seller/item/:iid', component: __WEBPACK_IMPORTED_MODULE_5__views_item_item_edit_item_edit_component__["a" /* ItemEditComponent */] },
+    { path: 'user/item/:iid', component: __WEBPACK_IMPORTED_MODULE_6__views_item_item_display_item_display_component__["a" /* ItemDisplayComponent */] },
     { path: 'user/buyer/:uid/cart', component: __WEBPACK_IMPORTED_MODULE_9__views_checkout_cart_cart_component__["a" /* CartComponent */] },
     { path: 'user/buyer/:uid/payment', component: __WEBPACK_IMPORTED_MODULE_10__views_checkout_payment_payment_component__["a" /* PaymentComponent */] },
     { path: 'user/buyer/:uid/summary', component: __WEBPACK_IMPORTED_MODULE_11__views_checkout_summary_summary_component__["a" /* SummaryComponent */] },
@@ -292,7 +292,7 @@ var ItemService = /** @class */ (function () {
         });
     };
     ItemService.prototype.findItemByCategory = function (category) {
-        var url = this.baseUrl + '/api/items/category/' + category;
+        var url = this.baseUrl + '/api/category/' + category;
         return this.http.get(url).map(function (response) {
             return response.json();
         });
@@ -310,19 +310,21 @@ var ItemService = /** @class */ (function () {
         });
     };
     ItemService.prototype.findAllItem = function () {
-        var url = this.baseUrl + '/api/item/all';
+        var url = this.baseUrl + '/api/allitem';
         return this.http.get(url).map(function (response) {
             return response.json();
         });
     };
-    ItemService.prototype.createItem = function (name, price, color, size, category) {
+    ItemService.prototype.createItem = function (sellerId, name, price, color, size, category, imgurl) {
         var url = this.baseUrl + '/api/item';
         var body = {
+            _seller: sellerId,
             name: name,
             price: price,
             color: color,
             size: size,
-            category: category
+            category: category,
+            url: imgurl
         };
         return this.http.post(url, body).map(function (response) {
             return response.json();
@@ -461,7 +463,7 @@ var UserService = /** @class */ (function () {
         });
     };
     UserService.prototype.findUserByUsername = function (username) {
-        var url = this.baseUrl + '/api/user/?username=' + username;
+        var url = this.baseUrl + '/api/username/' + username;
         return this.http.get(url).map(function (response) {
             return response.json();
         });
@@ -475,6 +477,18 @@ var UserService = /** @class */ (function () {
     UserService.prototype.deleteUser = function (userId) {
         var url = this.baseUrl + '/api/user/' + userId;
         return this.http.delete(url).map(function (response) {
+            return response.json();
+        });
+    };
+    UserService.prototype.findAllUser = function () {
+        var url = this.baseUrl + '/api/users';
+        return this.http.get(url).map(function (response) {
+            return response.json();
+        });
+    };
+    UserService.prototype.findUserByUsernames = function (username) {
+        var url = this.baseUrl + '/api/usernames/' + username;
+        return this.http.get(url).map(function (response) {
             return response.json();
         });
     };
@@ -492,7 +506,7 @@ var UserService = /** @class */ (function () {
 /***/ "./src/app/style.css":
 /***/ (function(module, exports) {
 
-module.exports = ".navbar-default {\n    color: white;\n    background-color: #E1282A;\n}\n\n.logo {\n    height: 10%;\n    width: 10%;\n    border: 1px solid black;\n}\n\n.btn-danger {\n    font-family: \"Courier New\";\n    font-weight: bold;\n    background-color: #E1282A;\n    border: 1px solid black;\n}\n\n.link-button:hover {\n    background-color: #E1282A;\n    border: 1px solid black;\n}\n\n.banner {\n    width: 100%;\n}\n\n.body-black {\n    background-color: black;\n}\n\n.center-search {\n    display: block;\n    margint-top: 100px;\n    margin-left: auto;\n    margin-right: auto;\n}\n\n.footer-color {\n    background-color: #E1282A;\n}\n\n.supreme-font {\n    font-family: \"Courier New\";\n    color:white;\n\n}\n\n.fa {\n    font-size: 15px;\n}\n\n.fa:hover{\n    color: black;\n}\n\n.white_text {\n    color: white;\n}\n\n.center_input {\n    display: block;\n    margin-left: auto;\n    margin-right: auto;\n    width: 70%;\n    margin-bottom: 8px;\n}\n\n.center_text {\n    text-align: center;\n}\n\n.text-font-size {\n    font-size: 20px;\n}\n\n.input_padding {\n    padding-top: 10px;\n}\n\n.footer-padding {\n    margin-bottom: 100%;\n}\n\n.small-button {\n    width: 50%;\n    font-size: 10px;\n}\n\nbutton {\n    overflow: hidden;\n    text-overflow: ellipsis;\n    white-space: nowrap;\n}\n\n.a-no-hover:hover {\n    text-decoration: none;\n}\n\n.a-no-color {\n    color: white;\n}\n\n.a-no-visited:visited {\n    color: white;\n}\n\n.form-wrapper {\n    margin: 10px;\n    horiz-align: center;\n    border: 1px solid white;\n}\n\n.full-input {\n    border: 2px solid #E1282A;\n}\n\nlabel {\n    display: block;\n    font-size: 12px;\n    color: #E1282A;\n}\n\n.input-white-text {\n    color: white;\n}\n\n.left-border-white {\n    border-left: 1px solid white;\n}\n\n.corner-button {\n    position: fixed;\n    bottom: 90px;\n    right: 20px;\n    width: 40%;\n    horiz-align: center;\n}\n\n.supreme-text-logo {\n    font-size: 20px;\n    padding-left: 20px\n}\n\n.img-display-size {\n    height: 300px;\n    width: 300px;\n}\n\n.center-image {\n    display: block;\n    margin-left: auto;\n    margin-right: auto;\n\n}\n\n.black-card {\n    background: black;\n}\n\n.header-margin-bottom{\n    margin-bottom: 20px;\n}\n\n.btn-outline-danger{\n    color:#E1282A;\n}\n\n.left-column{\n    width:25%;\n    height: 100%;\n    float:left;\n}\n\n.right-column{\n    height: 100%;\n}\n\n.full-border {\n    border: 2px solid #E1282A;\n}\n\n.bottom-button {\n    margin-bottom:20px;\n}\n\n.big-box {\n    margin: 2% 3% 3%;\n}\n\n.item-text {\n    color: black;\n    font-family: \"Courier New\";\n}\n\nhtml, body{\n    height: 100%;\n}\n\n.pagination {\n    margin: 50px;\n    display: inline-block;\n}\n\n.pagination a {\n    color: #E1282A;\n    float: left;\n    padding: 8px 16px;\n    text-decoration: none;\n    -webkit-transition: background-color .3s;\n    transition: background-color .3s;\n    border: 1px solid #E1282A;\n}\n\n.pagination a:hover:not(.active) {background-color: white;}\n\n.card-columns{\n    padding-top:10px;\n    margin-bottom: 50px;\n}\n\n.text-black{\n    color: black;\n}\n"
+module.exports = ".navbar-default {\n  color: white;\n  background-color: #E1282A;\n}\n\n.logo {\n  height: 10%;\n  width: 10%;\n  border: 1px solid black;\n}\n\n.btn-danger {\n  font-family: \"Courier New\";\n  font-weight: bold;\n  background-color: #E1282A;\n  border: 1px solid black;\n}\n\n.link-button:hover {\n  background-color: #E1282A;\n  border: 1px solid black;\n}\n\n.banner {\n  width: 100%;\n}\n\n.body-black {\n  background-color: black;\n}\n\n.center-search {\n  display: block;\n  margint-top: 100px;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.footer-color {\n  background-color: #E1282A;\n}\n\n.supreme-font {\n  font-family: \"Courier New\";\n  color:white;\n\n}\n\n.fa {\n  font-size: 15px;\n}\n\n.fa:hover{\n  color: black;\n}\n\n.white_text {\n  color: white;\n}\n\n.center_input {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 70%;\n  margin-bottom: 8px;\n}\n\n.center_text {\n  text-align: center;\n}\n\n.text-font-size {\n  font-size: 20px;\n}\n\n.input_padding {\n  padding-top: 10px;\n}\n\n.footer-padding {\n  margin-bottom: 100%;\n}\n\n.small-button {\n  width: 50%;\n  font-size: 10px;\n}\n\nbutton {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.a-no-hover:hover {\n  text-decoration: none;\n}\n\n.a-no-color {\n  color: white;\n}\n\n.a-no-visited:visited {\n  color: white;\n}\n\n.form-wrapper {\n  margin: 10px;\n  horiz-align: center;\n  border: 1px solid white;\n}\n\n.full-input {\n  border: 2px solid #E1282A;\n}\n\nlabel {\n  display: block;\n  font-size: 12px;\n  color: #E1282A;\n}\n\n.input-white-text {\n  color: white;\n}\n\n.left-border-white {\n  border-left: 1px solid white;\n}\n\n.corner-button {\n  position: fixed;\n  bottom: 90px;\n  right: 20px;\n  width: 40%;\n  horiz-align: center;\n}\n\n.supreme-text-logo {\n  font-size: 20px;\n  padding-left: 20px\n}\n\n.img-display-size {\n  height: 300px;\n  width: 300px;\n}\n\n.center-image {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n\n}\n\n.black-card {\n  background: black;\n}\n\n.header-margin-bottom{\n  margin-bottom: 20px;\n}\n\n.btn-outline-danger{\n  color:#E1282A;\n}\n\n.left-column{\n  width:25%;\n  height: 100%;\n  float:left;\n}\n\n.right-column{\n  height: 100%;\n}\n\n.full-border {\n  border: 2px solid #E1282A;\n}\n\n.bottom-button {\n  margin-bottom:20px;\n}\n\n.big-box {\n  margin: 2% 3% 3%;\n}\n\n.item-text {\n  color: black;\n  font-family: \"Courier New\";\n}\n\nhtml, body{\n  height: 100%;\n}\n\n.pagination {\n  margin: 50px;\n  display: inline-block;\n}\n\n.pagination a {\n  color: #E1282A;\n  float: left;\n  padding: 8px 16px;\n  text-decoration: none;\n  -webkit-transition: background-color .3s;\n  transition: background-color .3s;\n  border: 1px solid #E1282A;\n}\n\n.pagination a:hover:not(.active) {background-color: white;}\n\n.card-columns{\n  padding-top:10px;\n  margin-bottom: 50px;\n}\n\n.text-black{\n  color: black;\n}\n\nhtml, body {\n  max-width: 100%;\n  overflow-x: hidden;\n}\n"
 
 /***/ }),
 
@@ -503,17 +517,10 @@ module.exports = ".navbar-default {\n    color: white;\n    background-color: #E
 
 /***/ }),
 
-/***/ "./src/app/views/admin/admin-item-edit/admin-item-edit.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/views/admin/admin-item-edit/admin-item-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<head>\n  <title>Edit Item</title>\n</head>\n\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a>\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/home\">S U P R E M E</a></span>\n  </div>\n</nav>\n\n<!--<div class=\"footer-padding\">-->\n<div class=\"center_text big-box row\">\n  <div class=\"card col-lg-2 col-md-12 col-sm-12 col-xs-12 black-card full-border\">\n    <div class=\"center_input input_padding\">\n      <span><label class=\"supreme-font\">Category</label></span>\n      <select name=\"size\" style=\"margin-bottom: 20px\">\n        <option>Jacket</option>\n        <option>Shirt</option>\n        <option>Top</option>\n        <option>Sweatshirt</option>\n        <option>Pants</option>\n        <option>Hat</option>\n        <option>Bag</option>\n        <option>Skate</option>\n        <option>Accessory</option>\n      </select><br>\n      <button class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\" (click)=\"search()\">Search\n      </button>\n      <br>\n      <button class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\" (click)=\"showAll()\">Show All\n      </button>\n    </div>\n\n  </div>\n\n  <div class=\" card col-lg-10 col-md-12 col-sm-12 col-xs-12 black-card full-border \">\n    <div class=\"card-columns\" style=\"padding: 10px\" id=\"ul1\">\n      <div class=\"card text-center\">\n        <img class=\"card-img-top\" src=\"asset/axe.jpg\" alt=\"Card image cap\">\n        <div class=\"card-body item-text\">\n          Name: Supreme Axe<br>\n          Color: N/A<br>\n          Size: noSize<br>\n          Seller ID: derek777<br>\n          <label class=\"btn btn-outline-danger btn-block center_input supreme-font\">Delete</label>\n          <div class=\"form-check\">\n            <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n            <a class=\"form-check-label\" style=\"color: #E1282A\">\n              Recommended\n            </a>\n          </div>\n        </div>\n      </div>\n      <div class=\"card p-3 text-center\">\n        <img class=\"card-img-top\" src=\"asset/Sweatshirt.png\" alt=\"Card image cap\">\n        <div class=\"card-body item-text\">\n          Name: Supreme tint box logo sweatshirt<br>\n          Color: Tint<br>\n          Size: M<br>\n          Seller ID: Matthew<br>\n          <label class=\"btn btn-outline-danger btn-block center_input supreme-font\">Delete</label>\n          <div class=\"form-check\">\n            <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n            <a class=\"form-check-label\" style=\"color: #E1282A\">\n              Recommended\n            </a>\n          </div>\n        </div>\n      </div>\n      <div class=\"card text-center\">\n        <img class=\"card-img-top\" src=\"asset/Accessory.png\" alt=\"Card image cap\">\n        <div class=\"card-body item-text\">\n          Name: Supreme fire extinguisher<br>\n          Color: Tint<br>\n          Size: noSize<br>\n          Seller ID: Simeng<br>\n          <label class=\"btn btn-outline-danger btn-block center_input supreme-font\">Delete</label>\n          <div class=\"form-check\">\n            <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n            <a class=\"form-check-label\" style=\"color: #E1282A\">\n              Recommended\n            </a>\n          </div>\n        </div>\n      </div>\n      <div class=\"card text-center p-3\">\n        <img class=\"card-img-top\" src=\"asset/Jacket.png\" alt=\"Card image cap\">\n        <div class=\"card-body item-text\">\n          Name: Supreme tnf bandana jacket<br>\n          Color: Blue<br>\n          Size: noSize<br>\n          Seller ID: derek777<br>\n          <label class=\"btn btn-outline-danger btn-block center_input supreme-font\">Delete</label>\n          <div class=\"form-check\">\n            <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n            <a class=\"form-check-label\" style=\"color: #E1282A\">\n              Recommended\n            </a>\n          </div>\n        </div>\n      </div>\n      <div class=\"card text-center\">\n        <img class=\"card-img-top\" src=\"asset/Skate.jpg\" alt=\"Card image cap\">\n        <div class=\"card-body item-text\">\n          Name: Supreme Mendini Skateboard<br>\n          Color: N/A<br>\n          Size: noSize<br>\n          Seller ID: derek777<br>\n          <label class=\"btn btn-outline-danger btn-block center_input supreme-font\">Delete</label>\n          <div class=\"form-check\">\n            <input class=\"form-check-input\" type=\"checkbox\" value=\"\">\n            <a class=\"form-check-label\" style=\"color: #E1282A\">Recommended</a>\n          </div>\n        </div>\n      </div>\n    </div>\n    <div id=\"pagenum\">\n      <a class=\"supreme-font\" style=\"color: white\" href=\"#\">1</a>\n      <a class=\"supreme-font\" style=\"color: white\" href=\"#\">2</a>\n      <a class=\"supreme-font\" style=\"color: white\" href=\"#\">3</a>\n    </div>\n  </div>\n</div>\n<!--</div>-->\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" href=\" \"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n"
+module.exports = "<head>\n  <title>Edit Item</title>\n</head>\n\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a>\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       href=\" \">S U P R E M E</a></span>\n  </div>\n</nav>\n\n<!--<div class=\"footer-padding\">-->\n<div class=\"center_text big-box row\">\n  <div class=\"card col-lg-2 col-md-12 col-sm-12 col-xs-12 black-card full-border footer-padding\">\n    <div class=\"center_input input_padding\">\n      <form (ngSubmit)=\"findCategory()\" #f=\"ngForm\" class=\"center_input input_padding\">\n        <span><label class=\"supreme-font\">Category</label></span>\n        <select name=\"size\" style=\"margin-bottom: 20px\" [(ngModel)]=\"category\">\n          <option>Jacket</option>\n          <option>Shirt</option>\n          <option>Top</option>\n          <option>Sweatshirt</option>\n          <option>Pants</option>\n          <option>Hat</option>\n          <option>Bag</option>\n          <option>Skate</option>\n          <option>Accessory</option>\n        </select><br>\n        <button type=\"submit\" class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\">Search</button>\n      </form>\n      <br>\n      <button class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\" (click)=\"findAllItem()\">Show\n        All\n      </button>\n    </div>\n  </div>\n\n  <div class=\" card col-lg-10 col-md-12 col-sm-12 col-xs-12 black-card full-border footer-padding\">\n    <div class=\"card-columns\" style=\"padding: 10px\">\n      <div class=\"card text-center\" *ngFor=\"let item of itemList\">\n        <img class=\"card-img-top\" src={{item.url}} alt=\"Card image cap\">\n        <div class=\"card-body item-text\">\n          Name: {{item.name}}<br>\n          Color: {{item.color}}<br>\n          Size: {{item.size}}<br>\n          Price: {{item.price}}<br>\n          Seller ID: {{item._seller}}<br>\n          <label class=\"btn btn-outline-danger btn-block center_input supreme-font\" (click)=\"deleteItem(item._id)\">Delete</label>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!--</div>-->\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" href=\" \"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n\n\n"
 
 /***/ }),
 
@@ -523,6 +530,10 @@ module.exports = "<head>\n  <title>Edit Item</title>\n</head>\n\n<body class=\"b
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminItemEditComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_item_service_client__ = __webpack_require__("./src/app/services/item.service.client.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -533,18 +544,53 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 var AdminItemEditComponent = /** @class */ (function () {
-    function AdminItemEditComponent() {
+    function AdminItemEditComponent(itemService, router, sharedService, activatedRoute) {
+        this.itemService = itemService;
+        this.router = router;
+        this.sharedService = sharedService;
+        this.activatedRoute = activatedRoute;
     }
     AdminItemEditComponent.prototype.ngOnInit = function () {
+        console.log(this.sharedService.user);
+        this.itemList = [{}];
     };
+    AdminItemEditComponent.prototype.findCategory = function () {
+        var _this = this;
+        this.itemService.findItemByCategory(this.category).subscribe(function (returnList) {
+            _this.itemList = returnList;
+            _this.router.navigate(['.'], { relativeTo: _this.activatedRoute });
+        });
+    };
+    AdminItemEditComponent.prototype.findAllItem = function () {
+        var _this = this;
+        this.itemService.findAllItem().subscribe(function (returnList) {
+            _this.itemList = returnList;
+            _this.router.navigate(['.'], { relativeTo: _this.activatedRoute });
+        });
+    };
+    AdminItemEditComponent.prototype.deleteItem = function (itemId) {
+        var _this = this;
+        this.itemService.deleteItem(itemId).subscribe(function (data) {
+            _this.router.navigate(['.'], { relativeTo: _this.activatedRoute });
+        });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* NgForm */])
+    ], AdminItemEditComponent.prototype, "loginForm", void 0);
     AdminItemEditComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-admin-item-edit',
             template: __webpack_require__("./src/app/views/admin/admin-item-edit/admin-item-edit.component.html"),
-            styles: [__webpack_require__("./src/app/views/admin/admin-item-edit/admin-item-edit.component.css")]
+            styles: [__webpack_require__("./src/app/style.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__services_item_service_client__["a" /* ItemService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_2__services_shared_service__["a" /* SharedService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
     ], AdminItemEditComponent);
     return AdminItemEditComponent;
 }());
@@ -556,7 +602,7 @@ var AdminItemEditComponent = /** @class */ (function () {
 /***/ "./src/app/views/admin/admin-profile/admin-profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Admin</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" href=\" \"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\" href=\"/loggedinhome/user\">S U P R E M E</a ></span>\n\n  </div>\n</nav>\n\n<div class=\"supreme-font footer-padding\">\n  <p class=\"center_text supreme-font\">Admin</p >\n  <a class=\"btn btn-outline-danger btn-block center_input\" (click)=\"editItem()\">Edit Items</a >\n  <a class=\"btn btn-outline-danger btn-block center_input\" (click)=\"editUser()\">Edit User</a >\n  <a class=\"btn btn-outline-danger btn-block center_input\" (click)=\"logout()\">Logout</a >\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\"><i class=\"fa fa-user\"></i></a >\n</div>\n\n</body>\n"
+module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Admin</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" href=\" \"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\" routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n\n  </div>\n</nav>\n\n<div class=\"supreme-font footer-padding\">\n  <p class=\"center_text supreme-font\">Admin</p >\n  <a class=\"btn btn-outline-danger btn-block center_input\" (click)=\"editItem()\">Edit Items</a >\n  <a class=\"btn btn-outline-danger btn-block center_input\" (click)=\"editUser()\">Edit User</a >\n  <a class=\"btn btn-outline-danger btn-block center_input\" (click)=\"logout()\">Logout</a >\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\"><i class=\"fa fa-user\"></i></a >\n</div>\n\n</body>\n"
 
 /***/ }),
 
@@ -647,22 +693,24 @@ var AdminUserEditComponent = /** @class */ (function () {
         this.activatedRoute = activatedRoute;
     }
     AdminUserEditComponent.prototype.ngOnInit = function () {
+        console.log(this.sharedService.user);
         this.userList = [{}];
     };
-    // findAllUser() {
-    //   this.userService.findAllUser().subscribe((returnList: any) => {
-    //     this.userList = returnList;
-    //     this.router.navigate(['.'], {relativeTo: this.activatedRoute});
-    //   });
-    // }
-    //
-    // findUser() {
-    //   this.search = this.loginForm.value.search;
-    //   this.userService.findUserByUsernames(this.search).subscribe((returnList: any) => {
-    //     this.userList = returnList;
-    //     this.router.navigate(['.'], {relativeTo: this.activatedRoute});
-    //   });
-    // }
+    AdminUserEditComponent.prototype.findAllUser = function () {
+        var _this = this;
+        this.userService.findAllUser().subscribe(function (returnList) {
+            _this.userList = returnList;
+            _this.router.navigate(['.'], { relativeTo: _this.activatedRoute });
+        });
+    };
+    AdminUserEditComponent.prototype.findUser = function () {
+        var _this = this;
+        this.search = this.loginForm.value.search;
+        this.userService.findUserByUsernames(this.search).subscribe(function (returnList) {
+            _this.userList = returnList;
+            _this.router.navigate(['.'], { relativeTo: _this.activatedRoute });
+        });
+    };
     AdminUserEditComponent.prototype.delete = function (userId) {
         var _this = this;
         this.userService.deleteUser(userId).subscribe(function (data) {
@@ -999,7 +1047,7 @@ var HomeComponent = /** @class */ (function () {
 /***/ "./src/app/views/home/loggedin-home/loggedin-home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<head>\n  <title>home</title>\n</head>\n<body class=\"body-black\">\n\n<nav class=\"navbar navbar-default\">\n  <span class=\"supreme-font\">S U P R E M E</span>\n  <div>\n    <span class=\"supreme-font pull-right\" style=\"margin-left: 5px\">Welcome {{username}}!</span>\n  </div>\n</nav>\n\n<div id=\"carouselExampleControls\" class=\"carousel slide\" data-ride=\"carousel\">\n  <div class=\"carousel-inner\" style=\"height:270px\">\n    <div class=\"carousel-item active\">\n      < img class=\"d-block w-100\" src=\"../../../assets/full_supreme_lv.jpg\" alt=\"First slide\">\n    </div>\n    <div class=\"carousel-item\">\n      < img class=\"d-block w-100\" src=\"../../../assets/full_supreme_rimova.jpg\" alt=\"Second slide\">\n    </div>\n    <div class=\"carousel-item\">\n      < img class=\"d-block w-100\" src=\"../../../assets/full_supreme_tnf.jpg\" alt=\"Third slide\">\n    </div>\n  </div>\n  <a class=\"carousel-control-prev\" href=\" \" role=\"button\" data-slide=\"prev\">\n    <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Previous</span>\n  </a >\n  <a class=\"carousel-control-next\" href=\"#carouselExampleControls\" role=\"button\" data-slide=\"next\">\n    <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a >\n</div>\n\n<div style=\"margin-top: 10px\">\n  <div>\n    <form style=\"padding-left: 30%\" (ngSubmit)=\"search()\" #f=\"ngForm\">\n      <input class=\"col-7\" type=\"text\" placeholder=\"Search..\" name=\"search\">\n      <button type=\"submit\"><i class=\"fa fa-search\"></i></button>\n    </form>\n  </div>\n</div>\n\n<div class=\"card-columns\" style=\"padding-top: 10px\">\n  <div class=\"card text-center\">\n    <a (click)=\"searchTop()\" class=\"a-no-hover\">\n      < img class=\"card-img-top\" src=\"../../../../assets/Top.png\" alt=\"Card image cap\" href=\"user/searchresult\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchTop()\">Top</h5>\n    </div>\n\n  </div>\n  <div class=\"card p-3 text-center\">\n    <a (click)=\"searchSweatershirt()\" class=\"a-no-hover\">\n      < img class=\"card-img-top\" src=\"../../../../assets/Sweatshirt.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchSweatershirt()\">Sweatshirt</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchAccessory()\" class=\"a-no-hover\">\n      < img class=\"card-img-top\" src=\"../../../../assets/Accessory.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchAccessory()\">Accessory</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center p-3\">\n    <a (click)=\"searchJacket()\" class=\"a-no-hover\">\n      < img class=\"card-img-top\" src=\"../../../../assets/Jacket.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchJacket()\">Jacket</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchSkate()\" class=\"a-no-hover\">\n      < img class=\"card-img-top\" src=\"../../../../assets/Skate.jpg\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchSkate()\">Skate</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchPants()\" class=\"a-no-hover\">\n      < img class=\"card-img-top\" src=\"../../../../assets/Pant.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchPants()\">Pants</h5>\n    </div>\n  </div>\n\n  <div class=\"card p-3 text-center\">\n    <a (click)=\"searchBag()\" class=\"a-no-hover\">\n      < img class=\"card-img-top\" src=\"../../../../assets/Bag.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchBag()\">Bag</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchHat()\" class=\"a-no-hover\">\n      < img class=\"card-img-top\" src=\"../../../../assets/Hat.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchHat()\">Hat</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchShirt()\" class=\"a-no-hover\">\n      < img class=\"card-img-top\" src=\"../../../../assets/Shirt.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchShirt()\">Shirt</h5>\n    </div>\n  </div>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" (click)=\"profile()\"><i class=\"fa fa-user\"></i></a >\n</div>\n</body>\n"
+module.exports = "<head>\n  <title>home</title>\n</head>\n<body class=\"body-black\">\n\n<nav class=\"navbar navbar-default\">\n  <span class=\"supreme-font\">S U P R E M E</span>\n  <div>\n    <span class=\"supreme-font pull-right\" style=\"margin-left: 5px\">Welcome {{username}}!</span>\n  </div>\n</nav>\n\n<div id=\"carouselExampleControls\" class=\"carousel slide\" data-ride=\"carousel\">\n  <div class=\"carousel-inner\" style=\"height:270px\">\n    <div class=\"carousel-item active\">\n      <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_lv.jpg\" alt=\"First slide\">\n    </div>\n    <div class=\"carousel-item\">\n      <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_rimova.jpg\" alt=\"Second slide\">\n    </div>\n    <div class=\"carousel-item\">\n      <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_tnf.jpg\" alt=\"Third slide\">\n    </div>\n  </div>\n  <a class=\"carousel-control-prev\" href=\" \" role=\"button\" data-slide=\"prev\">\n    <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Previous</span>\n  </a >\n  <a class=\"carousel-control-next\" href=\"#carouselExampleControls\" role=\"button\" data-slide=\"next\">\n    <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a >\n</div>\n\n<div style=\"margin-top: 10px\">\n  <div>\n    <form style=\"padding-left: 30%\" (ngSubmit)=\"search()\" #f=\"ngForm\">\n      <input class=\"col-7\" type=\"text\" placeholder=\"Search..\" name=\"search\">\n      <button type=\"submit\"><i class=\"fa fa-search\"></i></button>\n    </form>\n  </div>\n</div>\n\n<div class=\"card-columns\" style=\"padding-top: 10px\">\n  <div class=\"card text-center\">\n    <a (click)=\"searchTop()\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../../assets/Top.png\" alt=\"Card image cap\" href=\"user/searchresult\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchTop()\">Top</h5>\n    </div>\n\n  </div>\n  <div class=\"card p-3 text-center\">\n    <a (click)=\"searchSweatershirt()\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../../assets/Sweatshirt.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchSweatershirt()\">Sweatshirt</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchAccessory()\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../../assets/Accessory.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchAccessory()\">Accessory</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center p-3\">\n    <a (click)=\"searchJacket()\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../../assets/Jacket.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchJacket()\">Jacket</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchSkate()\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../../assets/Skate.jpg\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchSkate()\">Skate</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchPants()\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../../assets/Pant.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchPants()\">Pants</h5>\n    </div>\n  </div>\n\n  <div class=\"card p-3 text-center\">\n    <a (click)=\"searchBag()\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../../assets/Bag.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchBag()\">Bag</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchHat()\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../../assets/Hat.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchHat()\">Hat</h5>\n    </div>\n  </div>\n\n  <div class=\"card text-center\">\n    <a (click)=\"searchShirt()\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src=\"../../../../assets/Shirt.png\" alt=\"Card image cap\">\n    </a >\n    <div class=\"card-body\">\n      <h5 class=\"card-title\" (click)=\"searchShirt()\">Shirt</h5>\n    </div>\n  </div>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" (click)=\"profile()\"><i class=\"fa fa-user\"></i></a >\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -1184,17 +1232,10 @@ var LoggedinHomeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/views/item/item-display/item-display.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/views/item/item-display/item-display.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  item-display works!\n</p>\n"
+module.exports = "<head>\n  <title>item_display</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"container-fluid\">\n    <div class=\"supreme-font\">\n      <a class=\"white_text\" href=\" \"><i class=\"fa fa-chevron-left\"></i></a>\n      <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                         routerLink=\"/home\">S U P R E M E</a></span>\n    </div>\n  </div>\n</nav>\n\n<h5 class=\"center_text supreme-font white_text\">{{item.name}}</h5>\n\n<div class=\"footer-padding\">\n  <img class=\"card-img-top img-display-size center-image\" src={{item.url}} alt=\"Card image cap\">\n  <div class=\"card-body\">\n    <h5 class=\"card-text\">\n      <div class=\"center_text\">\n        <p class=\"supreme-font white_text\">color: {{item.color}}</p>\n        <p class=\"supreme-font white_text\">Size: {{item.size}}</p>\n        <p class=\"supreme-font white_text\">Category: {{item.category}}</p>\n        <p class=\"supreme-font white_text\">Price: ${{item.color}}</p>\n        <a class=\"btn btn-danger link-button\" routerLink=\"../\">add to cart</a>\n        <a class=\"btn btn-danger link-button\" routerLink=\"loggedinhome/user\">keep shopping</a>\n      </div>\n    </h5>\n  </div>\n</div>\n\n\n<div class=\" card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" href=\" \"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n\n\n"
 
 /***/ }),
 
@@ -1204,6 +1245,8 @@ module.exports = "<p>\n  item-display works!\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ItemDisplayComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_item_service_client__ = __webpack_require__("./src/app/services/item.service.client.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1214,18 +1257,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
 var ItemDisplayComponent = /** @class */ (function () {
-    function ItemDisplayComponent() {
+    function ItemDisplayComponent(itemService, router, activatedRoute) {
+        this.itemService = itemService;
+        this.router = router;
+        this.activatedRoute = activatedRoute;
     }
     ItemDisplayComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            _this.iid = params['iid'];
+            return _this.itemService.findItemById(_this.iid).subscribe(function (item) {
+                _this.item = item;
+            });
+        });
     };
     ItemDisplayComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-item-display',
             template: __webpack_require__("./src/app/views/item/item-display/item-display.component.html"),
-            styles: [__webpack_require__("./src/app/views/item/item-display/item-display.component.css")]
+            styles: [__webpack_require__("./src/app/style.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_item_service_client__["a" /* ItemService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
     ], ItemDisplayComponent);
     return ItemDisplayComponent;
 }());
@@ -1234,17 +1291,10 @@ var ItemDisplayComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/views/item/item-edit/item-edit.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/views/item/item-edit/item-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  item-edit works!\n</p>\n"
+module.exports = "<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"pull-left white_text\" href=\" \"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n\n  </div>\n  <div>\n    <a class=\"pull-right white_text\" (click)=\"f.ngSubmit.emit()\"><i class=\"fa fa-check\"></i></a >\n  </div>\n</nav>\n<p class=\"center_text supreme-font white_text text-font-size\">Edit Item</p >\n<form (ngSubmit)=\"updateOrCreate()\" #f=\"ngForm\">\n  <div class=\"form-group\">\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Name</label>\n      <input\n        [(ngModel)]=\"name\"\n        name=\"name\"\n        type=\"text\"\n        class=\"form-control supreme-font\"\n        style=\"color: black\"\n        placeholder=\"{{name}}\"\n      >\n    </div>\n\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Color</label>\n      <input [(ngModel)]=\"color\"\n             name=\"color\"\n             type=\"text\"\n             class=\"form-control supreme-font\"\n             style=\"color: black\"\n             placeholder=\"{{color}}\">\n    </div>\n\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Price</label>\n      <input [(ngModel)]=\"price\"\n             name=\"price\"\n             type=\"text\"\n             class=\"form-control supreme-font\"\n             style=\"color: black\"\n             placeholder=\"{{price}}\">\n    </div>\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Image</label>\n      <input [(ngModel)]=\"imgurl\"\n             name=\"imgurl\"\n             type=\"text\"\n             class=\"form-control supreme-font\"\n             style=\"color: black\"\n             placeholder=\"{{imgurl}}\"\n      >\n    </div>\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Category</label>\n      <select [(ngModel)]=\"category\"\n              name=\"category\"\n              class=\"form-control supreme-font\"\n              style=\"color: black\">\n        <option value=\"Jacket\">Jacket</option>\n        <option value=\"Shirt\">Shirt</option>\n        <option value=\"Top\">Top</option>\n        <option value=\"Sweatshirt\">Sweatshirt</option>\n        <option value=\"Pants\">Pants</option>\n        <option value=\"Hat\">Hat</option>\n        <option value=\"Bag\">Bag</option>\n        <option value=\"Skate\">Skate</option>\n        <option value=\"Accessory\">Accessory</option>\n      </select>\n    </div>\n\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Size</label>\n      <select [(ngModel)]=\"size\"\n              name=\"size\"\n              class=\"form-control supreme-font\"\n              style=\"color: black\">\n        <option value=\"Small\">Small</option>\n        <option value=\"Medium\">Medium</option>\n        <option value=\"Large\">Large</option>\n        <option value=\"XLarge\">XLarge</option>\n        <option value=\"noSize\">noSize</option>\n      </select>\n    </div>\n  </div>\n  <button class=\"btn btn-outline-danger btn-block center_input supreme-font white_text\">Upload Imgage</button>\n  <button class=\"btn btn-outline-danger btn-block center_input supreme-font white_text\">Image from Flickr</button>\n  <button class=\"btn btn-outline-danger btn-block center_input supreme-font white_text\" (click)=\"delete()\">Delete</button>\n  <button class=\"btn btn-outline-danger btn-block center_input supreme-font white_text\" routerLink=\"../\">Cancel</button>\n</form>\n\n<div class=\" card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" href=\" \"><i class=\"fa fa-user\"></i></a >\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -1254,6 +1304,10 @@ module.exports = "<p>\n  item-edit works!\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ItemEditComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_item_service_client__ = __webpack_require__("./src/app/services/item.service.client.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1264,18 +1318,89 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 var ItemEditComponent = /** @class */ (function () {
-    function ItemEditComponent() {
+    function ItemEditComponent(itemService, sharedService, activatedRoute, router) {
+        this.itemService = itemService;
+        this.sharedService = sharedService;
+        this.activatedRoute = activatedRoute;
+        this.router = router;
     }
     ItemEditComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.sellerId = this.sharedService.user['_id'];
+        this.errorFlag = false;
+        this.activatedRoute.params
+            .subscribe(function (params) {
+            _this.itemId = params['iid'];
+            if (_this.itemId !== undefined) {
+                return _this.itemService.findItemById(_this.itemId).subscribe(function (returnItem) {
+                    _this.item = returnItem;
+                    _this.name = _this.item.name;
+                    _this.color = _this.item.text;
+                    _this.price = _this.item.price;
+                    _this.imgurl = _this.item.imgurl;
+                    _this.category = _this.item.category;
+                    _this.size = _this.item.size;
+                });
+            }
+            else {
+                _this.item = { name: 'name', price: 0.0, color: 'color', imgurl: 'url', category: '', size: '' };
+                _this.name = _this.item.name;
+                _this.color = _this.item.color;
+                _this.price = _this.item.price;
+                _this.imgurl = _this.item.imgurl;
+                _this.category = _this.item.category;
+                _this.size = _this.item.size;
+            }
+        });
     };
+    ItemEditComponent.prototype.updateOrCreate = function () {
+        var _this = this;
+        this.item.name = this.loginForm.value.name;
+        this.item.color = this.loginForm.value.color;
+        this.item.price = this.loginForm.value.price;
+        this.item.imgurl = this.loginForm.value.imgurl;
+        this.item.category = this.loginForm.value.category;
+        this.item.size = this.loginForm.value.size;
+        if (this.itemId !== undefined) {
+            return this.itemService.updateItem(this.itemId, this.item).subscribe(function (returnItem) {
+                _this.router.navigate(['../'], { relativeTo: _this.activatedRoute });
+            });
+        }
+        else {
+            return this.itemService.createItem(this.sellerId, this.item.name, this.item.price, this.item.color, this.item.size, this.item.category, this.item.imgurl).subscribe(function (returnItem) {
+                _this.item = returnItem;
+                _this.router.navigate(['../'], { relativeTo: _this.activatedRoute });
+            });
+        }
+    };
+    ItemEditComponent.prototype.delete = function () {
+        if (this.itemId !== undefined) {
+            return this.itemService.deleteItem(this.itemId).subscribe(function (returnItem) {
+            });
+        }
+        else {
+            this.router.navigate(['../../'], { relativeTo: this.activatedRoute });
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NgForm */])
+    ], ItemEditComponent.prototype, "loginForm", void 0);
     ItemEditComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-item-edit',
             template: __webpack_require__("./src/app/views/item/item-edit/item-edit.component.html"),
-            styles: [__webpack_require__("./src/app/views/item/item-edit/item-edit.component.css")]
+            styles: [__webpack_require__("./src/app/style.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__services_item_service_client__["a" /* ItemService */],
+            __WEBPACK_IMPORTED_MODULE_3__services_shared_service__["a" /* SharedService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
     ], ItemEditComponent);
     return ItemEditComponent;
 }());

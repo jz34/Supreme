@@ -15,7 +15,7 @@ function findAll() {
 }
 
 function findItemByName(name) {
-  return Item.find({name: new RegExp('^'+name+'$',"i")});
+  return Item.find({'name': {'$regex': name}});
 }
 
 function findItemById(itemId) {
