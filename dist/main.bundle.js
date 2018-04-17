@@ -597,12 +597,18 @@ var AdminItemEditComponent = /** @class */ (function () {
             _this.itemList = returnList;
             _this.router.navigate(['.'], { relativeTo: _this.activatedRoute });
         });
+        this.category = undefined;
     };
     AdminItemEditComponent.prototype.deleteItem = function (itemId) {
-        var _this = this;
         this.itemService.deleteItem(itemId).subscribe(function (data) {
-            _this.router.navigate(['.'], { relativeTo: _this.activatedRoute });
         });
+        if (this.category === undefined) {
+            this.findAllItem();
+        }
+        else {
+            this.findCategory();
+        }
+        this.router.navigate(['.'], { relativeTo: this.activatedRoute });
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),
@@ -727,6 +733,7 @@ var AdminUserEditComponent = /** @class */ (function () {
             _this.userList = returnList;
             _this.router.navigate(['.'], { relativeTo: _this.activatedRoute });
         });
+        this.search = undefined;
     };
     AdminUserEditComponent.prototype.findUser = function () {
         var _this = this;
@@ -737,10 +744,15 @@ var AdminUserEditComponent = /** @class */ (function () {
         });
     };
     AdminUserEditComponent.prototype.delete = function (userId) {
-        var _this = this;
         this.userService.deleteUser(userId).subscribe(function (data) {
-            _this.router.navigate(['.'], { relativeTo: _this.activatedRoute });
         });
+        if (this.search === undefined) {
+            this.findAllUser();
+        }
+        else {
+            this.findUser();
+        }
+        this.router.navigate(['.'], { relativeTo: this.activatedRoute });
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),
@@ -1323,7 +1335,7 @@ var ItemDisplayComponent = /** @class */ (function () {
         this.user.cart.push(this.item);
         this.userService.updateUser(this.userId, this.user).subscribe(function (returnUser) {
             _this.sharedService.user = returnUser;
-            _this.router.navigate(['/home'], { relativeTo: _this.activatedRoute });
+            _this.router.navigate(['loggedinhome/user'], { relativeTo: _this.activatedRoute });
             window.confirm('Item added!');
         });
     };

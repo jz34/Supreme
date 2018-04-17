@@ -36,11 +36,17 @@ export class AdminItemEditComponent implements OnInit {
       this.itemList = returnList;
       this.router.navigate(['.'], {relativeTo: this.activatedRoute});
     });
+    this.category = undefined;
   }
 
   deleteItem(itemId) {
     this.itemService.deleteItem(itemId).subscribe((data: any) => {
-      this.router.navigate(['.'], {relativeTo: this.activatedRoute});
     });
+    if (this.category === undefined) {
+      this.findAllItem();
+    } else {
+      this.findCategory();
+    }
+    this.router.navigate(['.'], {relativeTo: this.activatedRoute});
   }
 }

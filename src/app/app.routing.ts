@@ -20,32 +20,33 @@ import { AdminProfileComponent } from './views/admin/admin-profile/admin-profile
 import { LoggedinHomeComponent } from './views/home/loggedin-home/loggedin-home.component';
 import { CreditcardComponent } from './views/users/creditcard/creditcard.component';
 import {SellerListingComponent} from './views/users/profile/seller-profile/seller-listing/seller-listing.component';
+import {AuthGuard} from './services/auth-guard.service';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'loggedinhome/user', component: LoggedinHomeComponent},
+  {path: 'loggedinhome/user', component: LoggedinHomeComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'user/admin', component: AdminProfileComponent},
-  {path: 'user/buyer', component: BuyerProfileComponent},
-  {path: 'user/seller', component: SellerProfileComponent},
-  {path: 'user/admin/edititem', component: AdminItemEditComponent},
-  {path: 'user/admin/edituser', component: AdminUserEditComponent},
-  {path: 'user/seller/new', component: ItemEditComponent},
-  {path: 'user/seller/listing', component: SellerListingComponent},
-  {path: 'user/seller/item/:iid', component: ItemEditComponent},
-  {path: 'user/item/:iid', component: ItemDisplayComponent},
-  {path: 'user/buyer/:uid/cart', component: CartComponent},
-  {path: 'user/buyer/:uid/payment', component: PaymentComponent},
-  {path: 'user/buyer/:uid/summary', component: SummaryComponent},
-  {path: 'user/buyer/:uid/history', component: OrderHistoryComponent},
-  {path: 'user/seller/:uid/history', component: SaleHistoryComponent},
-  {path: 'user/seller/:uid/creditcard', component: CreditcardComponent},
-  {path: 'user/buyer/:uid/creditcard', component: CreditcardComponent},
-  {path: 'user/searchresult', component: ItemListComponent},
-  {path: 'user/guest/searchresult', component: ItemListComponent},
-  {path: 'user/guest/item/:iid', component: ItemDisplayComponent},
+  {path: 'user/admin', component: AdminProfileComponent, canActivate: [AuthGuard]},
+  {path: 'user/buyer', component: BuyerProfileComponent, canActivate: [AuthGuard]},
+  {path: 'user/seller', component: SellerProfileComponent, canActivate: [AuthGuard]},
+  {path: 'user/admin/edititem', component: AdminItemEditComponent, canActivate: [AuthGuard]},
+  {path: 'user/admin/edituser', component: AdminUserEditComponent, canActivate: [AuthGuard]},
+  {path: 'user/seller/new', component: ItemEditComponent, canActivate: [AuthGuard]},
+  {path: 'user/seller/listing', component: SellerListingComponent, canActivate: [AuthGuard]},
+  {path: 'user/seller/item/:iid', component: ItemEditComponent, canActivate: [AuthGuard]},
+  {path: 'user/item/:iid', component: ItemDisplayComponent, canActivate: [AuthGuard]},
+  {path: 'user/buyer/:uid/cart', component: CartComponent, canActivate: [AuthGuard]},
+  {path: 'user/buyer/:uid/payment', component: PaymentComponent, canActivate: [AuthGuard]},
+  {path: 'user/buyer/:uid/summary', component: SummaryComponent, canActivate: [AuthGuard]},
+  {path: 'user/buyer/:uid/history', component: OrderHistoryComponent, canActivate: [AuthGuard]},
+  {path: 'user/seller/:uid/history', component: SaleHistoryComponent, canActivate: [AuthGuard]},
+  {path: 'user/seller/:uid/creditcard', component: CreditcardComponent, canActivate: [AuthGuard]},
+  {path: 'user/buyer/:uid/creditcard', component: CreditcardComponent, canActivate: [AuthGuard]},
+  {path: 'user/searchresult', component: ItemListComponent, canActivate: [AuthGuard]},
+  {path: 'user/guest/searchresult', component: ItemListComponent, canActivate: [AuthGuard]},
+  {path: 'user/guest/item/:iid', component: ItemDisplayComponent, canActivate: [AuthGuard]},
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

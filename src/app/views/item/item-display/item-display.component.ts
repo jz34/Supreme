@@ -92,12 +92,11 @@ export class ItemDisplayComponent implements OnInit {
 
     this.isDuplicate = false;
 
-
     this.user.cart.push(this.item);
 
     this.userService.updateUser(this.userId, this.user).subscribe((returnUser: any) => {
       this.sharedService.user = returnUser;
-      this.router.navigate(['/home'], {relativeTo: this.activatedRoute});
+      this.router.navigate(['loggedinhome/user'], {relativeTo: this.activatedRoute});
       window.confirm('Item added!');
     });
 

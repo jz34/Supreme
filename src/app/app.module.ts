@@ -61,7 +61,7 @@ import { SellerListingComponent } from './views/users/profile/seller-profile/sel
     HttpModule,
     routing
   ],
-  providers: [SharedService, UserService, ItemService, {provide: APP_BASE_HREF, useValue: '/'}],
+  providers: [SharedService, UserService, ItemService, AuthGuard, {provide: APP_BASE_HREF, useValue: '/'}],
   bootstrap: [AppComponent]
 })
 export class AppModule {

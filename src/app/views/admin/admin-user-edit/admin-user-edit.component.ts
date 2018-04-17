@@ -29,6 +29,7 @@ export class AdminUserEditComponent implements OnInit {
       this.userList = returnList;
       this.router.navigate(['.'], {relativeTo: this.activatedRoute});
     });
+    this.search = undefined;
   }
 
   findUser() {
@@ -41,7 +42,12 @@ export class AdminUserEditComponent implements OnInit {
 
   delete(userId) {
     this.userService.deleteUser(userId).subscribe((data: any) => {
-      this.router.navigate(['.'], {relativeTo: this.activatedRoute});
     });
+    if (this.search === undefined) {
+      this.findAllUser();
+    } else {
+      this.findUser();
+    }
+    this.router.navigate(['.'], {relativeTo: this.activatedRoute});
   }
 }
