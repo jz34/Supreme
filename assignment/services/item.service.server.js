@@ -2,7 +2,7 @@ module.exports = function (app) {
   var itemModel = require("../model/item/item.model.server");
 
   app.put("/api/item/:itemId", updateItem);
-  app.get("/api/item/item/:itemId", findItemById);
+  app.get("/api/item/:itemId", findItemById);
   app.get("/api/items/:name", findItemByName);
   app.get("/api/category/:category", findItemByCategory);
   app.get("/api/allitem", findAllItem);
