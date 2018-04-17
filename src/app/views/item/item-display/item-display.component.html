@@ -3,28 +3,42 @@
 </head>
 <body class="body-black">
 <nav class="navbar navbar-default header-margin-bottom">
+  <div *ngIf="isSeller"
+       class="alert alert-danger">
+    {{isSellerMsg}}
+  </div>
+
+  <div *ngIf="isGuest"
+       class="alert alert-danger">
+    {{isGuestMsg}}
+  </div>
+
+  <div *ngIf="isDuplicate"
+       class="alert alert-danger">
+    {{isDuplicateMsg}}
+  </div>
+
   <div class="container-fluid">
     <div class="supreme-font">
-      <a class="white_text" href=" "><i class="fa fa-chevron-left"></i></a>
+      <a class="white_text" routerLink="/user/searchresult"><i class="fa fa-chevron-left"></i></a>
       <span class="supreme-text-logo"><a class="a-no-color a-no-hover a-no-visited"
                                          routerLink="/home">S U P R E M E</a></span>
     </div>
   </div>
 </nav>
 
-<h5 class="center_text supreme-font white_text">{{item.name}}</h5>
-
 <div class="footer-padding">
-  <img class="card-img-top img-display-size center-image" src={{item.url}} alt="Card image cap">
+  <img class="card-img-top img-display-size center-image" src={{itemUrl}} alt="Card image cap">
   <div class="card-body">
     <h5 class="card-text">
       <div class="center_text">
-        <p class="supreme-font white_text">color: {{item.color}}</p>
-        <p class="supreme-font white_text">Size: {{item.size}}</p>
-        <p class="supreme-font white_text">Category: {{item.category}}</p>
-        <p class="supreme-font white_text">Price: ${{item.color}}</p>
-        <a class="btn btn-danger link-button" routerLink="../">add to cart</a>
-        <a class="btn btn-danger link-button" routerLink="loggedinhome/user">keep shopping</a>
+        <p class="supreme-font white_text">{{itemName}}</p>
+        <p class="supreme-font white_text">color: {{itemColor}}</p>
+        <p class="supreme-font white_text">Size: {{itemSize}}</p>
+        <p class="supreme-font white_text">Category: {{itemCategory}}</p>
+        <p class="supreme-font white_text">Price: ${{itemPrice}}</p>
+        <a class="btn btn-danger link-button" (click)="addToCart()" style="color: white">add to cart</a>
+        <a class="btn btn-danger link-button" routerLink="/user/searchresult">keep shopping</a>
       </div>
     </h5>
   </div>
@@ -32,7 +46,7 @@
 
 
 <div class=" card-footer footer-color fixed-bottom">
-  <a class="pull-right white_text" href=" "><i class="fa fa-user"></i></a>
+  <a class="pull-right white_text" (click)="goToProfile()"><i class="fa fa-user"></i></a>
 </div>
 </body>
 

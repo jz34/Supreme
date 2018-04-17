@@ -47,6 +47,7 @@ export class BuyerProfileComponent implements OnInit {
 
 
   logout() {
+    this.sharedService.user = '';
     this.userService.logout()
       .subscribe(
         (data: any) => this.router.navigate(['/login'])

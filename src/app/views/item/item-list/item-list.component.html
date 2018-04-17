@@ -12,18 +12,22 @@
 
   </div>
 </nav>
-<div class="card-columns" style="padding-top: 10px" *ngFor="let item of items">
-  <div class="card text-center">
-    <a (click)="display(item._id)" class="a-no-hover">
-      <img class="card-img-top" src={{item.url}}>
-    </a >
+<div class="card black-card footer-padding">
+  <div class="card-columns" style="padding: 10px">
+    <div *ngFor="let item of items">
+      <div class="card text-center">
+        <a (click)="display(item._id)" class="a-no-hover">
+          <img class="card-img-top" src={{item.url}}>
+        </a >
 
-    <div class="card-body" (click)="display(item._id)">
-      <p class="card-text">Name: {{item.name}}</p >
-      <p class="card-text">Color: {{item.color}}</p >
-      <p class="card-text">Size: {{item.size}}</p >
-      <p class="card-text">Category: {{item.category}}</p >
-      <p class="card-text">Price: ${{item.price}}</p >
+        <div class="card-body" (click)="display(item._id)">
+          <p class="card-text">Name: {{item.name}}</p >
+          <p class="card-text">Color: {{item.color}}</p >
+          <p class="card-text">Size: {{item.size}}</p >
+          <p class="card-text">Category: {{item.category}}</p >
+          <p class="card-text">Price: ${{item.price}}</p >
+        </div>
+      </div>
     </div>
   </div>
 </div>

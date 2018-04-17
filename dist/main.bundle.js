@@ -928,6 +928,7 @@ module.exports = "<head>\n  <title>home</title>\n</head>\n<body class=\"body-bla
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_item_service_client__ = __webpack_require__("./src/app/services/item.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -941,112 +942,95 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(itemService, activatedRoute, router) {
+    function HomeComponent(itemService, activatedRoute, router, sharedService) {
         this.itemService = itemService;
         this.activatedRoute = activatedRoute;
         this.router = router;
+        this.sharedService = sharedService;
         this.items = [{}];
     }
-    HomeComponent.prototype.ngOnInit = function () { };
+    HomeComponent.prototype.ngOnInit = function () {
+    };
     HomeComponent.prototype.search = function () {
         var _this = this;
         this.itemName = this.homeForm.value.searchContent;
         this.itemService.findItemByName(this.itemName).subscribe(function (returnItems) {
-            _this.items = returnItems;
-            console.log(_this.items);
+            _this.sharedService.items = returnItems;
+            console.log(_this.sharedService.items);
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     HomeComponent.prototype.searchTop = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            return _this.itemService.findItemByCategory('Top').subscribe(function (returnItems) {
-                _this.items = returnItems;
-                console.log(_this.items);
-            });
+        return this.itemService.findItemByCategory('Top').subscribe(function (returnItems) {
+            _this.sharedService.items = returnItems;
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     HomeComponent.prototype.searchSweatershirt = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            return _this.itemService.findItemByCategory('Sweatershirt').subscribe(function (returnItems) {
-                _this.items = returnItems;
-                console.log(_this.items);
-            });
+        return this.itemService.findItemByCategory('Sweatershirt').subscribe(function (returnItems) {
+            _this.sharedService.items = returnItems;
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     HomeComponent.prototype.searchAccessory = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            return _this.itemService.findItemByCategory('Accessory').subscribe(function (returnItems) {
-                _this.items = returnItems;
-                console.log(_this.items);
-            });
+        return this.itemService.findItemByCategory('Accessory').subscribe(function (returnItems) {
+            _this.sharedService.items = returnItems;
+            console.log(_this.items);
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     HomeComponent.prototype.searchJacket = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            return _this.itemService.findItemByCategory('Jacket').subscribe(function (returnItems) {
-                _this.items = returnItems;
-                console.log(_this.items);
-            });
+        return this.itemService.findItemByCategory('Jacket').subscribe(function (returnItems) {
+            _this.sharedService.items = returnItems;
+            console.log(_this.items);
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     HomeComponent.prototype.searchSkate = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            return _this.itemService.findItemByCategory('Skate').subscribe(function (returnItems) {
-                _this.items = returnItems;
-                console.log(_this.items);
-            });
+        return this.itemService.findItemByCategory('Skate').subscribe(function (returnItems) {
+            _this.sharedService.items = returnItems;
+            console.log(_this.items);
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     HomeComponent.prototype.searchPants = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            return _this.itemService.findItemByCategory('Pants').subscribe(function (returnItems) {
-                _this.items = returnItems;
-                console.log(_this.items);
-            });
+        return this.itemService.findItemByCategory('Pants').subscribe(function (returnItems) {
+            _this.sharedService.items = returnItems;
+            console.log(_this.items);
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     HomeComponent.prototype.searchBag = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            return _this.itemService.findItemByCategory('Bag').subscribe(function (returnItems) {
-                _this.items = returnItems;
-                console.log(_this.items);
-            });
+        return this.itemService.findItemByCategory('Bags').subscribe(function (returnItems) {
+            _this.sharedService.items = returnItems;
+            console.log(_this.items);
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     HomeComponent.prototype.searchHat = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            return _this.itemService.findItemByCategory('Hat').subscribe(function (returnItems) {
-                _this.items = returnItems;
-                console.log(_this.items);
-            });
+        return this.itemService.findItemByCategory('Hat').subscribe(function (returnItems) {
+            _this.sharedService.items = returnItems;
+            console.log(_this.items);
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     HomeComponent.prototype.searchShirt = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            return _this.itemService.findItemByCategory('Shirt').subscribe(function (returnItems) {
-                _this.items = returnItems;
-                console.log(_this.items);
-            });
+        return this.itemService.findItemByCategory('Shirt').subscribe(function (returnItems) {
+            _this.sharedService.items = returnItems;
+            console.log(_this.items);
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),
@@ -1060,7 +1044,8 @@ var HomeComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_item_service_client__["a" /* ItemService */],
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_4__services_shared_service__["a" /* SharedService */]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -1139,100 +1124,80 @@ var LoggedinHomeComponent = /** @class */ (function () {
         var _this = this;
         this.itemName = this.homeForm.value.searchContent;
         this.itemService.findItemByName(this.itemName).subscribe(function (returnItems) {
-            _this.items = returnItems;
-            console.log(_this.items);
+            _this.sharedService.items = returnItems;
+            console.log(_this.sharedService.items);
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     LoggedinHomeComponent.prototype.searchTop = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            return _this.itemService.findItemByCategory('Top').subscribe(function (returnItems) {
-                _this.items = returnItems;
-                console.log(_this.items);
-            });
+        return this.itemService.findItemByCategory('Top').subscribe(function (returnItems) {
+            _this.sharedService.items = returnItems;
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     LoggedinHomeComponent.prototype.searchSweatershirt = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            return _this.itemService.findItemByCategory('Sweatershirt').subscribe(function (returnItems) {
-                _this.items = returnItems;
-                console.log(_this.items);
-            });
+        return this.itemService.findItemByCategory('Sweatershirt').subscribe(function (returnItems) {
+            _this.sharedService.items = returnItems;
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     LoggedinHomeComponent.prototype.searchAccessory = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            return _this.itemService.findItemByCategory('Accessory').subscribe(function (returnItems) {
-                _this.items = returnItems;
-                console.log(_this.items);
-            });
+        return this.itemService.findItemByCategory('Accessory').subscribe(function (returnItems) {
+            _this.sharedService.items = returnItems;
+            console.log(_this.items);
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     LoggedinHomeComponent.prototype.searchJacket = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            return _this.itemService.findItemByCategory('Jacket').subscribe(function (returnItems) {
-                _this.items = returnItems;
-                console.log(_this.items);
-            });
+        return this.itemService.findItemByCategory('Jacket').subscribe(function (returnItems) {
+            _this.sharedService.items = returnItems;
+            console.log(_this.items);
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     LoggedinHomeComponent.prototype.searchSkate = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            return _this.itemService.findItemByCategory('Skate').subscribe(function (returnItems) {
-                _this.items = returnItems;
-                console.log(_this.items);
-            });
+        return this.itemService.findItemByCategory('Skate').subscribe(function (returnItems) {
+            _this.sharedService.items = returnItems;
+            console.log(_this.items);
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     LoggedinHomeComponent.prototype.searchPants = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            return _this.itemService.findItemByCategory('Pants').subscribe(function (returnItems) {
-                _this.items = returnItems;
-                console.log(_this.items);
-            });
+        return this.itemService.findItemByCategory('Pants').subscribe(function (returnItems) {
+            _this.sharedService.items = returnItems;
+            console.log(_this.items);
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     LoggedinHomeComponent.prototype.searchBag = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            return _this.itemService.findItemByCategory('Bag').subscribe(function (returnItems) {
-                _this.items = returnItems;
-                console.log(_this.items);
-            });
+        return this.itemService.findItemByCategory('Bags').subscribe(function (returnItems) {
+            _this.sharedService.items = returnItems;
+            console.log(_this.items);
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     LoggedinHomeComponent.prototype.searchHat = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            return _this.itemService.findItemByCategory('Hat').subscribe(function (returnItems) {
-                _this.items = returnItems;
-                console.log(_this.items);
-            });
+        return this.itemService.findItemByCategory('Hat').subscribe(function (returnItems) {
+            _this.sharedService.items = returnItems;
+            console.log(_this.items);
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     LoggedinHomeComponent.prototype.searchShirt = function () {
         var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            return _this.itemService.findItemByCategory('Shirt').subscribe(function (returnItems) {
-                _this.items = returnItems;
-                console.log(_this.items);
-            });
+        return this.itemService.findItemByCategory('Shirt').subscribe(function (returnItems) {
+            _this.sharedService.items = returnItems;
+            console.log(_this.items);
+            _this.router.navigate(['user/searchresult']);
         });
-        this.router.navigate(['user/searchresult']);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),
@@ -1260,7 +1225,7 @@ var LoggedinHomeComponent = /** @class */ (function () {
 /***/ "./src/app/views/item/item-display/item-display.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<head>\n  <title>item_display</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"container-fluid\">\n    <div class=\"supreme-font\">\n      <a class=\"white_text\" href=\" \"><i class=\"fa fa-chevron-left\"></i></a>\n      <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                         routerLink=\"/home\">S U P R E M E</a></span>\n    </div>\n  </div>\n</nav>\n\n<h5 class=\"center_text supreme-font white_text\">{{item.name}}</h5>\n\n<div class=\"footer-padding\">\n  <img class=\"card-img-top img-display-size center-image\" src={{item.url}} alt=\"Card image cap\">\n  <div class=\"card-body\">\n    <h5 class=\"card-text\">\n      <div class=\"center_text\">\n        <p class=\"supreme-font white_text\">color: {{item.color}}</p>\n        <p class=\"supreme-font white_text\">Size: {{item.size}}</p>\n        <p class=\"supreme-font white_text\">Category: {{item.category}}</p>\n        <p class=\"supreme-font white_text\">Price: ${{item.color}}</p>\n        <a class=\"btn btn-danger link-button\" routerLink=\"../\">add to cart</a>\n        <a class=\"btn btn-danger link-button\" routerLink=\"loggedinhome/user\">keep shopping</a>\n      </div>\n    </h5>\n  </div>\n</div>\n\n\n<div class=\" card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" href=\" \"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n\n\n"
+module.exports = "<head>\n  <title>item_display</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div *ngIf=\"isSeller\"\n       class=\"alert alert-danger\">\n    {{isSellerMsg}}\n  </div>\n\n  <div *ngIf=\"isGuest\"\n       class=\"alert alert-danger\">\n    {{isGuestMsg}}\n  </div>\n\n  <div *ngIf=\"isDuplicate\"\n       class=\"alert alert-danger\">\n    {{isDuplicateMsg}}\n  </div>\n\n  <div class=\"container-fluid\">\n    <div class=\"supreme-font\">\n      <a class=\"white_text\" routerLink=\"/user/searchresult\"><i class=\"fa fa-chevron-left\"></i></a>\n      <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                         routerLink=\"/home\">S U P R E M E</a></span>\n    </div>\n  </div>\n</nav>\n\n<div class=\"footer-padding\">\n  <img class=\"card-img-top img-display-size center-image\" src={{itemUrl}} alt=\"Card image cap\">\n  <div class=\"card-body\">\n    <h5 class=\"card-text\">\n      <div class=\"center_text\">\n        <p class=\"supreme-font white_text\">{{itemName}}</p>\n        <p class=\"supreme-font white_text\">color: {{itemColor}}</p>\n        <p class=\"supreme-font white_text\">Size: {{itemSize}}</p>\n        <p class=\"supreme-font white_text\">Category: {{itemCategory}}</p>\n        <p class=\"supreme-font white_text\">Price: ${{itemPrice}}</p>\n        <a class=\"btn btn-danger link-button\" (click)=\"addToCart()\" style=\"color: white\">add to cart</a>\n        <a class=\"btn btn-danger link-button\" routerLink=\"/user/searchresult\">keep shopping</a>\n      </div>\n    </h5>\n  </div>\n</div>\n\n\n<div class=\" card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" (click)=\"goToProfile()\"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n\n\n"
 
 /***/ }),
 
@@ -1271,7 +1236,9 @@ module.exports = "<head>\n  <title>item_display</title>\n</head>\n<body class=\"
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ItemDisplayComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_item_service_client__ = __webpack_require__("./src/app/services/item.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_item_service_client__ = __webpack_require__("./src/app/services/item.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_user_service_client__ = __webpack_require__("./src/app/services/user.service.client.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1284,19 +1251,80 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var ItemDisplayComponent = /** @class */ (function () {
-    function ItemDisplayComponent(itemService, router, activatedRoute) {
+    function ItemDisplayComponent(itemService, router, activatedRoute, sharedService, userService) {
         this.itemService = itemService;
         this.router = router;
         this.activatedRoute = activatedRoute;
+        this.sharedService = sharedService;
+        this.userService = userService;
+        this.isSeller = false;
+        this.isGuest = false;
+        this.isDuplicate = false;
+        this.isSellerMsg = 'You are not able to buy! Please Switch to Buyer account to buy!';
+        this.isGuestMsg = 'Please register to buy!';
+        this.isDuplicateMsg = 'Item has already been added to your cart';
     }
     ItemDisplayComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.user = this.sharedService.user;
+        this.userId = this.sharedService.user['_id'];
         this.activatedRoute.params.subscribe(function (params) {
             _this.iid = params['iid'];
             return _this.itemService.findItemById(_this.iid).subscribe(function (item) {
                 _this.item = item;
+                _this.itemCategory = _this.item.category;
+                _this.itemName = _this.item.name;
+                _this.itemColor = _this.item.color;
+                _this.itemUrl = _this.item.url;
+                _this.itemPrice = _this.item.price;
+                _this.itemSize = _this.item.size;
             });
+        });
+    };
+    ItemDisplayComponent.prototype.goToProfile = function () {
+        if (this.user.userType === 'Buyer') {
+            this.router.navigate(['user/buyer']);
+        }
+        if (this.user.userType === 'Seller') {
+            this.router.navigate(['user/seller']);
+        }
+        if (this.user.userType === 'Admin') {
+            this.router.navigate(['user/admin']);
+        }
+    };
+    ItemDisplayComponent.prototype.addToCart = function () {
+        var _this = this;
+        if (this.user === '') {
+            this.isGuest = true;
+            return;
+        }
+        else {
+            this.isGuest = false;
+        }
+        if (this.user.userType === 'Seller') {
+            this.isSeller = true;
+            return;
+        }
+        else {
+            this.isSeller = false;
+        }
+        for (var _i = 0; _i < this.user.cart.length; _i++) {
+            var currItem = this.user.cart[_i];
+            console.log(currItem);
+            if (currItem._id === this.item._id) {
+                this.isDuplicate = true;
+                return;
+            }
+        }
+        this.isDuplicate = false;
+        this.user.cart.push(this.item);
+        this.userService.updateUser(this.userId, this.user).subscribe(function (returnUser) {
+            _this.sharedService.user = returnUser;
+            _this.router.navigate(['/home'], { relativeTo: _this.activatedRoute });
+            window.confirm('Item added!');
         });
     };
     ItemDisplayComponent = __decorate([
@@ -1305,9 +1333,11 @@ var ItemDisplayComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/views/item/item-display/item-display.component.html"),
             styles: [__webpack_require__("./src/app/style.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_item_service_client__["a" /* ItemService */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_item_service_client__["a" /* ItemService */],
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_2__services_shared_service__["a" /* SharedService */],
+            __WEBPACK_IMPORTED_MODULE_4__services_user_service_client__["a" /* UserService */]])
     ], ItemDisplayComponent);
     return ItemDisplayComponent;
 }());
@@ -1438,7 +1468,7 @@ var ItemEditComponent = /** @class */ (function () {
 /***/ "./src/app/views/item/item-list/item-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Search Result</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" (click)=\"goHome()\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       (click)=\"goHome()\">S U P R E M E</a ></span>\n\n  </div>\n</nav>\n<div class=\"card-columns\" style=\"padding-top: 10px\" *ngFor=\"let item of items\">\n  <div class=\"card text-center\">\n    <a (click)=\"display(item._id)\" class=\"a-no-hover\">\n      <img class=\"card-img-top\" src={{item.url}}>\n    </a >\n\n    <div class=\"card-body\" (click)=\"display(item._id)\">\n      <p class=\"card-text\">Name: {{item.name}}</p >\n      <p class=\"card-text\">Color: {{item.color}}</p >\n      <p class=\"card-text\">Size: {{item.size}}</p >\n      <p class=\"card-text\">Category: {{item.category}}</p >\n      <p class=\"card-text\">Price: ${{item.price}}</p >\n    </div>\n  </div>\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" (click)=\"profile()\"><i class=\"fa fa-user\"></i></a >\n</div>\n\n</body>\n\n</html>\n"
+module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Search Result</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" (click)=\"goHome()\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       (click)=\"goHome()\">S U P R E M E</a ></span>\n\n  </div>\n</nav>\n<div class=\"card black-card footer-padding\">\n  <div class=\"card-columns\" style=\"padding: 10px\">\n    <div *ngFor=\"let item of items\">\n      <div class=\"card text-center\">\n        <a (click)=\"display(item._id)\" class=\"a-no-hover\">\n          <img class=\"card-img-top\" src={{item.url}}>\n        </a >\n\n        <div class=\"card-body\" (click)=\"display(item._id)\">\n          <p class=\"card-text\">Name: {{item.name}}</p >\n          <p class=\"card-text\">Color: {{item.color}}</p >\n          <p class=\"card-text\">Size: {{item.size}}</p >\n          <p class=\"card-text\">Category: {{item.category}}</p >\n          <p class=\"card-text\">Price: ${{item.price}}</p >\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" (click)=\"profile()\"><i class=\"fa fa-user\"></i></a >\n</div>\n\n</body>\n\n</html>\n"
 
 /***/ }),
 
@@ -1482,10 +1512,10 @@ var ItemListComponent = /** @class */ (function () {
     };
     ItemListComponent.prototype.display = function (itemId) {
         if (this.user.userType === 'Buyer' || 'Seller' || 'Admin') {
-            this.router.navigate(['user/item'], itemId);
+            this.router.navigate(['user/item', itemId]);
         }
         else {
-            this.router.navigate(['user/guest/item'], itemId);
+            this.router.navigate(['user/guest/item', itemId]);
         }
     };
     ItemListComponent.prototype.goHome = function () {
@@ -1768,6 +1798,7 @@ var BuyerProfileComponent = /** @class */ (function () {
     };
     BuyerProfileComponent.prototype.logout = function () {
         var _this = this;
+        this.sharedService.user = '';
         this.userService.logout()
             .subscribe(function (data) { return _this.router.navigate(['/login']); });
     };
@@ -1984,7 +2015,7 @@ var SellerListingComponent = /** @class */ (function () {
 /***/ "./src/app/views/users/profile/seller-profile/seller-profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html lang=\"en\" xmlns=\"http://www.w3.org/1999/html\">\n<head>\n  <title>User Profile</title>\n</head>\n<body class=\"body-pink\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" href=\" \"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\" routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n\n  </div>\n</nav>\n\n<div class=\"supreme-font footer-padding\">\n  <form (ngSubmit)=\"update()\" #f=\"ngForm\">\n    <label class=\"center-input\" style=\"padding-top:60px\">Username</label>\n    <input\n      [(ngModel)]=\"username\"\n      name=\"username\"\n      type=\"text\"\n      class=\"form-control center-input\"\n      placeholder=\"{{username}}\"/>\n    <label class=\"center-input\">First Name</label>\n    <input [(ngModel)]=\"firstName\"\n           name=\"firstName\"\n           type=\"text\"\n           class=\"form-control center-input\"\n           placeholder=\"{{firstName}}\"/>\n    <label class=\"center-input\">Last Name</label>\n    <input [(ngModel)]=\"lastName\"\n           name=\"lastName\"\n           type=\"text\"\n           class=\"form-control center-input\"\n           placeholder=\"{{lastName}}\"/>\n    <label class=\"center-input\">Phone</label>\n    <input  [(ngModel)]=\"phone\"\n            name=\"phone\"\n            type=\"text\"\n            class=\"form-control center-input\"\n            placeholder=\"{{phone}}\"/>\n    <label class=\"center-input\">Email</label>\n    <input [(ngModel)]=\"email\"\n           name=\"email\"\n           type=\"text\"\n           class=\"form-control center-input\"\n           placeholder=\"{{email}}\"/>\n    <br>\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"addNewItem()\">Sell</a >\n    <button class=\"btn btn-outline-danger btn-block center-input\" type=\"submit\" style=\"color: white\">Update</button>\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"updateCreditCard()\">Update Credit Card</a >\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"goToListing()\">Listing</a >\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"showOrderHistory()\">Order History</a >\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"logout()\">Log Out</a >\n  </form>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" routerLink=\"/user\"><i class=\"fa fa-user\"></i></a >\n</div>\n\n</body>\n"
+module.exports = "<!DOCTYPE html>\n<html lang=\"en\" xmlns=\"http://www.w3.org/1999/html\">\n<head>\n  <title>User Profile</title>\n</head>\n<body class=\"body-pink\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" href=\" \"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\" routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n\n  </div>\n</nav>\n\n<div class=\"supreme-font footer-padding\">\n  <form (ngSubmit)=\"update()\" #f=\"ngForm\">\n    <label class=\"center-input\" style=\"padding-top:60px\">Username</label>\n    <input\n      [(ngModel)]=\"username\"\n      name=\"username\"\n      type=\"text\"\n      class=\"form-control center-input\"\n      placeholder=\"{{username}}\"/>\n    <label class=\"center-input\">First Name</label>\n    <input [(ngModel)]=\"firstName\"\n           name=\"firstName\"\n           type=\"text\"\n           class=\"form-control center-input\"\n           placeholder=\"{{firstName}}\"/>\n    <label class=\"center-input\">Last Name</label>\n    <input [(ngModel)]=\"lastName\"\n           name=\"lastName\"\n           type=\"text\"\n           class=\"form-control center-input\"\n           placeholder=\"{{lastName}}\"/>\n    <label class=\"center-input\">Phone</label>\n    <input  [(ngModel)]=\"phone\"\n            name=\"phone\"\n            type=\"text\"\n            class=\"form-control center-input\"\n            placeholder=\"{{phone}}\"/>\n    <label class=\"center-input\">Email</label>\n    <input [(ngModel)]=\"email\"\n           name=\"email\"\n           type=\"text\"\n           class=\"form-control center-input\"\n           placeholder=\"{{email}}\"/>\n    <br>\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"addNewItem()\">Sell</a >\n    <button class=\"btn btn-outline-danger btn-block center-input\" type=\"submit\" style=\"color: white\">Update</button>\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"updateCreditCard()\">Update Credit Card</a >\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"goToListing()\">Listing</a >\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"showOrderHistory()\">Order History</a >\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"logout()\">Log Out</a >\n  </form>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" routerLink=\"/user/seller\"><i class=\"fa fa-user\"></i></a >\n</div>\n\n</body>\n"
 
 /***/ }),
 
@@ -2038,6 +2069,7 @@ var SellerProfileComponent = /** @class */ (function () {
     };
     SellerProfileComponent.prototype.logout = function () {
         var _this = this;
+        this.sharedService.user = '';
         this.userService.logout()
             .subscribe(function (data) { return _this.router.navigate(['/login']); });
     };

@@ -49,7 +49,8 @@ function updateUser(userId, user) {
           cardNumber: user.cardNumber,
           cvv: user.cvv,
           city: user.city,
-          expirationDate: user.expirationDate
+          expirationDate: user.expirationDate,
+          cart: user.cart
         }
       }
     );

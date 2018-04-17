@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
 import {ItemService} from '../../services/item.service.client';
+import {SharedService} from '../../services/shared.service';
 
 @Component({
   selector: 'app-home',
@@ -16,125 +17,90 @@ export class HomeComponent implements OnInit {
 
   constructor(private itemService: ItemService,
               private activatedRoute: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private sharedService: SharedService) {
+  }
 
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   search() {
     this.itemName = this.homeForm.value.searchContent;
     this.itemService.findItemByName(this.itemName).subscribe((returnItems: any) => {
-      this.items = returnItems;
-      console.log(this.items);
+      this.sharedService.items = returnItems;
+      console.log(this.sharedService.items);
+      this.router.navigate(['user/searchresult']);
     });
-    this.router.navigate(['user/searchresult']);
   }
 
   searchTop() {
-    this.activatedRoute.params.subscribe(
-      params => {
-        return this.itemService.findItemByCategory('Top').subscribe((returnItems: any) => {
-          this.items = returnItems;
-          console.log(this.items);
-        });
-      }
-    );
-    this.router.navigate(['user/searchresult']);
+    return this.itemService.findItemByCategory('Top').subscribe((returnItems: any) => {
+      this.sharedService.items = returnItems;
+      this.router.navigate(['user/searchresult']);
+    });
   }
 
   searchSweatershirt() {
-    this.activatedRoute.params.subscribe(
-      params => {
-        return this.itemService.findItemByCategory('Sweatershirt').subscribe((returnItems: any) => {
-          this.items = returnItems;
-          console.log(this.items);
-        });
-      }
-    );
-    this.router.navigate(['user/searchresult']);
+    return this.itemService.findItemByCategory('Sweatershirt').subscribe((returnItems: any) => {
+      this.sharedService.items = returnItems;
+      this.router.navigate(['user/searchresult']);
+    });
   }
 
   searchAccessory() {
-    this.activatedRoute.params.subscribe(
-      params => {
-        return this.itemService.findItemByCategory('Accessory').subscribe((returnItems: any) => {
-          this.items = returnItems;
-          console.log(this.items);
-        });
-      }
-    );
-    this.router.navigate(['user/searchresult']);
+    return this.itemService.findItemByCategory('Accessory').subscribe((returnItems: any) => {
+      this.sharedService.items = returnItems;
+      console.log(this.items);
+      this.router.navigate(['user/searchresult']);
+    });
   }
 
   searchJacket() {
-    this.activatedRoute.params.subscribe(
-      params => {
-        return this.itemService.findItemByCategory('Jacket').subscribe((returnItems: any) => {
-          this.items = returnItems;
-          console.log(this.items);
-        });
-      }
-    );
-    this.router.navigate(['user/searchresult']);
+    return this.itemService.findItemByCategory('Jacket').subscribe((returnItems: any) => {
+      this.sharedService.items = returnItems;
+      console.log(this.items);
+      this.router.navigate(['user/searchresult']);
+    });
   }
 
   searchSkate() {
-    this.activatedRoute.params.subscribe(
-      params => {
-        return this.itemService.findItemByCategory('Skate').subscribe((returnItems: any) => {
-          this.items = returnItems;
-          console.log(this.items);
-        });
-      }
-    );
-    this.router.navigate(['user/searchresult']);
+    return this.itemService.findItemByCategory('Skate').subscribe((returnItems: any) => {
+      this.sharedService.items = returnItems;
+      console.log(this.items);
+      this.router.navigate(['user/searchresult']);
+    });
   }
 
   searchPants() {
-    this.activatedRoute.params.subscribe(
-      params => {
-        return this.itemService.findItemByCategory('Pants').subscribe((returnItems: any) => {
-          this.items = returnItems;
-          console.log(this.items);
-        });
-      }
-    );
-    this.router.navigate(['user/searchresult']);
+    return this.itemService.findItemByCategory('Pants').subscribe((returnItems: any) => {
+      this.sharedService.items = returnItems;
+      console.log(this.items);
+      this.router.navigate(['user/searchresult']);
+    });
   }
 
   searchBag() {
-    this.activatedRoute.params.subscribe(
-      params => {
-        return this.itemService.findItemByCategory('Bag').subscribe((returnItems: any) => {
-          this.items = returnItems;
-          console.log(this.items);
-        });
-      }
-    );
-    this.router.navigate(['user/searchresult']);
+    return this.itemService.findItemByCategory('Bags').subscribe((returnItems: any) => {
+      this.sharedService.items = returnItems;
+      console.log(this.items);
+      this.router.navigate(['user/searchresult']);
+    });
   }
 
   searchHat() {
-    this.activatedRoute.params.subscribe(
-      params => {
-        return this.itemService.findItemByCategory('Hat').subscribe((returnItems: any) => {
-          this.items = returnItems;
-          console.log(this.items);
-        });
-      }
-    );
-    this.router.navigate(['user/searchresult']);
+    return this.itemService.findItemByCategory('Hat').subscribe((returnItems: any) => {
+      this.sharedService.items = returnItems;
+      console.log(this.items);
+      this.router.navigate(['user/searchresult']);
+    });
   }
 
   searchShirt() {
-    this.activatedRoute.params.subscribe(
-      params => {
-        return this.itemService.findItemByCategory('Shirt').subscribe((returnItems: any) => {
-          this.items = returnItems;
-          console.log(this.items);
-        });
-      }
-    );
-    this.router.navigate(['user/searchresult']);
+    return this.itemService.findItemByCategory('Shirt').subscribe((returnItems: any) => {
+      this.sharedService.items = returnItems;
+      console.log(this.items);
+      this.router.navigate(['user/searchresult']);
+    });
   }
 }

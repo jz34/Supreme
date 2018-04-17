@@ -30,9 +30,9 @@ export class ItemListComponent implements OnInit {
 
   display(itemId) {
     if (this.user.userType === 'Buyer' || 'Seller' || 'Admin') {
-      this.router.navigate(['user/item'], itemId);
+      this.router.navigate(['user/item', itemId]);
     } else {
-      this.router.navigate(['user/guest/item'], itemId);
+      this.router.navigate(['user/guest/item', itemId]);
     }
   }
 
