@@ -17,7 +17,7 @@ export class ItemEditComponent implements OnInit {
   name: String;
   color: String;
   price: Number;
-  imgurl: String;
+  url: String;
   category: String;
   size: String;
   errorFlag: boolean;
@@ -37,22 +37,21 @@ export class ItemEditComponent implements OnInit {
         (params: any) => {
           this.itemId = params['iid'];
           if (this.itemId !== undefined) {
-            return this.itemService.findItemById(this.itemId).subscribe((returnItem: any) => {
+            this.itemService.findItemById(this.itemId).subscribe((returnItem: any) => {
               this.item = returnItem;
               this.name = this.item.name;
-              this.color = this.item.text;
+              this.color = this.item.color;
               this.price = this.item.price;
-              this.imgurl = this.item.imgurl;
+              this.url = this.item.url;
               this.category = this.item.category;
               this.size = this.item.size;
-
             });
           } else {
-            this.item = {name: 'name', price: 0.0, color: 'color', imgurl: 'url', category: '', size: ''};
+            this.item = {name: '', price: '', color: '', url: '', category: '', size: ''};
             this.name = this.item.name;
             this.color = this.item.color;
             this.price = this.item.price;
-            this.imgurl = this.item.imgurl;
+            this.url = this.item.url;
             this.category = this.item.category;
             this.size = this.item.size;
           }
@@ -64,19 +63,19 @@ export class ItemEditComponent implements OnInit {
     this.item.name = this.loginForm.value.name;
     this.item.color = this.loginForm.value.color;
     this.item.price = this.loginForm.value.price;
-    this.item.imgurl = this.loginForm.value.imgurl;
+    this.item.url = this.loginForm.value.url;
     this.item.category = this.loginForm.value.category;
     this.item.size = this.loginForm.value.size;
 
     if (this.itemId !== undefined) {
       return this.itemService.updateItem(this.itemId, this.item).subscribe((returnItem: any) => {
-        this.router.navigate(['../'], {relativeTo: this.activatedRoute});
+        this.router.navigate(['/user/seller/listing'], {relativeTo: this.activatedRoute});
       });
     } else {
       return this.itemService.createItem(this.sellerId, this.item.name, this.item.price,
-        this.item.color, this.item.size, this.item.category, this.item.imgurl).subscribe((returnItem: any) => {
+        this.item.color, this.item.size, this.item.category, this.item.url).subscribe((returnItem: any) => {
         this.item = returnItem;
-        this.router.navigate(['../'], {relativeTo: this.activatedRoute});
+        this.router.navigate(['/user/seller']);
       });
 
     }
@@ -84,10 +83,12 @@ export class ItemEditComponent implements OnInit {
 
   delete() {
     if (this.itemId !== undefined) {
-      return this.itemService.deleteItem(this.itemId).subscribe((returnItem: any) => {
+      this.itemService.deleteItem(this.itemId).subscribe((returnItem: any) => {
       });
+      this.router.navigate(['/user/seller/listing']);
+
     } else {
-      this.router.navigate(['../../'], {relativeTo: this.activatedRoute});
+      this.router.navigate(['/user/seller']);
     }
   }
 }

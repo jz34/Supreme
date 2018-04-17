@@ -33,18 +33,23 @@
   </a>
 </div>
 
-<div style="margin-top: 10px">
-  <div>
-    <form class="form-inline" style="padding-left: 30%" (ngSubmit)="search()" #f="ngForm">
-      <input class="col-7 form-control"
-             type="text"
-             placeholder="Search.."
-             name="searchContent"
-             [(ngModel)]="searchContent">
-      <button type="submit"><i class="fa fa-search"></i></button>
+<div class="row justify-content-center" style="margin-top: 10px">
+  <div class="col-8">
+    <form (ngSubmit)="search()" #f="ngForm">
+      <div class="input-group">
+        <input class="form-control"
+               type="text"
+               placeholder="Search..."
+               name="searchContent"
+               [(ngModel)]="searchContent">
+        <span class="input-group-btn">
+        <button class="btn btn-danger" type="submit">Go</button>
+      </span>
+      </div>
     </form>
   </div>
 </div>
+
 
 <div class="card-columns" style="padding-top: 10px">
   <div class="card text-center">
