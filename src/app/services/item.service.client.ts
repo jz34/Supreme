@@ -70,4 +70,25 @@ export class ItemService {
       return response.json();
     });
   }
+
+  findItemBySellerId(userId) {
+    const url = this.baseUrl + '/api/salehistory/' + userId;
+    return this.http.get(url).map((response: Response) => {
+      return response.json();
+    });
+  }
+
+  findItemByBuyerId(userId) {
+    const url = this.baseUrl + '/api/orderhistory/' + userId;
+    return this.http.get(url).map((response: Response) => {
+      return response.json();
+    });
+  }
+
+  findSellerListing(userId) {
+    const url = this.baseUrl + '/api/sellerlisting/' + userId;
+    return this.http.get(url).map((response: Response) => {
+      return response.json();
+    });
+  }
 }

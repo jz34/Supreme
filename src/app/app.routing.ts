@@ -19,6 +19,7 @@ import { SaleHistoryComponent } from './views/users/profile/seller-profile/sale-
 import { AdminProfileComponent } from './views/admin/admin-profile/admin-profile.component';
 import { LoggedinHomeComponent } from './views/home/loggedin-home/loggedin-home.component';
 import { CreditcardComponent } from './views/users/creditcard/creditcard.component';
+import {SellerListingComponent} from './views/users/profile/seller-profile/seller-listing/seller-listing.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
   {path: 'user/admin/edititem', component: AdminItemEditComponent},
   {path: 'user/admin/edituser', component: AdminUserEditComponent},
   {path: 'user/seller/new', component: ItemEditComponent},
+  {path: 'user/seller/listing', component: SellerListingComponent},
   {path: 'user/seller/item/:iid', component: ItemEditComponent},
   {path: 'user/item/:iid', component: ItemDisplayComponent},
   {path: 'user/buyer/:uid/cart', component: CartComponent},

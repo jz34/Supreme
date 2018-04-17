@@ -8,6 +8,34 @@ module.exports = function (app) {
   app.get("/api/allitem", findAllItem);
   app.post("/api/item", createItem);
   app.delete("/api/item/:itemId", deleteItem);
+  app.get("/api/orderhistory/:userId", findItemByBuyerId);
+  app.get("/api/salehistory/:userId", findItemBySellerId);
+  app.get("/api/sellerlisting/:userId", findSellerListing);
+
+  function findItemByBuyerId(req, res) {
+    var uid = req.params.userId;
+    itemModel.findItemByBuyerId(uid)
+      .then(function (itemList) {
+        res.json(itemList);
+      });
+  }
+
+  function findItemBySellerId(req, res) {
+    var uid = req.params.userId;
+    itemModel.findItemBySellerId(uid)
+      .then(function (itemList) {
+        res.json(itemList);
+      });
+  }
+
+
+  function findSellerListing(req, res) {
+    var uid = req.params.userId;
+    itemModel.findSellerListing(uid)
+      .then(function (itemList) {
+      res.json(itemList);
+    });
+  }
 
   function createItem(req, res) {
     var newItem = req.body;

@@ -1,3 +1,37 @@
-<p>
-  seller-listing works!
-</p>
+<head>
+  <title>Edit Item</title>
+</head>
+
+<body class="body-black">
+<nav class="navbar navbar-default header-margin-bottom">
+  <div class="supreme-font">
+    <a class="white_text" routerLink="../"><i class="fa fa-chevron-left"></i></a>
+    <span class="supreme-text-logo"><a class="a-no-color a-no-hover a-no-visited"
+                                       href=" ">S U P R E M E</a></span>
+  </div>
+</nav>
+
+<div class="card col-lg-10 col-md-12 col-sm-12 col-xs-12 black-card full-border footer-padding">
+  <div class="card-columns" style="padding: 10px">
+    <div class="card text-center" *ngFor="let item of itemList">
+      <img class="card-img-top" src={{item.url}} alt="Card image cap">
+      <div class="card-body item-text">
+        Name: {{item.name}}<br>
+        Color: {{item.color}}<br>
+        Size: {{item.size}}<br>
+        Price: ${{item.price}}<br>
+        Seller ID: {{item._seller}}<br>
+        <label class="btn btn-outline-danger btn-block center_input supreme-font"
+               (click)="goToEdit(item._id)">Edit</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="card-footer footer-color fixed-bottom">
+  <a class="pull-right white_text" href=" "><i class="fa fa-user"></i></a>
+</div>
+</body>
+
+

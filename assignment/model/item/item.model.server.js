@@ -9,14 +9,29 @@ Item.updateItem = updateItem;
 Item.findItemByCategory = findItemByCategory;
 Item.findItemByName = findItemByName;
 Item.findAll = findAll;
+Item.findItemBySellerId = findItemBySellerId;
+Item.findItemByBuyerId = findItemByBuyerId;
+Item.findSellerListing = findSellerListing;
+
 
 function findAll() {
   return Item.find();
 }
+function findItemBySellerId(userId) {
+  return Item.find({_seller: userId});
+}
+
+function findItemByBuyerId(userId) {
+  return Item.find({_buyer: userId});
+}
+
+//要测试
+function findSellerListing(userId) {
+  return Item.find({_seller: userId, _buyer: undefined});
+}
 
 function findItemByName(name) {
-  return Item.find({'name': {'$regex': name}});
-}
+  return Item.find({'name': {'$regex': name}});}
 
 function findItemById(itemId) {
   return Item.findById({_id: itemId});
@@ -37,7 +52,7 @@ function updateItem(itemId, item) {
           url: item.url,
           category: item.category,
           size: item.size,
-          isRecommended: item.isRecommended
+          url: item.imgurl
         }
       }
     );

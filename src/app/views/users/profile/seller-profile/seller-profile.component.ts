@@ -41,7 +41,6 @@ export class SellerProfileComponent implements OnInit {
           this.lastName = this.user.lastName;
           this.password = this.user.password;
           this.phone = this.user.phone;
-          console.log(this.user);
         }
       );
     });
@@ -76,6 +75,9 @@ export class SellerProfileComponent implements OnInit {
   }
   addNewItem() {
     this.router.navigate(['user/seller/new']);
+  }
 
+  goToListing() {
+    this.router.navigate(['user/seller/listing']);
   }
 }
