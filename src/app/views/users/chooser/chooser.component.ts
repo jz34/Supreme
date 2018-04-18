@@ -49,12 +49,10 @@ export class ChooserComponent implements OnInit {
     this.userService.findUserByUsername(this.username).subscribe((returnUser: any) => {
       if (returnUser) {
         this.duplicateUsername = true;
-        return;
-      } else {
-        this.user.username = this.username;
-        this.duplicateUsername = false;
       }
     });
+
+    if (this.duplicateUsername) { return; }
 
     this.user.userType = this.userType;
 

@@ -1679,13 +1679,11 @@ var ChooserComponent = /** @class */ (function () {
         this.userService.findUserByUsername(this.username).subscribe(function (returnUser) {
             if (returnUser) {
                 _this.duplicateUsername = true;
-                return;
-            }
-            else {
-                _this.user.username = _this.username;
-                _this.duplicateUsername = false;
             }
         });
+        if (this.duplicateUsername) {
+            return;
+        }
         this.user.userType = this.userType;
         console.log(this.username);
         this.userService.updateUser(this.userId, this.user).subscribe(function (returnUser) {
