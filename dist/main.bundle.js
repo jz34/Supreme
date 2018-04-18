@@ -1677,7 +1677,7 @@ var ChooserComponent = /** @class */ (function () {
         }
         this.username = this.loginForm.value.username;
         this.userService.findUserByUsername(this.username).subscribe(function (returnUser) {
-            if (returnUser) {
+            if (returnUser !== undefined) {
                 _this.duplicateUsername = true;
             }
         });
@@ -1685,7 +1685,7 @@ var ChooserComponent = /** @class */ (function () {
             return;
         }
         this.user.userType = this.userType;
-        console.log(this.username);
+        console.log(this.duplicateUsername);
         this.userService.updateUser(this.userId, this.user).subscribe(function (returnUser) {
             _this.sharedService.user = returnUser;
             _this.router.navigate(['/user', _this.userType.toLowerCase()], { relativeTo: _this.activatedRoute });

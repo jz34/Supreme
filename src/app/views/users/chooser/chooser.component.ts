@@ -47,7 +47,7 @@ export class ChooserComponent implements OnInit {
     this.username = this.loginForm.value.username;
 
     this.userService.findUserByUsername(this.username).subscribe((returnUser: any) => {
-      if (returnUser) {
+      if (returnUser !== undefined) {
         this.duplicateUsername = true;
       }
     });
@@ -56,8 +56,7 @@ export class ChooserComponent implements OnInit {
 
     this.user.userType = this.userType;
 
-
-    console.log(this.username);
+    console.log(this.duplicateUsername);
 
     this.userService.updateUser(this.userId, this.user).subscribe((returnUser: any) => {
       this.sharedService.user = returnUser;
