@@ -48,15 +48,15 @@ export class ChooserComponent implements OnInit {
 
     this.userService.findUserByUsername(this.username).subscribe((returnUser: any) => {
       if (returnUser !== undefined) {
+        console.log(returnUser);
         this.duplicateUsername = true;
+        console.log(this.duplicateUsername);
       }
     });
 
     if (this.duplicateUsername) { return; }
 
     this.user.userType = this.userType;
-
-    console.log(this.duplicateUsername);
 
     this.userService.updateUser(this.userId, this.user).subscribe((returnUser: any) => {
       this.sharedService.user = returnUser;

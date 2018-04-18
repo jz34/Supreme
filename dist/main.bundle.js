@@ -1619,7 +1619,7 @@ var ItemListComponent = /** @class */ (function () {
 /***/ "./src/app/views/users/chooser/chooser.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<head>\n  <title>Chooser</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div *ngIf=\"duplicateUsername\"\n       class=\"alert alert-danger\">\n    \"Username is already in use!\"\n  </div>\n  <div class=\"supreme-font\">\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\">S U P R E M E</a></span>\n  </div>\n</nav>\n\n<div class=\"center_text footer-padding\">\n  <div class=\"center_input input_padding\">\n    <form (ngSubmit)=\"updateTypeAndUsername()\" #f=\"ngForm\" class=\"center_input input_padding\">\n      <span><h5 class=\"supreme-font\">Specify your username</h5></span>\n      <input placeholder=\"Username\"\n             name=\"username\"\n             type=\"text\"\n             class=\"form-control center_input\"\n             ngModel\n             required\n             #username=\"ngModel\"/>\n      <span class=\"help-block center_input supreme-font\"\n            *ngIf=\"!username.valid && username.touched\"\n            style=\"color: white\">\n      Please enter username!\n      </span>\n      <br>\n      <br>\n      <span><h5 class=\"supreme-font\">Select your account type</h5></span>\n      <select name=\"userType\" style=\"margin-bottom: 20px\" [(ngModel)]=\"userType\">\n        <option>Seller</option>\n        <option>Buyer</option>\n      </select>\n      <span class=\"help-block center_input supreme-font\"\n            *ngIf=\"!hasUserType\"\n            style=\"color: white\">\n      Please select type!\n      </span>\n      <br>\n      <br>\n      <button type=\"submit\" class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\"\n              [disabled]=\"!f.valid\">Submit\n      </button>\n    </form>\n  </div>\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n"
+module.exports = "<head>\n  <title>Chooser</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div *ngIf=\"duplicateUsername\"\n       class=\"alert alert-danger\">\n    Username is already in use!\n  </div>\n  <div class=\"supreme-font\">\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\">S U P R E M E</a></span>\n  </div>\n</nav>\n\n<div class=\"center_text footer-padding\">\n  <div class=\"center_input input_padding\">\n    <form (ngSubmit)=\"updateTypeAndUsername()\" #f=\"ngForm\" class=\"center_input input_padding\">\n      <span><h5 class=\"supreme-font\">Specify your username</h5></span>\n      <input placeholder=\"Username\"\n             name=\"username\"\n             type=\"text\"\n             class=\"form-control center_input\"\n             ngModel\n             required\n             #username=\"ngModel\"/>\n      <span class=\"help-block center_input supreme-font\"\n            *ngIf=\"!username.valid && username.touched\"\n            style=\"color: white\">\n      Please enter username!\n      </span>\n      <br>\n      <br>\n      <span><h5 class=\"supreme-font\">Select your account type</h5></span>\n      <select name=\"userType\" style=\"margin-bottom: 20px\" [(ngModel)]=\"userType\">\n        <option>Seller</option>\n        <option>Buyer</option>\n      </select>\n      <span class=\"help-block center_input supreme-font\"\n            *ngIf=\"!hasUserType\"\n            style=\"color: white\">\n      Please select type!\n      </span>\n      <br>\n      <br>\n      <button type=\"submit\" class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\"\n              [disabled]=\"!f.valid\">Submit\n      </button>\n    </form>\n  </div>\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -1678,14 +1678,15 @@ var ChooserComponent = /** @class */ (function () {
         this.username = this.loginForm.value.username;
         this.userService.findUserByUsername(this.username).subscribe(function (returnUser) {
             if (returnUser !== undefined) {
+                console.log(returnUser);
                 _this.duplicateUsername = true;
+                console.log(_this.duplicateUsername);
             }
         });
         if (this.duplicateUsername) {
             return;
         }
         this.user.userType = this.userType;
-        console.log(this.duplicateUsername);
         this.userService.updateUser(this.userId, this.user).subscribe(function (returnUser) {
             _this.sharedService.user = returnUser;
             _this.router.navigate(['/user', _this.userType.toLowerCase()], { relativeTo: _this.activatedRoute });
