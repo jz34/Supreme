@@ -52,7 +52,6 @@ export class ChooserComponent implements OnInit {
         return;
       }
     });
-    return;
 
     if (this.duplicateUsername) { return; }
 
