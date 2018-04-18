@@ -1,8 +1,8 @@
 module.exports = function (app) {
   var facebookConfig = {
-    clientID: '1329664757133224',
-    clientSecret: 'b1f9918a53961d23ba3f308885d76a99',
-    callbackURL: 'https://cs5610-webdev-yujunm.herokuapp.com/auth/facebook/callback'
+    clientID     : process.env.FACEBOOK_CLIENT_ID,
+    clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+    callbackURL  : process.env.FACEBOOK_CALLBACK_URL
   };
 
   app.put("/api/user/:userId", updateUser);
@@ -32,7 +32,7 @@ module.exports = function (app) {
       successRedirect: '/profile',
       failureRedirect: '/login'
     }));
-  app.get('/facebook/login', passport.authenticate('facebook', {scope: ['email']}));
+  app.get('/api/facebook', passport.authenticate('facebook', {scope: ['email']}));
 
   passport.serializeUser(serializeUser);
   passport.deserializeUser(deserializeUser);

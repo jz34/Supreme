@@ -97,12 +97,14 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__services_item_service_client__ = __webpack_require__("./src/app/services/item.service.client.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__views_users_profile_seller_profile_seller_listing_seller_listing_component__ = __webpack_require__("./src/app/views/users/profile/seller-profile/seller-listing/seller-listing.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__services_auth_guard_service__ = __webpack_require__("./src/app/services/auth-guard.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -167,7 +169,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_27__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_2__app_routing__["a" /* routing */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_24__services_shared_service__["a" /* SharedService */], __WEBPACK_IMPORTED_MODULE_23__services_user_service_client__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_28__services_item_service_client__["a" /* ItemService */], { provide: __WEBPACK_IMPORTED_MODULE_25__angular_common__["a" /* APP_BASE_HREF */], useValue: '/' }],
+            providers: [__WEBPACK_IMPORTED_MODULE_24__services_shared_service__["a" /* SharedService */], __WEBPACK_IMPORTED_MODULE_23__services_user_service_client__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_28__services_item_service_client__["a" /* ItemService */], __WEBPACK_IMPORTED_MODULE_30__services_auth_guard_service__["a" /* AuthGuard */], { provide: __WEBPACK_IMPORTED_MODULE_25__angular_common__["a" /* APP_BASE_HREF */], useValue: '/' }],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -203,6 +205,8 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__views_home_loggedin_home_loggedin_home_component__ = __webpack_require__("./src/app/views/home/loggedin-home/loggedin-home.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__views_users_creditcard_creditcard_component__ = __webpack_require__("./src/app/views/users/creditcard/creditcard.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__views_users_profile_seller_profile_seller_listing_seller_listing_component__ = __webpack_require__("./src/app/views/users/profile/seller-profile/seller-listing/seller-listing.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__ = __webpack_require__("./src/app/services/auth-guard.service.ts");
+
 
 
 
@@ -226,30 +230,69 @@ var AppModule = /** @class */ (function () {
 var appRoutes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: __WEBPACK_IMPORTED_MODULE_13__views_home_home_component__["a" /* HomeComponent */] },
-    { path: 'loggedinhome/user', component: __WEBPACK_IMPORTED_MODULE_17__views_home_loggedin_home_loggedin_home_component__["a" /* LoggedinHomeComponent */] },
+    { path: 'loggedinhome/user', component: __WEBPACK_IMPORTED_MODULE_17__views_home_loggedin_home_loggedin_home_component__["a" /* LoggedinHomeComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_1__views_users_login_login_component__["a" /* LoginComponent */] },
     { path: 'register', component: __WEBPACK_IMPORTED_MODULE_2__views_users_register_register_component__["a" /* RegisterComponent */] },
-    { path: 'user/admin', component: __WEBPACK_IMPORTED_MODULE_16__views_admin_admin_profile_admin_profile_component__["a" /* AdminProfileComponent */] },
-    { path: 'user/buyer', component: __WEBPACK_IMPORTED_MODULE_7__views_users_profile_buyer_profile_buyer_profile_component__["a" /* BuyerProfileComponent */] },
-    { path: 'user/seller', component: __WEBPACK_IMPORTED_MODULE_8__views_users_profile_seller_profile_seller_profile_component__["a" /* SellerProfileComponent */] },
-    { path: 'user/admin/edititem', component: __WEBPACK_IMPORTED_MODULE_3__views_admin_admin_item_edit_admin_item_edit_component__["a" /* AdminItemEditComponent */] },
-    { path: 'user/admin/edituser', component: __WEBPACK_IMPORTED_MODULE_4__views_admin_admin_user_edit_admin_user_edit_component__["a" /* AdminUserEditComponent */] },
-    { path: 'user/seller/new', component: __WEBPACK_IMPORTED_MODULE_5__views_item_item_edit_item_edit_component__["a" /* ItemEditComponent */] },
-    { path: 'user/seller/listing', component: __WEBPACK_IMPORTED_MODULE_19__views_users_profile_seller_profile_seller_listing_seller_listing_component__["a" /* SellerListingComponent */] },
-    { path: 'user/seller/item/:iid', component: __WEBPACK_IMPORTED_MODULE_5__views_item_item_edit_item_edit_component__["a" /* ItemEditComponent */] },
-    { path: 'user/item/:iid', component: __WEBPACK_IMPORTED_MODULE_6__views_item_item_display_item_display_component__["a" /* ItemDisplayComponent */] },
-    { path: 'user/buyer/:uid/cart', component: __WEBPACK_IMPORTED_MODULE_9__views_checkout_cart_cart_component__["a" /* CartComponent */] },
-    { path: 'user/buyer/:uid/payment', component: __WEBPACK_IMPORTED_MODULE_10__views_checkout_payment_payment_component__["a" /* PaymentComponent */] },
-    { path: 'user/buyer/:uid/summary', component: __WEBPACK_IMPORTED_MODULE_11__views_checkout_summary_summary_component__["a" /* SummaryComponent */] },
-    { path: 'user/buyer/:uid/history', component: __WEBPACK_IMPORTED_MODULE_12__views_users_profile_buyer_profile_order_history_order_history_component__["a" /* OrderHistoryComponent */] },
-    { path: 'user/seller/:uid/history', component: __WEBPACK_IMPORTED_MODULE_15__views_users_profile_seller_profile_sale_history_sale_history_component__["a" /* SaleHistoryComponent */] },
-    { path: 'user/seller/:uid/creditcard', component: __WEBPACK_IMPORTED_MODULE_18__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */] },
-    { path: 'user/buyer/:uid/creditcard', component: __WEBPACK_IMPORTED_MODULE_18__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */] },
-    { path: 'user/searchresult', component: __WEBPACK_IMPORTED_MODULE_14__views_item_item_list_item_list_component__["a" /* ItemListComponent */] },
-    { path: 'user/guest/searchresult', component: __WEBPACK_IMPORTED_MODULE_14__views_item_item_list_item_list_component__["a" /* ItemListComponent */] },
-    { path: 'user/guest/item/:iid', component: __WEBPACK_IMPORTED_MODULE_6__views_item_item_display_item_display_component__["a" /* ItemDisplayComponent */] },
+    { path: 'user/admin', component: __WEBPACK_IMPORTED_MODULE_16__views_admin_admin_profile_admin_profile_component__["a" /* AdminProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/buyer', component: __WEBPACK_IMPORTED_MODULE_7__views_users_profile_buyer_profile_buyer_profile_component__["a" /* BuyerProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/seller', component: __WEBPACK_IMPORTED_MODULE_8__views_users_profile_seller_profile_seller_profile_component__["a" /* SellerProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/admin/edititem', component: __WEBPACK_IMPORTED_MODULE_3__views_admin_admin_item_edit_admin_item_edit_component__["a" /* AdminItemEditComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/admin/edituser', component: __WEBPACK_IMPORTED_MODULE_4__views_admin_admin_user_edit_admin_user_edit_component__["a" /* AdminUserEditComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/seller/new', component: __WEBPACK_IMPORTED_MODULE_5__views_item_item_edit_item_edit_component__["a" /* ItemEditComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/seller/listing', component: __WEBPACK_IMPORTED_MODULE_19__views_users_profile_seller_profile_seller_listing_seller_listing_component__["a" /* SellerListingComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/seller/item/:iid', component: __WEBPACK_IMPORTED_MODULE_5__views_item_item_edit_item_edit_component__["a" /* ItemEditComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/item/:iid', component: __WEBPACK_IMPORTED_MODULE_6__views_item_item_display_item_display_component__["a" /* ItemDisplayComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/buyer/:uid/cart', component: __WEBPACK_IMPORTED_MODULE_9__views_checkout_cart_cart_component__["a" /* CartComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/buyer/:uid/payment', component: __WEBPACK_IMPORTED_MODULE_10__views_checkout_payment_payment_component__["a" /* PaymentComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/buyer/:uid/summary', component: __WEBPACK_IMPORTED_MODULE_11__views_checkout_summary_summary_component__["a" /* SummaryComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/buyer/:uid/history', component: __WEBPACK_IMPORTED_MODULE_12__views_users_profile_buyer_profile_order_history_order_history_component__["a" /* OrderHistoryComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/seller/:uid/history', component: __WEBPACK_IMPORTED_MODULE_15__views_users_profile_seller_profile_sale_history_sale_history_component__["a" /* SaleHistoryComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/seller/:uid/creditcard', component: __WEBPACK_IMPORTED_MODULE_18__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/buyer/:uid/creditcard', component: __WEBPACK_IMPORTED_MODULE_18__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/searchresult', component: __WEBPACK_IMPORTED_MODULE_14__views_item_item_list_item_list_component__["a" /* ItemListComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/guest/searchresult', component: __WEBPACK_IMPORTED_MODULE_14__views_item_item_list_item_list_component__["a" /* ItemListComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/guest/item/:iid', component: __WEBPACK_IMPORTED_MODULE_6__views_item_item_display_item_display_component__["a" /* ItemDisplayComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_20__services_auth_guard_service__["a" /* AuthGuard */]] },
 ];
 var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["c" /* RouterModule */].forRoot(appRoutes);
+
+
+/***/ }),
+
+/***/ "./src/app/services/auth-guard.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthGuard; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_service_client__ = __webpack_require__("./src/app/services/user.service.client.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AuthGuard = /** @class */ (function () {
+    function AuthGuard(userService, router) {
+        this.userService = userService;
+        this.router = router;
+    }
+    AuthGuard.prototype.canActivate = function () {
+        return this.userService.loggedIn();
+    };
+    AuthGuard = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__user_service_client__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
+    ], AuthGuard);
+    return AuthGuard;
+}());
+
 
 
 /***/ }),
@@ -1673,7 +1716,7 @@ var CreditcardComponent = /** @class */ (function () {
 /***/ "./src/app/views/users/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<head>\n  <title>login</title>\n</head>\n<body class=\"body-black\">\n\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a>\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/home\">S U P R E M E</a></span>\n  </div>\n</nav>\n\n<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger\">\n  {{errorMsg}}\n</div>\n<div class=\"supreme-font footer-padding\">\n  <p class=\"center_text\">Login</p>\n  <form (ngSubmit)=\"login()\" #f=\"ngForm\">\n    <label class=\"center_input white_text\">Username</label>\n    <input placeholder=\"Username\"\n           name=\"username\"\n           type=\"text\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #username=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!username.valid && username.touched\">\n      Please enter username!\n      </span>\n    <label class=\"center_input white_text\">Password</label>\n    <input placeholder=\"Password\"\n           name=\"password\"\n           type=\"password\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #password=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!password.valid && password.touched\">\n      Please enter password!\n      </span>\n    <div>\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" type=\"submit\"\n              [disabled]=\"!f.valid\">\n        Login\n      </button>\n\n      <button class=\"btn btn-outline-danger btn-block center_input\" type=\"button\" (click)=\"register()\"\n              style=\"color: white\">Register\n      </button>\n\n      <a href=\"#\" class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white\"> <span\n        class=\"fa fa-facebook\" style=\"color: white\"></span>Facebook</a>\n\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" routerLink=\"/home\">Cancel\n      </button>\n    </div>\n  </form>\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n"
+module.exports = "<head>\n  <title>login</title>\n</head>\n<body class=\"body-black\">\n\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a>\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/home\">S U P R E M E</a></span>\n  </div>\n</nav>\n\n<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger\">\n  {{errorMsg}}\n</div>\n<div class=\"supreme-font footer-padding\">\n  <p class=\"center_text\">Login</p>\n  <form (ngSubmit)=\"login()\" #f=\"ngForm\">\n    <label class=\"center_input white_text\">Username</label>\n    <input placeholder=\"Username\"\n           name=\"username\"\n           type=\"text\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #username=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!username.valid && username.touched\">\n      Please enter username!\n      </span>\n    <label class=\"center_input white_text\">Password</label>\n    <input placeholder=\"Password\"\n           name=\"password\"\n           type=\"password\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #password=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!password.valid && password.touched\">\n      Please enter password!\n      </span>\n    <div>\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" type=\"submit\"\n              [disabled]=\"!f.valid\">\n        Login\n      </button>\n\n      <button class=\"btn btn-outline-danger btn-block center_input\" type=\"button\" (click)=\"register()\"\n              style=\"color: white\">Register\n      </button>\n\n      <a href=\"/api/facebook\" class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white\"> <span\n        class=\"fa fa-facebook\" style=\"color: white\"></span>Facebook</a>\n\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" routerLink=\"/home\">Cancel\n      </button>\n    </div>\n  </form>\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -2225,7 +2268,8 @@ var RegisterComponent = /** @class */ (function () {
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 var environment = {
     production: false,
-    baseUrl: 'http://localhost:3100'
+    // baseUrl: 'http://localhost:3100'
+    baseUrl: 'https://web-supreme.herokuapp.com'
 };
 
 

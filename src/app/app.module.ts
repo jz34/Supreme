@@ -30,6 +30,7 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {ItemService} from './services/item.service.client';
 import { SellerListingComponent } from './views/users/profile/seller-profile/seller-listing/seller-listing.component';
+import {AuthGuard} from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
