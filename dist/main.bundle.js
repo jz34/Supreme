@@ -1660,10 +1660,10 @@ var ChooserComponent = /** @class */ (function () {
         this.userId = this.sharedService.user['_id'];
         this.userType = this.user.userType;
         if (this.userType === 'Buyer') {
-            this.router.navigate(['user/buyer']);
+            this.router.navigate(['/user/buyer']);
         }
         if (this.userType === 'Seller') {
-            this.router.navigate(['user/seller']);
+            this.router.navigate(['/user/seller']);
         }
     };
     ChooserComponent.prototype.updateUsertype = function () {
@@ -1671,7 +1671,7 @@ var ChooserComponent = /** @class */ (function () {
         this.user.userType = this.userType;
         this.userService.updateUser(this.userId, this.user).subscribe(function (returnUser) {
             _this.sharedService.user = returnUser;
-            _this.router.navigate(['loggedinhome/user'], { relativeTo: _this.activatedRoute });
+            _this.router.navigate(['/user', _this.userType], { relativeTo: _this.activatedRoute });
         });
     };
     __decorate([

@@ -28,10 +28,10 @@ export class ChooserComponent implements OnInit {
     this.userId = this.sharedService.user['_id'];
     this.userType = this.user.userType;
     if (this.userType === 'Buyer') {
-      this.router.navigate(['user/buyer']);
+      this.router.navigate(['/user/buyer']);
     }
     if (this.userType === 'Seller') {
-      this.router.navigate(['user/seller']);
+      this.router.navigate(['/user/seller']);
     }
   }
 
@@ -40,7 +40,7 @@ export class ChooserComponent implements OnInit {
 
     this.userService.updateUser(this.userId, this.user).subscribe((returnUser: any) => {
       this.sharedService.user = returnUser;
-      this.router.navigate(['/loggedinhome/user'], {relativeTo: this.activatedRoute});
+      this.router.navigate(['/user', this.userType], {relativeTo: this.activatedRoute});
     });
   }
 
