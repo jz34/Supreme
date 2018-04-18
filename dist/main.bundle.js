@@ -1678,6 +1678,7 @@ var ChooserComponent = /** @class */ (function () {
         this.username = this.loginForm.value.username;
         this.userService.findUserByUsername(this.username).subscribe(function (returnUser) {
             if (returnUser === undefined) {
+                _this.duplicateUsername = false;
                 _this.user.userType = _this.userType;
                 _this.user.username = _this.username;
                 _this.userService.updateUser(_this.userId, _this.user).subscribe(function (user) {
