@@ -1679,7 +1679,7 @@ var ChooserComponent = /** @class */ (function () {
         this.userService.findUserByUsername(this.username).subscribe(function (returnUser) {
             if (returnUser !== undefined) {
                 _this.duplicateUsername = true;
-                return;
+                _this.router.navigate(['/user/chooser'], { relativeTo: _this.activatedRoute });
             }
             else {
                 _this.user.userType = _this.userType;
