@@ -1678,15 +1678,16 @@ var ChooserComponent = /** @class */ (function () {
         this.username = this.loginForm.value.username;
         this.userService.findUserByUsername(this.username).subscribe(function (returnUser) {
             if (returnUser === undefined) {
-                _this.duplicateUsername = true;
-                _this.router.navigate(['/user/chooser'], { relativeTo: _this.activatedRoute });
-            }
-            else {
                 _this.user.userType = _this.userType;
+                _this.user.username = _this.username;
                 _this.userService.updateUser(_this.userId, _this.user).subscribe(function (user) {
                     _this.sharedService.user = user;
                     _this.router.navigate(['/user', _this.userType.toLowerCase()], { relativeTo: _this.activatedRoute });
                 });
+            }
+            else {
+                _this.duplicateUsername = true;
+                _this.router.navigate(['/user/chooser'], { relativeTo: _this.activatedRoute });
             }
         });
     };

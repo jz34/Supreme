@@ -48,15 +48,15 @@ export class ChooserComponent implements OnInit {
 
     this.userService.findUserByUsername(this.username).subscribe((returnUser: any) => {
       if (returnUser === undefined) {
-        this.duplicateUsername = true;
-        this.router.navigate(['/user/chooser'], {relativeTo: this.activatedRoute});
-      } else {
         this.user.userType = this.userType;
-
+        this.user.username = this.username;
         this.userService.updateUser(this.userId, this.user).subscribe((user: any) => {
           this.sharedService.user = user;
           this.router.navigate(['/user', this.userType.toLowerCase()], {relativeTo: this.activatedRoute});
         });
+      } else {
+        this.duplicateUsername = true;
+        this.router.navigate(['/user/chooser'], {relativeTo: this.activatedRoute});
       }
     });
   }
