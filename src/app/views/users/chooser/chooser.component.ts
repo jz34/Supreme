@@ -24,6 +24,7 @@ export class ChooserComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.sharedService.user;
+    console.log(this.user);
     this.userId = this.sharedService.user['_id'];
     this.userType = this.user.userType;
     if (this.userType === 'Buyer') {
