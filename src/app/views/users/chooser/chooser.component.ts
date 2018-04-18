@@ -40,7 +40,7 @@ export class ChooserComponent implements OnInit {
 
     this.userService.updateUser(this.userId, this.user).subscribe((returnUser: any) => {
       this.sharedService.user = returnUser;
-      this.router.navigate(['loggedinhome/user'], {relativeTo: this.activatedRoute});
+      this.router.navigate(['/loggedinhome/user'], {relativeTo: this.activatedRoute});
     });
   }
 
