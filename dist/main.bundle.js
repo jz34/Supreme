@@ -1656,6 +1656,7 @@ var ChooserComponent = /** @class */ (function () {
     }
     ChooserComponent.prototype.ngOnInit = function () {
         this.user = this.sharedService.user;
+        console.log(this.user);
         this.userId = this.sharedService.user['_id'];
         this.userType = this.user.userType;
         if (this.userType === 'Buyer') {
