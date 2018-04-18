@@ -15,8 +15,6 @@ export class ChooserComponent implements OnInit {
   user: any;
   userId: String;
   userType: String;
-  isSeller = false;
-  isBuyer = false;
 
   constructor(private userService: UserService,
               private router: Router,
@@ -37,11 +35,7 @@ export class ChooserComponent implements OnInit {
   }
 
   updateUsertype() {
-    if (this.isSeller) {
-      this.user.userType = 'Seller';
-    } else {
-      this.user.userType = 'Buyer';
-    }
+    this.user.userType = this.userType;
 
     this.userService.updateUser(this.userId, this.user).subscribe((returnUser: any) => {
       this.sharedService.user = returnUser;

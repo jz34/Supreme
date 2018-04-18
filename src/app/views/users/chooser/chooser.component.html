@@ -19,18 +19,19 @@
 </nav>
 
 <div class="center_text">
-  <form (ngSubmit)="updateUsertype()" #f="ngForm" class="center_input input_padding">
-    <br>
-    <label for="sellercheck" class="supreme-font" style="word-wrap:break-word; font-size: 25px">
-      <input id="sellercheck" type="checkbox" name="myCheckbox" value="1" onclick="selectOnlyThis(this)" [(ngModel)]="isSeller"/> Seller
-    </label>
-    <label for="buyercheck" class="supreme-font" style="word-wrap:break-word; font-size: 25px">
-      <input id="buyercheck" type="checkbox" name="myCheckbox" value="1" onclick="selectOnlyThis(this)" [(ngModel)]="isBuyer"/> Buyer&nbsp
-    </label>
-
-    <br>
-    <a type="submit" class="btn btn-outline-danger btn-block center_input text-white">Submit</a>
-  </form>
+  <div class="center_input input_padding">
+    <form (ngSubmit)="updateUsertype()" #f="ngForm" class="center_input input_padding">
+      <span><h5 class="supreme-font">Please choose your account type</h5></span>
+      <br>
+      <select name="size" style="margin-bottom: 20px" [(ngModel)]="userType">
+        <option>Seller</option>
+        <option>Buyer</option>
+      </select>
+      <br>
+      <br>
+      <button type="submit" class="btn-outline-danger bottom-button supreme-font" style="color: white">Submit</button>
+    </form>
+  </div>
 </div>
 
 <div class="card-footer footer-color fixed-bottom">

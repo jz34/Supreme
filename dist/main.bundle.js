@@ -1619,7 +1619,7 @@ var ItemListComponent = /** @class */ (function () {
 /***/ "./src/app/views/users/chooser/chooser.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<head>\n  <script>\n    function selectOnlyThis(id) {\n      var myCheckbox = document.getElementsByName(\"myCheckbox\");\n      Array.prototype.forEach.call(myCheckbox, function (el) {\n        el.checked = false;\n      });\n      id.checked = true;\n    }\n  </script>\n  <title>Chooser</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\">S U P R E M E</a></span>\n\n  </div>\n</nav>\n\n<div class=\"center_text\">\n  <form (ngSubmit)=\"updateUsertype()\" #f=\"ngForm\" class=\"center_input input_padding\">\n    <br>\n    <label for=\"sellercheck\" class=\"supreme-font\" style=\"word-wrap:break-word; font-size: 25px\">\n      <input id=\"sellercheck\" type=\"checkbox\" name=\"myCheckbox\" value=\"1\" onclick=\"selectOnlyThis(this)\" [(ngModel)]=\"isSeller\"/> Seller\n    </label>\n    <label for=\"buyercheck\" class=\"supreme-font\" style=\"word-wrap:break-word; font-size: 25px\">\n      <input id=\"buyercheck\" type=\"checkbox\" name=\"myCheckbox\" value=\"1\" onclick=\"selectOnlyThis(this)\" [(ngModel)]=\"isBuyer\"/> Buyer&nbsp\n    </label>\n\n    <br>\n    <a type=\"submit\" class=\"btn btn-outline-danger btn-block center_input text-white\">Submit</a>\n  </form>\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n"
+module.exports = "<head>\n  <script>\n    function selectOnlyThis(id) {\n      var myCheckbox = document.getElementsByName(\"myCheckbox\");\n      Array.prototype.forEach.call(myCheckbox, function (el) {\n        el.checked = false;\n      });\n      id.checked = true;\n    }\n  </script>\n  <title>Chooser</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\">S U P R E M E</a></span>\n\n  </div>\n</nav>\n\n<div class=\"center_text\">\n  <div class=\"center_input input_padding\">\n    <form (ngSubmit)=\"updateUsertype()\" #f=\"ngForm\" class=\"center_input input_padding\">\n      <span><h5 class=\"supreme-font\">Please choose your account type</h5></span>\n      <br>\n      <select name=\"size\" style=\"margin-bottom: 20px\" [(ngModel)]=\"userType\">\n        <option>Seller</option>\n        <option>Buyer</option>\n      </select>\n      <br>\n      <br>\n      <button type=\"submit\" class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\">Submit</button>\n    </form>\n  </div>\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -1653,8 +1653,6 @@ var ChooserComponent = /** @class */ (function () {
         this.router = router;
         this.sharedService = sharedService;
         this.activatedRoute = activatedRoute;
-        this.isSeller = false;
-        this.isBuyer = false;
     }
     ChooserComponent.prototype.ngOnInit = function () {
         this.user = this.sharedService.user;
@@ -1669,12 +1667,7 @@ var ChooserComponent = /** @class */ (function () {
     };
     ChooserComponent.prototype.updateUsertype = function () {
         var _this = this;
-        if (this.isSeller) {
-            this.user.userType = 'Seller';
-        }
-        else {
-            this.user.userType = 'Buyer';
-        }
+        this.user.userType = this.userType;
         this.userService.updateUser(this.userId, this.user).subscribe(function (returnUser) {
             _this.sharedService.user = returnUser;
             _this.router.navigate(['loggedinhome/user'], { relativeTo: _this.activatedRoute });
