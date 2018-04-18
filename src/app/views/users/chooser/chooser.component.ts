@@ -28,9 +28,6 @@ export class ChooserComponent implements OnInit {
     this.user = this.sharedService.user;
     this.userId = this.sharedService.user['_id'];
     this.userType = this.user.userType;
-    if (this.userType !== undefined) {
-      this.hasUserType = true;
-    }
     if (this.userType === 'Buyer') {
       this.router.navigate(['/user/buyer']);
     }
@@ -40,7 +37,9 @@ export class ChooserComponent implements OnInit {
   }
 
   updateTypeAndUsername() {
-    if (!this.hasUserType) {
+    if (this.userType !== undefined) {
+      this.hasUserType = true;
+    } else {
       return;
     }
 

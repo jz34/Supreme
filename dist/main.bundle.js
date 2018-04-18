@@ -1659,9 +1659,6 @@ var ChooserComponent = /** @class */ (function () {
         this.user = this.sharedService.user;
         this.userId = this.sharedService.user['_id'];
         this.userType = this.user.userType;
-        if (this.userType !== undefined) {
-            this.hasUserType = true;
-        }
         if (this.userType === 'Buyer') {
             this.router.navigate(['/user/buyer']);
         }
@@ -1671,7 +1668,10 @@ var ChooserComponent = /** @class */ (function () {
     };
     ChooserComponent.prototype.updateTypeAndUsername = function () {
         var _this = this;
-        if (!this.hasUserType) {
+        if (this.userType !== undefined) {
+            this.hasUserType = true;
+        }
+        else {
             return;
         }
         this.username = this.loginForm.value.username;
