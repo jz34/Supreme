@@ -1,3 +1,137 @@
-<p>
-  payment works!
-</p>
+<body class="body-black">
+<nav class="navbar navbar-default header-margin-bottom">
+  <div class="supreme-font">
+    <a class="white_text" routerLink="../"><i class="fa fa-chevron-left"></i></a >
+    <span class="supreme-text-logo"><a class="a-no-color a-no-hover a-no-visited"
+                                       href=" ">S U P R E M E</a ></span>
+
+  </div>
+</nav>
+
+<br>
+
+<div class="row footer-padding">
+  <div class="card col-lg-6 col-md-6 col-sm-12 col-xs-12 black-card">
+    <p class="center_text supreme-font white_text text-font-size">Shipping Address</p >
+    <form>
+      <table>
+        <table class="table">
+          <tbody>
+          <tr>
+            <td colspan="3">
+              <label class="white_text supreme-font">First Name</label>
+              <input class="form-control" type="text">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <label class="white_text supreme-font">Last Name</label>
+              <input class="form-control" type="text">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <label class="white_text supreme-font">Email</label>
+              <input class="form-control" type="text">
+            </td>
+          <tr>
+            <td colspan="3">
+              <label class="white_text supreme-font">Phone</label>
+              <input class="form-control" type="text">
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <label class="white_text supreme-font">Address</label>
+              <input class="form-control" type="text">
+            </td>
+            <td>
+              <label class="white_text supreme-font">Apt, Unit, etc</label>
+              <input class="form-control" type="text">
+            </td>
+          </tr>
+          <tr>
+            <td><label class="white_text supreme-font">Zip</label><input class="form-control" type="text">
+            </td>
+            <td><label class="white_text supreme-font">City</label><input class="form-control" type="text">
+            </td>
+            <td><label class="white_text supreme-font">State</label><input class="form-control" type="text">
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </table>
+    </form>
+    <br>
+  </div>
+
+  <div class="card col-lg-6 col-md-6 col-sm-12 col-xs-12 left-border black-card">
+    <p class="center_text supreme-font white_text text-font-size">Credit Card</p >
+    <div *ngIf="errorFlag"
+         class="alert alert-danger">
+      {{errorMsg}}
+    </div>
+    <form (ngSubmit)="check()" #f="ngForm">
+      <table class="table">
+        <tbody>
+        <tr>
+          <td>
+            <label class="white_text supreme-font">First Name</label>
+            <input
+              [(ngModel)]="firstName"
+              name="firstName"
+              class="form-control"
+              type="text"
+              placeholder="{{firstName}}"/>
+          </td>
+          <td></td>
+          <td>
+            <label class="white_text supreme-font">Last Name</label>
+            <input [(ngModel)]="lastName"
+                   name="lastName"
+                   class="form-control"
+                   type="text"
+                   placeholder="{{lastName}}"/>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3">
+            <label class="white_text supreme-font">Card Number</label>
+            <input [(ngModel)]="cardNumber"
+                   name="cardNumber"
+                   class="form-control"
+                   type="text"
+                   placeholder="{{cardNumber}}"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label class="white_text supreme-font">Expiration Date</label>
+            <input [(ngModel)]="expirationDate"
+                   name="expirationDate"
+                   class="form-control"
+                   type="text"
+                   placeholder="{{expirationDate}}"/>
+          </td>
+          <td></td>
+          <td>
+            <label class="white_text supreme-font">CVV</label>
+            <input [(ngModel)]="cvv"
+                   name="cvv"
+                   class="form-control"
+                   type="text"
+                   placeholder="{{cvv}}"/>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="creditCardBtn">
+        <button class="btn btn-outline-danger btn-block supreme-font white_text">Check Out</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="card-footer footer-color fixed-bottom">
+  <a class="pull-right white_text" href=" "><i class="fa fa-user"></i></a >
+</div>
+</body>

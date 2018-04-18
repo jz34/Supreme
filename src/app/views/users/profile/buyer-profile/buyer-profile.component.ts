@@ -19,30 +19,24 @@ export class BuyerProfileComponent implements OnInit {
   lastName: String;
   password: String;
   phone: String;
+
   constructor(private userService: UserService,
               private sharedService: SharedService,
               private activatedRoute: ActivatedRoute,
-              private router: Router) { }
+              private router: Router) {
+  }
 
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(params => {
-      return this.userService.findUserById(this.sharedService.user['_id']).subscribe(
-        (returnUser: any) => {
-          //    this.userId = params['uid'];
-          this.userId = this.sharedService.user['_id'];
-          //    this.user = returnUser;
-          this.user = this.sharedService.user;
-          this.username = this.user.username;
-          this.email = this.user.email;
-          this.firstName = this.user.firstName;
-          this.lastName = this.user.lastName;
-          this.password = this.user.password;
-          this.phone = this.user.phone;
-          console.log(this.user);
-        }
-      );
-    });
+    this.userId = this.sharedService.user['_id'];
+    this.user = this.sharedService.user;
+    this.username = this.user.username;
+    this.email = this.user.email;
+    this.firstName = this.user.firstName;
+    this.lastName = this.user.lastName;
+    this.password = this.user.password;
+    this.phone = this.user.phone;
+
   }
 
 
@@ -72,5 +66,9 @@ export class BuyerProfileComponent implements OnInit {
 
   showOrderHistory() {
     this.router.navigate(['user/buyer/history']);
+  }
+
+  goCart(){
+    this.router.navigate(['user/buyer/cart']);
   }
 }

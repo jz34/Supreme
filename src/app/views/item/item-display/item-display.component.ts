@@ -34,7 +34,8 @@ export class ItemDisplayComponent implements OnInit {
               private router: Router,
               private activatedRoute: ActivatedRoute,
               private sharedService: SharedService,
-              private userService: UserService) { }
+              private userService: UserService) {
+  }
 
   ngOnInit() {
     this.user = this.sharedService.user;
@@ -50,7 +51,7 @@ export class ItemDisplayComponent implements OnInit {
           this.itemUrl = this.item.url;
           this.itemPrice = this.item.price;
           this.itemSize = this.item.size;
-      });
+        });
     });
   }
 
@@ -83,7 +84,6 @@ export class ItemDisplayComponent implements OnInit {
 
     for (let _i = 0; _i < this.user.cart.length; _i++) {
       const currItem = this.user.cart[_i];
-      console.log(currItem);
       if (currItem._id === this.item._id) {
         this.isDuplicate = true;
         return;
@@ -95,8 +95,10 @@ export class ItemDisplayComponent implements OnInit {
     this.user.cart.push(this.item);
 
     this.userService.updateUser(this.userId, this.user).subscribe((returnUser: any) => {
-      this.sharedService.user = returnUser;
-      this.router.navigate(['loggedinhome/user'], {relativeTo: this.activatedRoute});
+      this.userService.findUserById(this.userId).subscribe((founduser: any) => {
+        this.sharedService.user = founduser;
+      });
+      this.router.navigate(['/loggedinhome/user']);
       window.confirm('Item added!');
     });
 
