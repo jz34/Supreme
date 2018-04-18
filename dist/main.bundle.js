@@ -1682,14 +1682,13 @@ var ChooserComponent = /** @class */ (function () {
                 return;
             }
         });
-        if (this.duplicateUsername) {
-            return;
+        if (this.duplicateUsername === false) {
+            this.user.userType = this.userType;
+            this.userService.updateUser(this.userId, this.user).subscribe(function (returnUser) {
+                _this.sharedService.user = returnUser;
+                _this.router.navigate(['/user', _this.userType.toLowerCase()], { relativeTo: _this.activatedRoute });
+            });
         }
-        this.user.userType = this.userType;
-        this.userService.updateUser(this.userId, this.user).subscribe(function (returnUser) {
-            _this.sharedService.user = returnUser;
-            _this.router.navigate(['/user', _this.userType.toLowerCase()], { relativeTo: _this.activatedRoute });
-        });
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),

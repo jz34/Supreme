@@ -53,14 +53,14 @@ export class ChooserComponent implements OnInit {
       }
     });
 
-    if (this.duplicateUsername) { return; }
+    if (this.duplicateUsername === false) {
+      this.user.userType = this.userType;
 
-    this.user.userType = this.userType;
-
-    this.userService.updateUser(this.userId, this.user).subscribe((returnUser: any) => {
-      this.sharedService.user = returnUser;
-      this.router.navigate(['/user', this.userType.toLowerCase()], {relativeTo: this.activatedRoute});
-    });
+      this.userService.updateUser(this.userId, this.user).subscribe((returnUser: any) => {
+        this.sharedService.user = returnUser;
+        this.router.navigate(['/user', this.userType.toLowerCase()], {relativeTo: this.activatedRoute});
+      });
+    }
   }
 
 }
