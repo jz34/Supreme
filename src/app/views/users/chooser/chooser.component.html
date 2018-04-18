@@ -12,7 +12,7 @@
 <div class="center_text footer-padding">
   <div class="center_input input_padding">
     <form (ngSubmit)="updateTypeAndUsername()" #f="ngForm" class="center_input input_padding">
-      <span><h5 class="supreme-font">Please specify your username</h5></span>
+      <span><h5 class="supreme-font">Specify your username</h5></span>
       <input placeholder="Username"
              name="username"
              type="text"
@@ -23,9 +23,10 @@
       <span class="help-block center_input"
             *ngIf="!username.valid && username.touched">
       Please enter username!
+      </span>
       <br>
       <br>
-      <span><h5 class="supreme-font">Please choose your account type</h5></span>
+      <span><h5 class="supreme-font">Choose your account type</h5></span>
       <select name="size" style="margin-bottom: 20px" [(ngModel)]="userType">
         <option>Seller</option>
         <option>Buyer</option>
@@ -33,7 +34,8 @@
       <br>
       <br>
       <button type="submit" class="btn-outline-danger bottom-button supreme-font" style="color: white"
-              [disabled]="!f.valid">Submit</button>
+              [disabled]="!f.valid">Submit
+      </button>
     </form>
   </div>
 </div>
