@@ -28,6 +28,7 @@ const appRoutes: Routes = [
   {path: 'loggedinhome/user', component: LoggedinHomeComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
+  {path: 'user/chooser', component: ChooserComponent, canActivate: [AuthGuard]},
   {path: 'user/admin', component: AdminProfileComponent, canActivate: [AuthGuard]},
   {path: 'user/buyer', component: BuyerProfileComponent, canActivate: [AuthGuard]},
   {path: 'user/seller', component: SellerProfileComponent, canActivate: [AuthGuard]},
