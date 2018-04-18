@@ -15,6 +15,7 @@ export class ChooserComponent implements OnInit {
   user: any;
   userId: String;
   userType: String;
+  username: String;
 
   constructor(private userService: UserService,
               private router: Router,
@@ -35,8 +36,12 @@ export class ChooserComponent implements OnInit {
     }
   }
 
-  updateUsertype() {
+  updateTypeAndUsername() {
+    this.username = this.loginForm.value.username;
     this.user.userType = this.userType;
+    this.user.username = this.username;
+
+    console.log(this.username);
 
     this.userService.updateUser(this.userId, this.user).subscribe((returnUser: any) => {
       this.sharedService.user = returnUser;

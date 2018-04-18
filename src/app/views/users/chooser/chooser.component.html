@@ -11,9 +11,18 @@
 
 <div class="center_text">
   <div class="center_input input_padding">
-    <form (ngSubmit)="updateUsertype()" #f="ngForm" class="center_input input_padding">
-      <span><h5 class="supreme-font">Please choose your account type</h5></span>
+    <form (ngSubmit)="updateTypeAndUsername()" #f="ngForm" class="center_input input_padding">
+      <span><h5 class="supreme-font">Please create a username</h5></span>
+      <input placeholder="Username"
+             name="username"
+             type="text"
+             class="form-control center_input"
+             ngModel
+             required
+             #username="ngModel"/>
       <br>
+      <br>
+      <span><h5 class="supreme-font">Please choose your account type</h5></span>
       <select name="size" style="margin-bottom: 20px" [(ngModel)]="userType">
         <option>Seller</option>
         <option>Buyer</option>
