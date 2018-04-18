@@ -16,6 +16,7 @@ export class ChooserComponent implements OnInit {
   userId: String;
   userType: String;
   username: String;
+  hasUserType = false;
 
   constructor(private userService: UserService,
               private router: Router,
@@ -25,9 +26,11 @@ export class ChooserComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.sharedService.user;
-    console.log(this.user);
     this.userId = this.sharedService.user['_id'];
     this.userType = this.user.userType;
+    if (this.userType !== undefined) {
+      this.hasUserType = true;
+    }
     if (this.userType === 'Buyer') {
       this.router.navigate(['/user/buyer']);
     }
@@ -37,6 +40,10 @@ export class ChooserComponent implements OnInit {
   }
 
   updateTypeAndUsername() {
+    if (!this.hasUserType) {
+      return;
+    }
+
     this.username = this.loginForm.value.username;
     this.user.userType = this.userType;
     this.user.username = this.username;

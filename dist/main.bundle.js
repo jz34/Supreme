@@ -1619,7 +1619,7 @@ var ItemListComponent = /** @class */ (function () {
 /***/ "./src/app/views/users/chooser/chooser.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<head>\n  <title>Chooser</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\">S U P R E M E</a></span>\n\n  </div>\n</nav>\n\n<div class=\"center_text footer-padding\">\n  <div class=\"center_input input_padding\">\n    <form (ngSubmit)=\"updateTypeAndUsername()\" #f=\"ngForm\" class=\"center_input input_padding\">\n      <span><h5 class=\"supreme-font\">Specify your username</h5></span>\n      <input placeholder=\"Username\"\n             name=\"username\"\n             type=\"text\"\n             class=\"form-control center_input\"\n             ngModel\n             required\n             #username=\"ngModel\"/>\n      <span class=\"help-block center_input\"\n            *ngIf=\"!username.valid && username.touched\"\n            style=\"color: white\">\n      Please enter username!\n      </span>\n      <br>\n      <br>\n      <span><h5 class=\"supreme-font\">Choose your account type</h5></span>\n      <select name=\"userType\" style=\"margin-bottom: 20px\" [(ngModel)]=\"userType\" #userType=\"ngModel\">\n        <option>Seller</option>\n        <option>Buyer</option>\n      </select>\n      <span class=\"help-block center_input\"\n            *ngIf=\"!userType.valid && userType.touched\"\n            style=\"color: white\">\n      Please Select the type!\n      </span>\n      <br>\n      <br>\n      <button type=\"submit\" class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\"\n              [disabled]=\"!f.valid\">Submit\n      </button>\n    </form>\n  </div>\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n"
+module.exports = "<head>\n  <title>Chooser</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\">S U P R E M E</a></span>\n\n  </div>\n</nav>\n\n<div class=\"center_text footer-padding\">\n  <div class=\"center_input input_padding\">\n    <form (ngSubmit)=\"updateTypeAndUsername()\" #f=\"ngForm\" class=\"center_input input_padding\">\n      <span><h5 class=\"supreme-font\">Specify your username</h5></span>\n      <input placeholder=\"Username\"\n             name=\"username\"\n             type=\"text\"\n             class=\"form-control center_input\"\n             ngModel\n             required\n             #username=\"ngModel\"/>\n      <span class=\"help-block center_input supreme-font\"\n            *ngIf=\"!username.valid && username.touched\"\n            style=\"color: white\">\n      Please enter username!\n      </span>\n      <br>\n      <br>\n      <span><h5 class=\"supreme-font\">Select your account type</h5></span>\n      <select name=\"userType\" style=\"margin-bottom: 20px\" [(ngModel)]=\"userType\">\n        <option>Seller</option>\n        <option>Buyer</option>\n      </select>\n      <span class=\"help-block center_input supreme-font\"\n            *ngIf=\"!hasUserType\"\n            style=\"color: white\">\n      Please select type!\n      </span>\n      <br>\n      <br>\n      <button type=\"submit\" class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\"\n              [disabled]=\"!f.valid\">Submit\n      </button>\n    </form>\n  </div>\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -1653,12 +1653,15 @@ var ChooserComponent = /** @class */ (function () {
         this.router = router;
         this.sharedService = sharedService;
         this.activatedRoute = activatedRoute;
+        this.hasUserType = false;
     }
     ChooserComponent.prototype.ngOnInit = function () {
         this.user = this.sharedService.user;
-        console.log(this.user);
         this.userId = this.sharedService.user['_id'];
         this.userType = this.user.userType;
+        if (this.userType !== undefined) {
+            this.hasUserType = true;
+        }
         if (this.userType === 'Buyer') {
             this.router.navigate(['/user/buyer']);
         }
@@ -1668,6 +1671,9 @@ var ChooserComponent = /** @class */ (function () {
     };
     ChooserComponent.prototype.updateTypeAndUsername = function () {
         var _this = this;
+        if (!this.hasUserType) {
+            return;
+        }
         this.username = this.loginForm.value.username;
         this.user.userType = this.userType;
         this.user.username = this.username;
