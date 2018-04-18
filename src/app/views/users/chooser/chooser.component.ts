@@ -50,11 +50,14 @@ export class ChooserComponent implements OnInit {
       if (returnUser) {
         this.duplicateUsername = true;
         return;
+      } else {
+        this.user.username = this.username;
+        this.duplicateUsername = false;
       }
     });
 
     this.user.userType = this.userType;
-    this.user.username = this.username;
+
 
     console.log(this.username);
 
