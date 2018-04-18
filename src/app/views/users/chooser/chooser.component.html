@@ -21,16 +21,22 @@
              required
              #username="ngModel"/>
       <span class="help-block center_input"
-            *ngIf="!username.valid && username.touched">
+            *ngIf="!username.valid && username.touched"
+            style="color: white">
       Please enter username!
       </span>
       <br>
       <br>
       <span><h5 class="supreme-font">Choose your account type</h5></span>
-      <select name="size" style="margin-bottom: 20px" [(ngModel)]="userType">
+      <select name="userType" style="margin-bottom: 20px" [(ngModel)]="userType">
         <option>Seller</option>
         <option>Buyer</option>
       </select>
+      <span class="help-block center_input"
+            *ngIf="!userType.valid && userType.touched"
+            style="color: white">
+      Please Select the type!
+      </span>
       <br>
       <br>
       <button type="submit" class="btn-outline-danger bottom-button supreme-font" style="color: white"
