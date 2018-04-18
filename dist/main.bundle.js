@@ -1677,7 +1677,7 @@ var ChooserComponent = /** @class */ (function () {
         }
         this.username = this.loginForm.value.username;
         this.userService.findUserByUsername(this.username).subscribe(function (returnUser) {
-            if (returnUser !== undefined) {
+            if (returnUser === undefined) {
                 _this.duplicateUsername = true;
                 _this.router.navigate(['/user/chooser'], { relativeTo: _this.activatedRoute });
             }

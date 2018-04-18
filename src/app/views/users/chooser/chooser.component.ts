@@ -47,7 +47,7 @@ export class ChooserComponent implements OnInit {
     this.username = this.loginForm.value.username;
 
     this.userService.findUserByUsername(this.username).subscribe((returnUser: any) => {
-      if (returnUser !== undefined) {
+      if (returnUser === undefined) {
         this.duplicateUsername = true;
         this.router.navigate(['/user/chooser'], {relativeTo: this.activatedRoute});
       } else {
