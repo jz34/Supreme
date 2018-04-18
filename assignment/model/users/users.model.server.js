@@ -50,7 +50,8 @@ function updateUser(userId, user) {
           cvv: user.cvv,
           city: user.city,
           expirationDate: user.expirationDate,
-          cart: user.cart
+          cart: user.cart,
+          userType: user.userType
         }
       }
     );
