@@ -1,3 +1,39 @@
-<p>
-  chooser works!
-</p>
+<head>
+  <script>
+    function selectOnlyThis(id) {
+      var myCheckbox = document.getElementsByName("myCheckbox");
+      Array.prototype.forEach.call(myCheckbox, function (el) {
+        el.checked = false;
+      });
+      id.checked = true;
+    }
+  </script>
+  <title>Chooser</title>
+</head>
+<body class="body-black">
+<nav class="navbar navbar-default header-margin-bottom">
+  <div class="supreme-font">
+    <span class="supreme-text-logo"><a class="a-no-color a-no-hover a-no-visited">S U P R E M E</a></span>
+
+  </div>
+</nav>
+
+<div class="center_text">
+  <form (ngSubmit)="updateUsertype()" #f="ngForm" class="center_input input_padding">
+    <br>
+    <label for="sellercheck" class="supreme-font" style="word-wrap:break-word; font-size: 25px">
+      <input id="sellercheck" type="checkbox" name="myCheckbox" value="1" onclick="selectOnlyThis(this)" [(ngModel)]="isSeller"/> Seller
+    </label>
+    <label for="buyercheck" class="supreme-font" style="word-wrap:break-word; font-size: 25px">
+      <input id="buyercheck" type="checkbox" name="myCheckbox" value="1" onclick="selectOnlyThis(this)" [(ngModel)]="isBuyer"/> Buyer&nbsp
+    </label>
+
+    <br>
+    <a type="submit" class="btn btn-outline-danger btn-block center_input text-white">Submit</a>
+  </form>
+</div>
+
+<div class="card-footer footer-color fixed-bottom">
+  <a class="pull-right white_text"><i class="fa fa-user"></i></a>
+</div>
+</body>

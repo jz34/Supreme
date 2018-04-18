@@ -1616,17 +1616,10 @@ var ItemListComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/views/users/chooser/chooser.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/views/users/chooser/chooser.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  chooser works!\n</p>\n"
+module.exports = "<head>\n  <script>\n    function selectOnlyThis(id) {\n      var myCheckbox = document.getElementsByName(\"myCheckbox\");\n      Array.prototype.forEach.call(myCheckbox, function (el) {\n        el.checked = false;\n      });\n      id.checked = true;\n    }\n  </script>\n  <title>Chooser</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\">S U P R E M E</a></span>\n\n  </div>\n</nav>\n\n<div class=\"center_text\">\n  <form (ngSubmit)=\"updateUsertype()\" #f=\"ngForm\" class=\"center_input input_padding\">\n    <br>\n    <label for=\"sellercheck\" class=\"supreme-font\" style=\"word-wrap:break-word; font-size: 25px\">\n      <input id=\"sellercheck\" type=\"checkbox\" name=\"myCheckbox\" value=\"1\" onclick=\"selectOnlyThis(this)\" [(ngModel)]=\"isSeller\"/> Seller\n    </label>\n    <label for=\"buyercheck\" class=\"supreme-font\" style=\"word-wrap:break-word; font-size: 25px\">\n      <input id=\"buyercheck\" type=\"checkbox\" name=\"myCheckbox\" value=\"1\" onclick=\"selectOnlyThis(this)\" [(ngModel)]=\"isBuyer\"/> Buyer&nbsp\n    </label>\n\n    <br>\n    <a type=\"submit\" class=\"btn btn-outline-danger btn-block center_input text-white\">Submit</a>\n  </form>\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -1636,6 +1629,10 @@ module.exports = "<p>\n  chooser works!\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChooserComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__ = __webpack_require__("./src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1646,18 +1643,57 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 var ChooserComponent = /** @class */ (function () {
-    function ChooserComponent() {
+    function ChooserComponent(userService, router, sharedService, activatedRoute) {
+        this.userService = userService;
+        this.router = router;
+        this.sharedService = sharedService;
+        this.activatedRoute = activatedRoute;
+        this.isSeller = false;
+        this.isBuyer = false;
     }
     ChooserComponent.prototype.ngOnInit = function () {
+        this.user = this.sharedService.user;
+        this.userId = this.sharedService.user['_id'];
+        this.userType = this.user.userType;
+        if (this.userType === 'Buyer') {
+            this.router.navigate(['user/buyer']);
+        }
+        if (this.userType === 'Seller') {
+            this.router.navigate(['user/seller']);
+        }
     };
+    ChooserComponent.prototype.updateUsertype = function () {
+        var _this = this;
+        if (this.isSeller) {
+            this.user.userType = 'Seller';
+        }
+        else {
+            this.user.userType = 'Buyer';
+        }
+        this.userService.updateUser(this.userId, this.user).subscribe(function (returnUser) {
+            _this.sharedService.user = returnUser;
+            _this.router.navigate(['loggedinhome/user'], { relativeTo: _this.activatedRoute });
+        });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NgForm */])
+    ], ChooserComponent.prototype, "loginForm", void 0);
     ChooserComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-chooser',
             template: __webpack_require__("./src/app/views/users/chooser/chooser.component.html"),
-            styles: [__webpack_require__("./src/app/views/users/chooser/chooser.component.css")]
+            styles: [__webpack_require__("./src/app/style.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_4__services_shared_service__["a" /* SharedService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]])
     ], ChooserComponent);
     return ChooserComponent;
 }());
