@@ -20,6 +20,9 @@
              ngModel
              required
              #username="ngModel"/>
+      <span class="help-block center_input"
+            *ngIf="!username.valid && username.touched">
+      Please enter username!
       <br>
       <br>
       <span><h5 class="supreme-font">Please choose your account type</h5></span>
@@ -29,7 +32,8 @@
       </select>
       <br>
       <br>
-      <button type="submit" class="btn-outline-danger bottom-button supreme-font" style="color: white">Submit</button>
+      <button type="submit" class="btn-outline-danger bottom-button supreme-font" style="color: white"
+              [disabled]="!f.valid">Submit</button>
     </form>
   </div>
 </div>
