@@ -184,7 +184,7 @@ module.exports = function (app) {
   }
 
   function findUserById(req, res) {
-    var userId = req.params["userId"]
+    var userId = req.params["userId"];
     userModel.findUserById(userId).then(function (user) {
       res.json(user);
     })
@@ -223,4 +223,4 @@ module.exports = function (app) {
       res.send(users);
     });
   }
-}
+};

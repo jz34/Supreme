@@ -17,6 +17,7 @@ export class ChooserComponent implements OnInit {
   userType: String;
   username: String;
   hasUserType = false;
+  duplicateUsername = false;
 
   constructor(private userService: UserService,
               private router: Router,
@@ -44,6 +45,14 @@ export class ChooserComponent implements OnInit {
     }
 
     this.username = this.loginForm.value.username;
+
+    this.userService.findUserByUsername(this.username).subscribe((returnUser: any) => {
+      if (returnUser) {
+        this.duplicateUsername = true;
+        return;
+      }
+    });
+
     this.user.userType = this.userType;
     this.user.username = this.username;
 

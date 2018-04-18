@@ -3,9 +3,12 @@
 </head>
 <body class="body-black">
 <nav class="navbar navbar-default header-margin-bottom">
+  <div *ngIf="duplicateUsername"
+       class="alert alert-danger">
+    "Username is already in use!"
+  </div>
   <div class="supreme-font">
     <span class="supreme-text-logo"><a class="a-no-color a-no-hover a-no-visited">S U P R E M E</a></span>
-
   </div>
 </nav>
 
