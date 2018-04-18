@@ -29,9 +29,10 @@ module.exports = function (app) {
 
   app.get('/auth/facebook/callback',
     passport.authenticate('facebook', {
-      successRedirect: '/profile',
+      successRedirect: 'www.google.com',
       failureRedirect: '/login'
     }));
+
   app.get('/api/facebook', passport.authenticate('facebook', {scope: ['email']}));
 
   passport.serializeUser(serializeUser);
