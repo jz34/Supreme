@@ -12,8 +12,15 @@ import {ItemService} from '../../../services/item.service.client';
 })
 export class PaymentComponent implements OnInit {
   @ViewChild('f') loginForm: NgForm;
+  city: String;
+  email: String;
+  phone: String;
+  address: String;
+  zip: String;
+  state: String;
+  unit: String;
   errorFlag = false;
-  errorMsg = 'Your cvv number is wrong!';
+  errorMsg = 'Please complete the form!';
   firstName: String;
   lastName: String;
   items: any;
@@ -31,7 +38,7 @@ export class PaymentComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.soldItem = new Array();
+    this.soldItem = [];
     this.sold = '';
     this.buyerId = this.sharedService.user['_id'];
     this.userService.findUserById(this.buyerId).subscribe((returnedUser: any) => {
@@ -41,13 +48,43 @@ export class PaymentComponent implements OnInit {
     this.lastName = this.sharedService.user['lastName'];
     this.expirationDate = this.sharedService.user['expirationDate'];
     this.cardNumber = this.sharedService.user['cardNumber'];
+    this.state = this.sharedService.user['city'];
+    this.zip = this.sharedService.user['zip'];
+    this.unit = this.sharedService.user['unit'];
+    this.address = this.sharedService.user['address'];
+    this.phone = this.sharedService.user['phone'];
+    this.email = this.sharedService.user['email'];
+
+
   }
 
   check() {
-    if (this.loginForm.value.cardNumber === this.cardNumber &&
+    this.firstName = this.loginForm.value.firstName;
+    this.lastName = this.loginForm.value.lastName;
+    this.email = this.loginForm.value.email;
+    this.phone = this.loginForm.value.phone;
+    this.address = this.loginForm.value.address;
+    this.unit = this.loginForm.value.unit;
+    this.state = this.loginForm.value.state;
+    this.city = this.loginForm.value.city;
+    this.cardNumber = this.loginForm.value.cardNumber;
+    this.expirationDate = this.loginForm.value.expirationDate;
+    this.cvv = this.loginForm.value.cvv;
+    console.log(this.firstName + ' ' +
+      this.lastName + ' ' + this.email + ' ' +
+      this.phone + ' ' + this.address + ' ' +
+      this.state + ' ' + this.city + ' ' + this.cardNumber + ' ' + this.expirationDate + ' ' + this.cvv + ' ');
+
+    if (!this.firstName || !this.lastName || !this.email || !this.phone || !this.state || !this.city
+      || !this.cardNumber || !this.cvv || !this.expirationDate || !this.address) {
+      this.errorFlag = true;
+      this.errorMsg = 'One or more information missing';
+    } else if (this.loginForm.value.cardNumber === this.cardNumber &&
       this.loginForm.value.cvv !== this.sharedService.user['cvv']) {
       this.errorFlag = true;
+      this.errorMsg = 'Please correct your cvv number!';
     } else {
+      this.errorFlag = false;
       if (this.items.length !== 0) {
         this.user = this.sharedService.user;
         this.user['cart'] = [];

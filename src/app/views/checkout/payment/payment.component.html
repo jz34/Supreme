@@ -9,69 +9,117 @@
 </nav>
 
 <br>
-
-<div class="row footer-padding">
-  <div class="card col-lg-6 col-md-6 col-sm-12 col-xs-12 black-card">
-    <p class="center_text supreme-font white_text text-font-size">Shipping Address</p >
-    <form>
+<div *ngIf="errorFlag"
+     class="alert alert-danger">
+  {{errorMsg}}
+</div>
+<form (ngSubmit)="check()" #f="ngForm">
+  <div class="row footer-padding">
+    <div class="card col-lg-6 col-md-6 col-sm-12 col-xs-12 black-card">
+      <p class="center_text supreme-font white_text text-font-size">Shipping Address</p >
       <table>
         <table class="table">
           <tbody>
           <tr>
             <td colspan="3">
               <label class="white_text supreme-font">First Name</label>
-              <input class="form-control" type="text">
+              <input
+                style="color: black"
+                [(ngModel)]="firstName"
+                name="firstName"
+                placeholder="{{firstName}}"
+                class="form-control supreme-font"
+                type="text">
             </td>
           </tr>
           <tr>
             <td colspan="3">
               <label class="white_text supreme-font">Last Name</label>
-              <input class="form-control" type="text">
+              <input [(ngModel)]="lastName"
+                     name="lastName"
+                     style="color: black"
+
+                     placeholder="{{lastName}}"
+                     class="form-control supreme-font"
+                     type="text">
             </td>
           </tr>
           <tr>
             <td colspan="3">
               <label class="white_text supreme-font">Email</label>
-              <input class="form-control" type="text">
+              <input [(ngModel)]="email"
+                     style="color: black"
+                     name="email"
+                     placeholder="{{email}}"
+                     class="form-control supreme-font"
+                     type="text">
             </td>
           <tr>
             <td colspan="3">
               <label class="white_text supreme-font">Phone</label>
-              <input class="form-control" type="text">
+              <input [(ngModel)]="phone"
+                     name="phone"
+                     style="color: black"
+                     placeholder="{{phone}}"
+                     class="form-control supreme-font"
+                     type="text">
             </td>
           </tr>
           <tr>
             <td colspan="2">
               <label class="white_text supreme-font">Address</label>
-              <input class="form-control" type="text">
+              <input [(ngModel)]="address"
+                     style="color: black"
+                     name="address"
+                     placeholder="{{address}}"
+                     class="form-control supreme-font"
+                     type="text">
             </td>
             <td>
               <label class="white_text supreme-font">Apt, Unit, etc</label>
-              <input class="form-control" type="text">
+              <input [(ngModel)]="unit"
+                     name="unit"
+                     style="color: black"
+                     placeholder="{{unit}}"
+                     class="form-control supreme-font"
+                     type="text">
             </td>
           </tr>
           <tr>
-            <td><label class="white_text supreme-font">Zip</label><input class="form-control" type="text">
+            <td><label class="white_text supreme-font">Zip</label><input [(ngModel)]="zip"
+                                                                         name="zip"
+                                                                         style="color: black"
+
+                                                                         placeholder="{{zip}}"
+                                                                         class="form-control supreme-font"
+                                                                         type="text">
             </td>
-            <td><label class="white_text supreme-font">City</label><input class="form-control" type="text">
+            <td><label class="white_text supreme-font">City</label><input [(ngModel)]="city"
+                                                                          name="city"
+                                                                          style="color: black"
+
+                                                                          placeholder="{{city}}"
+                                                                          class="form-control supreme-font"
+                                                                          type="text">
             </td>
-            <td><label class="white_text supreme-font">State</label><input class="form-control" type="text">
+            <td><label class="white_text supreme-font">State</label><input [(ngModel)]="state"
+                                                                           name="state"
+                                                                           style="color: black"
+
+                                                                           placeholder="{{state}}"
+                                                                           class="form-control supreme-font"
+                                                                           type="text">
             </td>
           </tr>
           </tbody>
         </table>
       </table>
-    </form>
-    <br>
-  </div>
-
-  <div class="card col-lg-6 col-md-6 col-sm-12 col-xs-12 left-border black-card">
-    <p class="center_text supreme-font white_text text-font-size">Credit Card</p >
-    <div *ngIf="errorFlag"
-         class="alert alert-danger">
-      {{errorMsg}}
+      <br>
     </div>
-    <form (ngSubmit)="check()" #f="ngForm">
+
+    <div class="card col-lg-6 col-md-6 col-sm-12 col-xs-12 left-border black-card">
+      <p class="center_text supreme-font white_text text-font-size">Credit Card</p >
+
       <table class="table">
         <tbody>
         <tr>
@@ -126,11 +174,13 @@
         </tbody>
       </table>
       <div class="creditCardBtn">
-        <button class="btn btn-outline-danger btn-block supreme-font white_text">Check Out</button>
+        <button class="btn btn-outline-danger btn-block supreme-font white_text" type="submit">Check Out</button>
       </div>
-    </form>
+    </div>
   </div>
-</div>
+</form>
+
+
 <div class="card-footer footer-color fixed-bottom">
   <a class="pull-right white_text" href=" "><i class="fa fa-user"></i></a >
 </div>
