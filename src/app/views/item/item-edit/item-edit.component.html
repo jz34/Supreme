@@ -10,7 +10,11 @@
     <a class="pull-right white_text" (click)="f.ngSubmit.emit()"><i class="fa fa-check"></i></a >
   </div>
 </nav>
+
 <p class="center_text supreme-font white_text text-font-size">Edit Item</p >
+<div *ngIf="errorFlag" class="alert alert-danger">
+  {{errorMsg}}
+</div>
 <form (ngSubmit)="updateOrCreate()" #f="ngForm">
   <div class="form-group">
     <div class="center_input input_padding">
@@ -46,12 +50,12 @@
     </div>
     <div class="center_input input_padding">
       <label class="white_text supreme-font">Image</label>
-      <input [(ngModel)]="imgurl"
-             name="imgurl"
+      <input [(ngModel)]="url"
+             name="url"
              type="text"
              class="form-control supreme-font"
              style="color: black"
-             placeholder="{{imgurl}}"
+             placeholder="{{url}}"
       >
     </div>
     <div class="center_input input_padding">
@@ -87,7 +91,7 @@
     </div>
   </div>
   <button class="btn btn-outline-danger btn-block center_input supreme-font white_text">Upload Imgage</button>
-  <button class="btn btn-outline-danger btn-block center_input supreme-font white_text">Image from Flickr</button>
+  <button class="btn btn-outline-danger btn-block center_input supreme-font white_text" (click)="goFlickr()">Image from Flickr</button>
   <button class="btn btn-outline-danger btn-block center_input supreme-font white_text" (click)="delete()">Delete</button>
   <button class="btn btn-outline-danger btn-block center_input supreme-font white_text" routerLink="../">Cancel</button>
 </form>

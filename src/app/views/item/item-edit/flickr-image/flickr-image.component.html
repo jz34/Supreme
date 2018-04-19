@@ -1,0 +1,44 @@
+<head>
+  <title>Search Flickr Image</title>
+</head>
+<body class="body-black">
+<nav class="navbar navbar-default header-margin-bottom">
+  <div class="supreme-font">
+    <a class="white_text" (click)="goHome()"><i class="fa fa-chevron-left"></i></a >
+    <span class="supreme-text-logo"><a class="a-no-color a-no-hover a-no-visited"
+                                       (click)="goHome()">S U P R E M E</a ></span>
+
+  </div>
+</nav>
+
+<div class = "container-fluid">
+  <div *ngIf="errorFlag" class="alert alert-danger">
+    {{errorMsg}}
+  </div>
+  <div class="input-group">
+    <input [(ngModel)]="searchText" type="text" class="form-control">
+    <span class="input-group-btn">
+            <a (click)="searchPhotos()" class="btn btn-default" type="button">
+                <span class="glyphicon glyphicon-search"></span>
+            </a >
+    </span>
+  </div>
+  <br>
+  <div class="row">
+    <div *ngFor = "let pic of photos['photo']"
+         class="col-xs-4">
+      < img    (click)="selectPhoto(pic)"
+      width="100%"
+      [src] = "['https://farm' + pic.farm + '.staticflickr.com/' + pic.server + '/' + pic.id + '_' + pic.secret + '_s.jpg']"/>
+      <p></p >
+    </div>
+  </div>
+
+</div>
+
+
+<div class="card-footer footer-color fixed-bottom">
+  <a class="pull-right white_text" (click)="profile()"><i class="fa fa-user"></i></a >
+</div>
+
+</body>

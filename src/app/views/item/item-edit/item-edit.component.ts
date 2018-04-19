@@ -32,6 +32,7 @@ export class ItemEditComponent implements OnInit {
   ngOnInit() {
     this.sellerId = this.sharedService.user['_id'];
     this.errorFlag = false;
+    this.errorMsg = 'You have missing information';
     this.activatedRoute.params
       .subscribe(
         (params: any) => {
@@ -39,6 +40,7 @@ export class ItemEditComponent implements OnInit {
           if (this.itemId !== undefined) {
             this.itemService.findItemById(this.itemId).subscribe((returnItem: any) => {
               this.item = returnItem;
+              console.log(this.item);
               this.name = this.item.name;
               this.color = this.item.color;
               this.price = this.item.price;
@@ -66,18 +68,25 @@ export class ItemEditComponent implements OnInit {
     this.item.url = this.loginForm.value.url;
     this.item.category = this.loginForm.value.category;
     this.item.size = this.loginForm.value.size;
-
-    if (this.itemId !== undefined) {
-      return this.itemService.updateItem(this.itemId, this.item).subscribe((returnItem: any) => {
-        this.router.navigate(['/user/seller/listing'], {relativeTo: this.activatedRoute});
-      });
+    if (this.item.name === '' || this.item.name === undefined ||
+      this.item.color === '' || this.item.color === undefined ||
+      this.item.price === '' || this.item.price === undefined ||
+      this.item.url === '' || this.item.url === undefined ||
+      this.item.category === '' || this.item.category === undefined ||
+      this.item.size === '' || this.item.size === undefined) {
+      this.errorFlag = true;
     } else {
-      return this.itemService.createItem(this.sellerId, this.item.name, this.item.price,
-        this.item.color, this.item.size, this.item.category, this.item.url).subscribe((returnItem: any) => {
-        this.item = returnItem;
-        this.router.navigate(['/user/seller']);
-      });
-
+      if (this.itemId !== undefined) {
+        return this.itemService.updateItem(this.itemId, this.item).subscribe((returnItem: any) => {
+          this.router.navigate(['/user/seller/listing'], {relativeTo: this.activatedRoute});
+        });
+      } else {
+        return this.itemService.createItem(this.sellerId, this.item.name, this.item.price,
+          this.item.color, this.item.size, this.item.category, this.item.url).subscribe((returnItem: any) => {
+          this.item = returnItem;
+          this.router.navigate(['/user/seller']);
+        });
+      }
     }
   }
 
@@ -89,6 +98,30 @@ export class ItemEditComponent implements OnInit {
 
     } else {
       this.router.navigate(['/user/seller']);
+    }
+  }
+
+  goFlickr() {
+    this.item.name = this.loginForm.value.name;
+    this.item.color = this.loginForm.value.color;
+    this.item.price = this.loginForm.value.price;
+    this.item.category = this.loginForm.value.category;
+    this.item.size = this.loginForm.value.size;
+    // if (this.item.name === '' || this.item.name === undefined ||
+    //   this.item.color === '' || this.item.color === undefined ||
+    //   this.item.price === '' || this.item.price === undefined ||
+    //   this.item.url === '' || this.item.url === undefined ||
+    //   this.item.category === '' || this.item.category === undefined ||
+    //   this.item.size === '' || this.item.size === undefined) {
+    //   this.errorFlag = true;
+    // } else {
+    if (this.itemId !== undefined) {
+      this.router.navigate(['/user/seller/item/' + this.itemId + '/flickr']);
+    } else {
+      this.itemService.createItem(this.sellerId, this.item.name, this.item.price,
+        this.item.color, this.item.size, this.item.category, this.item.url).subscribe((returnItem: any) => {
+        this.router.navigate(['/user/seller/item/' + returnItem._id + '/flickr']);
+      });
     }
   }
 }
