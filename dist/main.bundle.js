@@ -993,8 +993,7 @@ var PaymentComponent = /** @class */ (function () {
     }
     PaymentComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.count = 0;
-        this.soldItem = [];
+        this.soldItem = new Array();
         this.sold = '';
         this.buyerId = this.sharedService.user['_id'];
         this.userService.findUserById(this.buyerId).subscribe(function (returnedUser) {
@@ -1006,50 +1005,23 @@ var PaymentComponent = /** @class */ (function () {
         this.cardNumber = this.sharedService.user['cardNumber'];
     };
     PaymentComponent.prototype.check = function () {
-        var _this = this;
         if (this.loginForm.value.cardNumber === this.cardNumber &&
             this.loginForm.value.cvv !== this.sharedService.user['cvv']) {
             this.errorFlag = true;
         }
         else {
             if (this.items.length !== 0) {
-                var _loop_1 = function (i) {
-                    this_1.itemService.findItemById(this_1.items[i]['_id']).subscribe(function (returnItem) {
-                        if (returnItem._buyer === undefined || returnItem._buyer === '') {
-                            _this.items[i]['_buyer'] = _this.buyerId;
-                        }
-                    });
-                };
-                var this_1 = this;
+                this.user = this.sharedService.user;
+                this.user['cart'] = [];
+                this.userService.updateUser(this.user['_id'], this.user).subscribe(function (returnUser) {
+                });
                 for (var i = 0; i < this.items.length; i++) {
-                    _loop_1(i);
-                }
-                for (var i = 0; i < this.items.length; i++) {
-                    if (this.items[i]['_buyer'] !== undefined) {
-                        this.soldItem.push(this.items[i]);
-                    }
-                }
-                if (this.soldItem === undefined || this.soldItem.length === 0) {
-                    this.user = this.sharedService.user;
-                    this.user['cart'] = [];
-                    this.userService.updateUser(this.user['_id'], this.user).subscribe(function (returnUser) {
+                    this.items[i]['_buyer'] = this.buyerId;
+                    this.itemService.updateItem(this.items[i]['_id'], this.items[i]).subscribe(function (Item) {
+                        console.log(Item);
                     });
-                    for (var i = 0; i < this.items.length; i++) {
-                        this.item = this.items[i];
-                        this.item['_buyer'] = this.buyerId;
-                        this.itemService.updateItem(this.items[i]['_id'], this.item).subscribe(function (Item) {
-                            console.log(Item);
-                        });
-                    }
-                    this.router.navigate(['/user/buyer/summary']);
                 }
-                else {
-                    for (var i = 0; i < this.soldItem.length; i++) {
-                        this.sold += ' ' + this.soldItem[i]['name'] + ' ';
-                    }
-                    alert('Item(s): ' + this.sold + ' sold.');
-                    this.router.navigate(['/user/buyer/cart']);
-                }
+                this.router.navigate(['/user/buyer/summary']);
             }
             else {
                 alert('No item in your cart!');

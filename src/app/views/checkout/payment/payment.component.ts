@@ -25,15 +25,13 @@ export class PaymentComponent implements OnInit {
   user: any;
   item: any;
   soldItem: any;
-  count: number;
 
   constructor(private sharedService: SharedService, private router: Router,
               private userService: UserService, private itemService: ItemService) {
   }
 
   ngOnInit() {
-    this.count = 0;
-    this.soldItem = [];
+    this.soldItem = new Array();
     this.sold = '';
     this.buyerId = this.sharedService.user['_id'];
     this.userService.findUserById(this.buyerId).subscribe((returnedUser: any) => {
@@ -51,40 +49,17 @@ export class PaymentComponent implements OnInit {
       this.errorFlag = true;
     } else {
       if (this.items.length !== 0) {
+        this.user = this.sharedService.user;
+        this.user['cart'] = [];
+        this.userService.updateUser(this.user['_id'], this.user).subscribe((returnUser: any) => {
+        });
         for (let i = 0; i < this.items.length; i++) {
-          this.itemService.findItemById(this.items[i]['_id']).subscribe((returnItem: any) => {
-            if (returnItem._buyer === undefined || returnItem._buyer === '') {
-              this.items[i]['_buyer'] = this.buyerId;
-            }
+          this.items[i]['_buyer'] = this.buyerId;
+          this.itemService.updateItem(this.items[i]['_id'], this.items[i]).subscribe((Item: any) => {
+            console.log(Item);
           });
         }
-
-        for (let i = 0; i < this.items.length; i++) {
-          if (this.items[i]['_buyer'] !== undefined) {
-            this.soldItem.push(this.items[i]);
-          }
-        }
-
-        if (this.soldItem === undefined || this.soldItem.length === 0) {
-          this.user = this.sharedService.user;
-          this.user['cart'] = [];
-          this.userService.updateUser(this.user['_id'], this.user).subscribe((returnUser: any) => {
-          });
-          for (let i = 0; i < this.items.length; i++) {
-            this.item = this.items[i];
-            this.item['_buyer'] = this.buyerId;
-            this.itemService.updateItem(this.items[i]['_id'], this.item).subscribe((Item: any) => {
-              console.log(Item);
-            });
-          }
-          this.router.navigate(['/user/buyer/summary']);
-        } else {
-          for (let i = 0; i < this.soldItem.length; i++) {
-            this.sold += ' ' + this.soldItem[i]['name'] + ' ';
-          }
-          alert('Item(s): ' + this.sold + ' sold.');
-          this.router.navigate(['/user/buyer/cart']);
-        }
+        this.router.navigate(['/user/buyer/summary']);
       } else {
         alert('No item in your cart!');
         this.router.navigate(['/loggedinhome/user']);
