@@ -1,3 +1,36 @@
-<p>
-  order-history works!
-</p>
+<head>
+  <title>Bought History</title>
+</head>
+
+
+<body class="body-black">
+<nav class="navbar navbar-default header-margin-bottom">
+  <div class="supreme-font">
+    <a class="white_text" routerLink=".."><i class="fa fa-chevron-left"></i></a >
+    <span class="supreme-text-logo"><a class="a-no-color a-no-hover a-no-visited" routerLink="loggedinhome/user">S U P R E M E</a ></span>
+  </div>
+</nav>
+
+<p class="center_text supreme-font white_text text-font-size">Order History</p >
+<div class="card black-card footer-padding">
+  <div class="card-columns" style="padding: 10px">
+    <div *ngFor="let item of items">
+      <div class="card text-center">
+        < img class="card-img-top" src={{item.url}}>
+        <div class="card-body item-text">
+          Name: {{item.name}}<br>
+          Category: {{item.category}}<br>
+          Color: {{item.color}}<br>
+          Size: {{item.size}}<br>
+          Price: ${{item.price}}<br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card-footer footer-color fixed-bottom">
+  <a class="pull-right white_text" routerLink="/user/buyer"><i class="fa fa-user"></i></a >
+</div>
+
+</body>

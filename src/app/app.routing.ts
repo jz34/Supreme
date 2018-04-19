@@ -21,6 +21,7 @@ import { LoggedinHomeComponent } from './views/home/loggedin-home/loggedin-home.
 import { CreditcardComponent } from './views/users/creditcard/creditcard.component';
 import {SellerListingComponent} from './views/users/profile/seller-profile/seller-listing/seller-listing.component';
 import {AuthGuard} from './services/auth-guard.service';
+import {FlickrImageComponent} from './views/item/item-edit/flickr-image/flickr-image.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -37,14 +38,15 @@ const appRoutes: Routes = [
   {path: 'user/seller/new', component: ItemEditComponent, canActivate: [AuthGuard]},
   {path: 'user/seller/listing', component: SellerListingComponent, canActivate: [AuthGuard]},
   {path: 'user/seller/item/:iid', component: ItemEditComponent, canActivate: [AuthGuard]},
+  {path: 'user/seller/item/:iid/flickr', component: FlickrImageComponent, canActivate: [AuthGuard]},
   {path: 'user/item/:iid', component: ItemDisplayComponent, canActivate: [AuthGuard]},
-  {path: 'user/buyer/:uid/cart', component: CartComponent, canActivate: [AuthGuard]},
-  {path: 'user/buyer/:uid/payment', component: PaymentComponent, canActivate: [AuthGuard]},
-  {path: 'user/buyer/:uid/summary', component: SummaryComponent, canActivate: [AuthGuard]},
-  {path: 'user/buyer/:uid/history', component: OrderHistoryComponent, canActivate: [AuthGuard]},
-  {path: 'user/seller/:uid/history', component: SaleHistoryComponent, canActivate: [AuthGuard]},
-  {path: 'user/seller/:uid/creditcard', component: CreditcardComponent, canActivate: [AuthGuard]},
-  {path: 'user/buyer/:uid/creditcard', component: CreditcardComponent, canActivate: [AuthGuard]},
+  {path: 'user/buyer/cart', component: CartComponent, canActivate: [AuthGuard]},
+  {path: 'user/buyer/payment', component: PaymentComponent, canActivate: [AuthGuard]},
+  {path: 'user/buyer/summary', component: SummaryComponent, canActivate: [AuthGuard]},
+  {path: 'user/buyer/history', component: OrderHistoryComponent, canActivate: [AuthGuard]},
+  {path: 'user/seller/history', component: SaleHistoryComponent, canActivate: [AuthGuard]},
+  {path: 'user/seller/creditcard', component: CreditcardComponent, canActivate: [AuthGuard]},
+  {path: 'user/buyer/creditcard', component: CreditcardComponent, canActivate: [AuthGuard]},
   {path: 'user/searchresult', component: ItemListComponent, canActivate: [AuthGuard]},
   {path: 'user/guest/searchresult', component: ItemListComponent, canActivate: [AuthGuard]},
   {path: 'user/guest/item/:iid', component: ItemDisplayComponent, canActivate: [AuthGuard]},

@@ -31,6 +31,7 @@ import {HttpModule} from '@angular/http';
 import {ItemService} from './services/item.service.client';
 import { SellerListingComponent } from './views/users/profile/seller-profile/seller-listing/seller-listing.component';
 import {AuthGuard} from './services/auth-guard.service';
+import { FlickrImageComponent } from './views/item/item-edit/flickr-image/flickr-image.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {AuthGuard} from './services/auth-guard.service';
     AdminProfileComponent,
     LoggedinHomeComponent,
     CreditcardComponent,
-    SellerListingComponent
+    SellerListingComponent,
+    FlickrImageComponent
   ],
   imports: [
     BrowserModule,

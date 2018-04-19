@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Search Result</title>
-</head>
 <body class="body-black">
 <nav class="navbar navbar-default header-margin-bottom">
   <div class="supreme-font">
@@ -17,9 +12,8 @@
     <div *ngFor="let item of items">
       <div class="card text-center">
         <a (click)="display(item._id)" class="a-no-hover">
-          <img class="card-img-top" src={{item.url}}>
+          < img class="card-img-top" src={{item.url}}>
         </a >
-
         <div class="card-body" (click)="display(item._id)">
           <p class="card-text">Name: {{item.name}}</p >
           <p class="card-text">Color: {{item.color}}</p >
@@ -34,7 +28,3 @@
 <div class="card-footer footer-color fixed-bottom">
   <a class="pull-right white_text" (click)="profile()"><i class="fa fa-user"></i></a >
 </div>
-
-</body>
-
-</html>

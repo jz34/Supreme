@@ -98,12 +98,14 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__services_item_service_client__ = __webpack_require__("./src/app/services/item.service.client.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__views_users_profile_seller_profile_seller_listing_seller_listing_component__ = __webpack_require__("./src/app/views/users/profile/seller-profile/seller-listing/seller-listing.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__services_auth_guard_service__ = __webpack_require__("./src/app/services/auth-guard.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__views_item_item_edit_flickr_image_flickr_image_component__ = __webpack_require__("./src/app/views/item/item-edit/flickr-image/flickr-image.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -161,7 +163,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_20__views_admin_admin_profile_admin_profile_component__["a" /* AdminProfileComponent */],
                 __WEBPACK_IMPORTED_MODULE_21__views_home_loggedin_home_loggedin_home_component__["a" /* LoggedinHomeComponent */],
                 __WEBPACK_IMPORTED_MODULE_22__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */],
-                __WEBPACK_IMPORTED_MODULE_29__views_users_profile_seller_profile_seller_listing_seller_listing_component__["a" /* SellerListingComponent */]
+                __WEBPACK_IMPORTED_MODULE_29__views_users_profile_seller_profile_seller_listing_seller_listing_component__["a" /* SellerListingComponent */],
+                __WEBPACK_IMPORTED_MODULE_31__views_item_item_edit_flickr_image_flickr_image_component__["a" /* FlickrImageComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -207,6 +210,8 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__views_users_creditcard_creditcard_component__ = __webpack_require__("./src/app/views/users/creditcard/creditcard.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__views_users_profile_seller_profile_seller_listing_seller_listing_component__ = __webpack_require__("./src/app/views/users/profile/seller-profile/seller-listing/seller-listing.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__ = __webpack_require__("./src/app/services/auth-guard.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__views_item_item_edit_flickr_image_flickr_image_component__ = __webpack_require__("./src/app/views/item/item-edit/flickr-image/flickr-image.component.ts");
+
 
 
 
@@ -244,14 +249,15 @@ var appRoutes = [
     { path: 'user/seller/new', component: __WEBPACK_IMPORTED_MODULE_5__views_item_item_edit_item_edit_component__["a" /* ItemEditComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
     { path: 'user/seller/listing', component: __WEBPACK_IMPORTED_MODULE_20__views_users_profile_seller_profile_seller_listing_seller_listing_component__["a" /* SellerListingComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
     { path: 'user/seller/item/:iid', component: __WEBPACK_IMPORTED_MODULE_5__views_item_item_edit_item_edit_component__["a" /* ItemEditComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/seller/item/:iid/flickr', component: __WEBPACK_IMPORTED_MODULE_22__views_item_item_edit_flickr_image_flickr_image_component__["a" /* FlickrImageComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
     { path: 'user/item/:iid', component: __WEBPACK_IMPORTED_MODULE_6__views_item_item_display_item_display_component__["a" /* ItemDisplayComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
-    { path: 'user/buyer/:uid/cart', component: __WEBPACK_IMPORTED_MODULE_9__views_checkout_cart_cart_component__["a" /* CartComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
-    { path: 'user/buyer/:uid/payment', component: __WEBPACK_IMPORTED_MODULE_10__views_checkout_payment_payment_component__["a" /* PaymentComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
-    { path: 'user/buyer/:uid/summary', component: __WEBPACK_IMPORTED_MODULE_11__views_checkout_summary_summary_component__["a" /* SummaryComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
-    { path: 'user/buyer/:uid/history', component: __WEBPACK_IMPORTED_MODULE_12__views_users_profile_buyer_profile_order_history_order_history_component__["a" /* OrderHistoryComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
-    { path: 'user/seller/:uid/history', component: __WEBPACK_IMPORTED_MODULE_16__views_users_profile_seller_profile_sale_history_sale_history_component__["a" /* SaleHistoryComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
-    { path: 'user/seller/:uid/creditcard', component: __WEBPACK_IMPORTED_MODULE_19__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
-    { path: 'user/buyer/:uid/creditcard', component: __WEBPACK_IMPORTED_MODULE_19__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/buyer/cart', component: __WEBPACK_IMPORTED_MODULE_9__views_checkout_cart_cart_component__["a" /* CartComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/buyer/payment', component: __WEBPACK_IMPORTED_MODULE_10__views_checkout_payment_payment_component__["a" /* PaymentComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/buyer/summary', component: __WEBPACK_IMPORTED_MODULE_11__views_checkout_summary_summary_component__["a" /* SummaryComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/buyer/history', component: __WEBPACK_IMPORTED_MODULE_12__views_users_profile_buyer_profile_order_history_order_history_component__["a" /* OrderHistoryComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/seller/history', component: __WEBPACK_IMPORTED_MODULE_16__views_users_profile_seller_profile_sale_history_sale_history_component__["a" /* SaleHistoryComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/seller/creditcard', component: __WEBPACK_IMPORTED_MODULE_19__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/buyer/creditcard', component: __WEBPACK_IMPORTED_MODULE_19__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
     { path: 'user/searchresult', component: __WEBPACK_IMPORTED_MODULE_15__views_item_item_list_item_list_component__["a" /* ItemListComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
     { path: 'user/guest/searchresult', component: __WEBPACK_IMPORTED_MODULE_15__views_item_item_list_item_list_component__["a" /* ItemListComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
     { path: 'user/guest/item/:iid', component: __WEBPACK_IMPORTED_MODULE_6__views_item_item_display_item_display_component__["a" /* ItemDisplayComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
@@ -294,6 +300,49 @@ var AuthGuard = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__user_service_client__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], AuthGuard);
     return AuthGuard;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/flickr.service.client.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FlickrService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var FlickrService = /** @class */ (function () {
+    function FlickrService(_http) {
+        this._http = _http;
+        this.key = '90ea0df0685933f65ea96fab852a3023';
+        this.secret = '59b7fb7ceb0a467b';
+        this.urlBase = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=API_KEY&text=TEXT';
+    }
+    FlickrService.prototype.searchPhotos = function (searchTerm) {
+        var url = this.urlBase
+            .replace('API_KEY', this.key)
+            .replace('TEXT', searchTerm);
+        return this._http.get(url);
+    };
+    FlickrService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])() // needed as we're injecting Http service into this service
+        ,
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Http */]])
+    ], FlickrService);
+    return FlickrService;
 }());
 
 
@@ -820,17 +869,10 @@ var AdminUserEditComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/views/checkout/cart/cart.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/views/checkout/cart/cart.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  cart works!\n</p>\n"
+module.exports = "<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n  </div>\n</nav>\n<p class=\"center_text supreme-font white_text text-font-size\">Cart</p >\n\n<table class=\"table table-hover white_text table-margin footer-padding\">\n  <thead class=\"table-info\">\n  <tr>\n    <th></th>\n    <th scope=\"col\" class=\"supreme-font text-black\">Item</th>\n    <th scope=\"col\" class=\"supreme-font text-black\">Price</th>\n    <th scope=\"col\"></th>\n  </tr>\n  </thead>\n  <tbody>\n  <tr *ngFor=\"let item of items\">\n    <th></th>\n    <td class=\"supreme-font\">{{item.name}}</td>\n    <th scope=\"col\" class=\"supreme-font\">${{item.price}}</th>\n    <td>\n      <button class=\"btn btn-outline-danger btn-block supreme-font white_text small-button\" (click)=\"remove(item._id)\"\n      >remove\n      </button>\n    </td>\n  </tr>\n  <tr class=\"table-info\">\n    <th></th>\n    <td class=\"supreme-font text-black\">Subtotal</td>\n    <th scope=\"col\" class=\"supreme-font text-black\">${{total}}</th>\n    <td>\n      <button class=\"btn btn-outline-danger btn-block supreme-font white_text small-button\"\n              (click)=\"goPayment()\">Checkout\n      </button>\n  </tr>\n\n  </tbody>\n</table>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" routerLink=\"/user/buyer\"><i class=\"fa fa-user\"></i></a >\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -840,6 +882,9 @@ module.exports = "<p>\n  cart works!\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CartComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__ = __webpack_require__("./src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -850,18 +895,50 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var CartComponent = /** @class */ (function () {
-    function CartComponent() {
+    function CartComponent(sharedService, userService, router) {
+        this.sharedService = sharedService;
+        this.userService = userService;
+        this.router = router;
     }
     CartComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.total = 0;
+        this.user = this.sharedService.user;
+        this.userService.findUserById(this.user['_id']).subscribe(function (returnUser) {
+            _this.items = returnUser.cart;
+            if (_this.items !== undefined) {
+                for (var i = 0; i < _this.items.length; i++) {
+                    _this.total += _this.items[i]['price'];
+                }
+            }
+        });
+    };
+    CartComponent.prototype.remove = function (itemId) {
+        for (var i = 0; i < this.items.length; i++) {
+            if (this.items[i]['_id'] === itemId) {
+                this.total -= this.items[i]['price'];
+                this.items.splice(i, 1);
+                this.user['cart'] = this.items;
+                this.userService.updateUser(this.user['_id'], this.user).subscribe(function (returnUser) {
+                });
+                this.router.navigate(['/user/buyer/cart']);
+            }
+        }
+    };
+    CartComponent.prototype.goPayment = function () {
+        this.router.navigate(['/user/buyer/payment']);
     };
     CartComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-cart',
             template: __webpack_require__("./src/app/views/checkout/cart/cart.component.html"),
-            styles: [__webpack_require__("./src/app/views/checkout/cart/cart.component.css")]
+            styles: [__webpack_require__("./src/app/style.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_shared_service__["a" /* SharedService */], __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
     ], CartComponent);
     return CartComponent;
 }());
@@ -870,17 +947,10 @@ var CartComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/views/checkout/payment/payment.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/views/checkout/payment/payment.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  payment works!\n</p>\n"
+module.exports = "<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       href=\" \">S U P R E M E</a ></span>\n\n  </div>\n</nav>\n\n<br>\n\n<div class=\"row footer-padding\">\n  <div class=\"card col-lg-6 col-md-6 col-sm-12 col-xs-12 black-card\">\n    <p class=\"center_text supreme-font white_text text-font-size\">Shipping Address</p >\n    <form>\n      <table>\n        <table class=\"table\">\n          <tbody>\n          <tr>\n            <td colspan=\"3\">\n              <label class=\"white_text supreme-font\">First Name</label>\n              <input class=\"form-control\" type=\"text\">\n            </td>\n          </tr>\n          <tr>\n            <td colspan=\"3\">\n              <label class=\"white_text supreme-font\">Last Name</label>\n              <input class=\"form-control\" type=\"text\">\n            </td>\n          </tr>\n          <tr>\n            <td colspan=\"3\">\n              <label class=\"white_text supreme-font\">Email</label>\n              <input class=\"form-control\" type=\"text\">\n            </td>\n          <tr>\n            <td colspan=\"3\">\n              <label class=\"white_text supreme-font\">Phone</label>\n              <input class=\"form-control\" type=\"text\">\n            </td>\n          </tr>\n          <tr>\n            <td colspan=\"2\">\n              <label class=\"white_text supreme-font\">Address</label>\n              <input class=\"form-control\" type=\"text\">\n            </td>\n            <td>\n              <label class=\"white_text supreme-font\">Apt, Unit, etc</label>\n              <input class=\"form-control\" type=\"text\">\n            </td>\n          </tr>\n          <tr>\n            <td><label class=\"white_text supreme-font\">Zip</label><input class=\"form-control\" type=\"text\">\n            </td>\n            <td><label class=\"white_text supreme-font\">City</label><input class=\"form-control\" type=\"text\">\n            </td>\n            <td><label class=\"white_text supreme-font\">State</label><input class=\"form-control\" type=\"text\">\n            </td>\n          </tr>\n          </tbody>\n        </table>\n      </table>\n    </form>\n    <br>\n  </div>\n\n  <div class=\"card col-lg-6 col-md-6 col-sm-12 col-xs-12 left-border black-card\">\n    <p class=\"center_text supreme-font white_text text-font-size\">Credit Card</p >\n    <div *ngIf=\"errorFlag\"\n         class=\"alert alert-danger\">\n      {{errorMsg}}\n    </div>\n    <form (ngSubmit)=\"check()\" #f=\"ngForm\">\n      <table class=\"table\">\n        <tbody>\n        <tr>\n          <td>\n            <label class=\"white_text supreme-font\">First Name</label>\n            <input\n              [(ngModel)]=\"firstName\"\n              name=\"firstName\"\n              class=\"form-control\"\n              type=\"text\"\n              placeholder=\"{{firstName}}\"/>\n          </td>\n          <td></td>\n          <td>\n            <label class=\"white_text supreme-font\">Last Name</label>\n            <input [(ngModel)]=\"lastName\"\n                   name=\"lastName\"\n                   class=\"form-control\"\n                   type=\"text\"\n                   placeholder=\"{{lastName}}\"/>\n          </td>\n        </tr>\n        <tr>\n          <td colspan=\"3\">\n            <label class=\"white_text supreme-font\">Card Number</label>\n            <input [(ngModel)]=\"cardNumber\"\n                   name=\"cardNumber\"\n                   class=\"form-control\"\n                   type=\"text\"\n                   placeholder=\"{{cardNumber}}\"/>\n          </td>\n        </tr>\n        <tr>\n          <td>\n            <label class=\"white_text supreme-font\">Expiration Date</label>\n            <input [(ngModel)]=\"expirationDate\"\n                   name=\"expirationDate\"\n                   class=\"form-control\"\n                   type=\"text\"\n                   placeholder=\"{{expirationDate}}\"/>\n          </td>\n          <td></td>\n          <td>\n            <label class=\"white_text supreme-font\">CVV</label>\n            <input [(ngModel)]=\"cvv\"\n                   name=\"cvv\"\n                   class=\"form-control\"\n                   type=\"text\"\n                   placeholder=\"{{cvv}}\"/>\n          </td>\n        </tr>\n        </tbody>\n      </table>\n      <div class=\"creditCardBtn\">\n        <button class=\"btn btn-outline-danger btn-block supreme-font white_text\">Check Out</button>\n      </div>\n    </form>\n  </div>\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" href=\" \"><i class=\"fa fa-user\"></i></a >\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -890,6 +960,11 @@ module.exports = "<p>\n  payment works!\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PaymentComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_user_service_client__ = __webpack_require__("./src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_item_service_client__ = __webpack_require__("./src/app/services/item.service.client.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -900,18 +975,98 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
+
 var PaymentComponent = /** @class */ (function () {
-    function PaymentComponent() {
+    function PaymentComponent(sharedService, router, userService, itemService) {
+        this.sharedService = sharedService;
+        this.router = router;
+        this.userService = userService;
+        this.itemService = itemService;
+        this.errorFlag = false;
+        this.errorMsg = 'Your cvv number is wrong!';
     }
     PaymentComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.count = 0;
+        this.soldItem = [];
+        this.sold = '';
+        this.buyerId = this.sharedService.user['_id'];
+        this.userService.findUserById(this.buyerId).subscribe(function (returnedUser) {
+            _this.items = returnedUser.cart;
+        });
+        this.firstName = this.sharedService.user['firstName'];
+        this.lastName = this.sharedService.user['lastName'];
+        this.expirationDate = this.sharedService.user['expirationDate'];
+        this.cardNumber = this.sharedService.user['cardNumber'];
     };
+    PaymentComponent.prototype.check = function () {
+        var _this = this;
+        if (this.loginForm.value.cardNumber === this.cardNumber &&
+            this.loginForm.value.cvv !== this.sharedService.user['cvv']) {
+            this.errorFlag = true;
+        }
+        else {
+            if (this.items.length !== 0) {
+                var _loop_1 = function (i) {
+                    this_1.itemService.findItemById(this_1.items[i]['_id']).subscribe(function (returnItem) {
+                        if (returnItem._buyer === undefined || returnItem._buyer === '') {
+                            _this.items[i]['_buyer'] = _this.buyerId;
+                        }
+                    });
+                };
+                var this_1 = this;
+                for (var i = 0; i < this.items.length; i++) {
+                    _loop_1(i);
+                }
+                for (var i = 0; i < this.items.length; i++) {
+                    if (this.items[i]['_buyer'] !== undefined) {
+                        this.soldItem.push(this.items[i]);
+                    }
+                }
+                if (this.soldItem === undefined || this.soldItem.length === 0) {
+                    this.user = this.sharedService.user;
+                    this.user['cart'] = [];
+                    this.userService.updateUser(this.user['_id'], this.user).subscribe(function (returnUser) {
+                    });
+                    for (var i = 0; i < this.items.length; i++) {
+                        this.item = this.items[i];
+                        this.item['_buyer'] = this.buyerId;
+                        this.itemService.updateItem(this.items[i]['_id'], this.item).subscribe(function (Item) {
+                            console.log(Item);
+                        });
+                    }
+                    this.router.navigate(['/user/buyer/summary']);
+                }
+                else {
+                    for (var i = 0; i < this.soldItem.length; i++) {
+                        this.sold += ' ' + this.soldItem[i]['name'] + ' ';
+                    }
+                    alert('Item(s): ' + this.sold + ' sold.');
+                    this.router.navigate(['/user/buyer/cart']);
+                }
+            }
+            else {
+                alert('No item in your cart!');
+                this.router.navigate(['/loggedinhome/user']);
+            }
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NgForm */])
+    ], PaymentComponent.prototype, "loginForm", void 0);
     PaymentComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-payment',
             template: __webpack_require__("./src/app/views/checkout/payment/payment.component.html"),
-            styles: [__webpack_require__("./src/app/views/checkout/payment/payment.component.css")]
+            styles: [__webpack_require__("./src/app/style.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_shared_service__["a" /* SharedService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_4__services_user_service_client__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_5__services_item_service_client__["a" /* ItemService */]])
     ], PaymentComponent);
     return PaymentComponent;
 }());
@@ -920,17 +1075,10 @@ var PaymentComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/views/checkout/summary/summary.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/views/checkout/summary/summary.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  summary works!\n</p>\n"
+module.exports = "<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"container-fluid\">\n    <div class=\"supreme-font\">\n      <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a >\n      <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                         routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n    </div>\n  </div>\n</nav>\n<div class=\"row justify-content-center\">\n  <h4 class=\"white_text supreme-font\">Thanks for shopping with us!</h4>\n</div>\n<div class=\"row justify-content-center footer-padding\">\n  <button class=\" col-5 btn btn-outline-danger btn-block supreme-font white_text center_text justify-content-center\" routerLink=\"/loggedinhome/user\">Back to home</button>\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" routerLink=\"/user/buyer\"><i class=\"fa fa-user\"></i></a >\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -959,7 +1107,7 @@ var SummaryComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-summary',
             template: __webpack_require__("./src/app/views/checkout/summary/summary.component.html"),
-            styles: [__webpack_require__("./src/app/views/checkout/summary/summary.component.css")]
+            styles: [__webpack_require__("./src/app/style.css")]
         }),
         __metadata("design:paramtypes", [])
     ], SummaryComponent);
@@ -1371,7 +1519,6 @@ var ItemDisplayComponent = /** @class */ (function () {
         }
         for (var _i = 0; _i < this.user.cart.length; _i++) {
             var currItem = this.user.cart[_i];
-            console.log(currItem);
             if (currItem._id === this.item._id) {
                 this.isDuplicate = true;
                 return;
@@ -1380,8 +1527,10 @@ var ItemDisplayComponent = /** @class */ (function () {
         this.isDuplicate = false;
         this.user.cart.push(this.item);
         this.userService.updateUser(this.userId, this.user).subscribe(function (returnUser) {
-            _this.sharedService.user = returnUser;
-            _this.router.navigate(['loggedinhome/user'], { relativeTo: _this.activatedRoute });
+            _this.userService.findUserById(_this.userId).subscribe(function (founduser) {
+                _this.sharedService.user = founduser;
+            });
+            _this.router.navigate(['/loggedinhome/user']);
             window.confirm('Item added!');
         });
     };
@@ -1404,10 +1553,114 @@ var ItemDisplayComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/views/item/item-edit/flickr-image/flickr-image.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<head>\n  <title>Search Flickr Image</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" (click)=\"goHome()\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       (click)=\"goHome()\">S U P R E M E</a ></span>\n\n  </div>\n</nav>\n\n<div class = \"container-fluid\">\n  <div *ngIf=\"errorFlag\" class=\"alert alert-danger\">\n    {{errorMsg}}\n  </div>\n  <div class=\"input-group\">\n    <input [(ngModel)]=\"searchText\" type=\"text\" class=\"form-control\">\n    <span class=\"input-group-btn\">\n            <a (click)=\"searchPhotos()\" class=\"btn btn-default\" type=\"button\">\n                <span class=\"glyphicon glyphicon-search\"></span>\n            </a >\n    </span>\n  </div>\n  <br>\n  <div class=\"row\">\n    <div *ngFor = \"let pic of photos['photo']\"\n         class=\"col-xs-4\">\n      < img    (click)=\"selectPhoto(pic)\"\n      width=\"100%\"\n      [src] = \"['https://farm' + pic.farm + '.staticflickr.com/' + pic.server + '/' + pic.id + '_' + pic.secret + '_s.jpg']\"/>\n      <p></p >\n    </div>\n  </div>\n\n</div>\n\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" (click)=\"profile()\"><i class=\"fa fa-user\"></i></a >\n</div>\n\n</body>\n"
+
+/***/ }),
+
+/***/ "./src/app/views/item/item-edit/flickr-image/flickr-image.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FlickrImageComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_flickr_service_client__ = __webpack_require__("./src/app/services/flickr.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_item_service_client__ = __webpack_require__("./src/app/services/item.service.client.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var FlickrImageComponent = /** @class */ (function () {
+    function FlickrImageComponent(flickrService, itemService, router, activatedRoute, sharedService) {
+        this.flickrService = flickrService;
+        this.itemService = itemService;
+        this.router = router;
+        this.activatedRoute = activatedRoute;
+        this.sharedService = sharedService;
+        this.photos = [{ photo: '' }];
+    }
+    FlickrImageComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.errorFlag = false;
+        this.errorMsg = 'Enter the name of the item';
+        this.activatedRoute.params
+            .subscribe(function (params) {
+            _this.itemId = params['iid'];
+            _this.sellerId = _this.sharedService.user['_id'];
+        });
+        this.itemService.findItemById(this.itemId).subscribe(function (returnItem) {
+            console.log(_this.itemId);
+            _this.item = returnItem;
+        });
+    };
+    FlickrImageComponent.prototype.searchPhotos = function () {
+        var _this = this;
+        this.flickrService
+            .searchPhotos(this.searchText)
+            .subscribe(function (data) {
+            var val = data._body;
+            val = val.replace('jsonFlickrApi(', '');
+            val = val.substring(0, val.length - 1);
+            val = JSON.parse(val);
+            _this.photos = val.photos;
+        });
+    };
+    FlickrImageComponent.prototype.selectPhoto = function (photo) {
+        var _this = this;
+        var url = 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server;
+        url += '/' + photo.id + '_' + photo.secret + '_b.jpg';
+        console.log(url);
+        console.log(this.item);
+        this.item.url = url;
+        if (this.itemId !== 'undefined') {
+            this.itemService.updateItem(this.itemId, this.item).subscribe(function (data) {
+                var result = data;
+                if (result) {
+                    _this.router.navigate(['user/seller/item/' + _this.itemId]);
+                }
+                else {
+                    _this.errorMsg = 'failed!';
+                }
+            });
+        }
+    };
+    FlickrImageComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-flickr-image',
+            template: __webpack_require__("./src/app/views/item/item-edit/flickr-image/flickr-image.component.html"),
+            styles: [__webpack_require__("./src/app/style.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_flickr_service_client__["a" /* FlickrService */],
+            __WEBPACK_IMPORTED_MODULE_4__services_item_service_client__["a" /* ItemService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_3__services_shared_service__["a" /* SharedService */]])
+    ], FlickrImageComponent);
+    return FlickrImageComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/views/item/item-edit/item-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"pull-left white_text\" href=\" \"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n\n  </div>\n  <div>\n    <a class=\"pull-right white_text\" (click)=\"f.ngSubmit.emit()\"><i class=\"fa fa-check\"></i></a >\n  </div>\n</nav>\n<p class=\"center_text supreme-font white_text text-font-size\">Edit Item</p >\n<form (ngSubmit)=\"updateOrCreate()\" #f=\"ngForm\">\n  <div class=\"form-group\">\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Name</label>\n      <input\n        [(ngModel)]=\"name\"\n        name=\"name\"\n        type=\"text\"\n        class=\"form-control supreme-font\"\n        style=\"color: black\"\n        placeholder=\"{{name}}\"\n      >\n    </div>\n\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Color</label>\n      <input [(ngModel)]=\"color\"\n             name=\"color\"\n             type=\"text\"\n             class=\"form-control supreme-font\"\n             style=\"color: black\"\n             placeholder=\"{{color}}\">\n    </div>\n\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Price</label>\n      <input [(ngModel)]=\"price\"\n             name=\"price\"\n             type=\"text\"\n             class=\"form-control supreme-font\"\n             style=\"color: black\"\n             placeholder=\"{{price}}\">\n    </div>\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Image</label>\n      <input [(ngModel)]=\"imgurl\"\n             name=\"imgurl\"\n             type=\"text\"\n             class=\"form-control supreme-font\"\n             style=\"color: black\"\n             placeholder=\"{{imgurl}}\"\n      >\n    </div>\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Category</label>\n      <select [(ngModel)]=\"category\"\n              name=\"category\"\n              class=\"form-control supreme-font\"\n              style=\"color: black\">\n        <option value=\"Jacket\">Jacket</option>\n        <option value=\"Shirt\">Shirt</option>\n        <option value=\"Top\">Top</option>\n        <option value=\"Sweatshirt\">Sweatshirt</option>\n        <option value=\"Pants\">Pants</option>\n        <option value=\"Hat\">Hat</option>\n        <option value=\"Bag\">Bag</option>\n        <option value=\"Skate\">Skate</option>\n        <option value=\"Accessory\">Accessory</option>\n      </select>\n    </div>\n\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Size</label>\n      <select [(ngModel)]=\"size\"\n              name=\"size\"\n              class=\"form-control supreme-font\"\n              style=\"color: black\">\n        <option value=\"Small\">Small</option>\n        <option value=\"Medium\">Medium</option>\n        <option value=\"Large\">Large</option>\n        <option value=\"XLarge\">XLarge</option>\n        <option value=\"noSize\">noSize</option>\n      </select>\n    </div>\n  </div>\n  <button class=\"btn btn-outline-danger btn-block center_input supreme-font white_text\">Upload Imgage</button>\n  <button class=\"btn btn-outline-danger btn-block center_input supreme-font white_text\">Image from Flickr</button>\n  <button class=\"btn btn-outline-danger btn-block center_input supreme-font white_text\" (click)=\"delete()\">Delete</button>\n  <button class=\"btn btn-outline-danger btn-block center_input supreme-font white_text\" routerLink=\"../\">Cancel</button>\n</form>\n\n<div class=\" card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" href=\" \"><i class=\"fa fa-user\"></i></a >\n</div>\n</body>\n"
+module.exports = "<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"pull-left white_text\" href=\" \"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n\n  </div>\n  <div>\n    <a class=\"pull-right white_text\" (click)=\"f.ngSubmit.emit()\"><i class=\"fa fa-check\"></i></a >\n  </div>\n</nav>\n\n<p class=\"center_text supreme-font white_text text-font-size\">Edit Item</p >\n<div *ngIf=\"errorFlag\" class=\"alert alert-danger\">\n  {{errorMsg}}\n</div>\n<form (ngSubmit)=\"updateOrCreate()\" #f=\"ngForm\">\n  <div class=\"form-group\">\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Name</label>\n      <input\n        [(ngModel)]=\"name\"\n        name=\"name\"\n        type=\"text\"\n        class=\"form-control supreme-font\"\n        style=\"color: black\"\n        placeholder=\"{{name}}\"\n      >\n    </div>\n\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Color</label>\n      <input [(ngModel)]=\"color\"\n             name=\"color\"\n             type=\"text\"\n             class=\"form-control supreme-font\"\n             style=\"color: black\"\n             placeholder=\"{{color}}\">\n    </div>\n\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Price</label>\n      <input [(ngModel)]=\"price\"\n             name=\"price\"\n             type=\"text\"\n             class=\"form-control supreme-font\"\n             style=\"color: black\"\n             placeholder=\"{{price}}\">\n    </div>\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Image</label>\n      <input [(ngModel)]=\"url\"\n             name=\"url\"\n             type=\"text\"\n             class=\"form-control supreme-font\"\n             style=\"color: black\"\n             placeholder=\"{{url}}\"\n      >\n    </div>\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Category</label>\n      <select [(ngModel)]=\"category\"\n              name=\"category\"\n              class=\"form-control supreme-font\"\n              style=\"color: black\">\n        <option value=\"Jacket\">Jacket</option>\n        <option value=\"Shirt\">Shirt</option>\n        <option value=\"Top\">Top</option>\n        <option value=\"Sweatshirt\">Sweatshirt</option>\n        <option value=\"Pants\">Pants</option>\n        <option value=\"Hat\">Hat</option>\n        <option value=\"Bag\">Bag</option>\n        <option value=\"Skate\">Skate</option>\n        <option value=\"Accessory\">Accessory</option>\n      </select>\n    </div>\n\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Size</label>\n      <select [(ngModel)]=\"size\"\n              name=\"size\"\n              class=\"form-control supreme-font\"\n              style=\"color: black\">\n        <option value=\"Small\">Small</option>\n        <option value=\"Medium\">Medium</option>\n        <option value=\"Large\">Large</option>\n        <option value=\"XLarge\">XLarge</option>\n        <option value=\"noSize\">noSize</option>\n      </select>\n    </div>\n  </div>\n  <button class=\"btn btn-outline-danger btn-block center_input supreme-font white_text\">Upload Imgage</button>\n  <button class=\"btn btn-outline-danger btn-block center_input supreme-font white_text\" (click)=\"goFlickr()\">Image from Flickr</button>\n  <button class=\"btn btn-outline-danger btn-block center_input supreme-font white_text\" (click)=\"delete()\">Delete</button>\n  <button class=\"btn btn-outline-danger btn-block center_input supreme-font white_text\" routerLink=\"../\">Cancel</button>\n</form>\n\n<div class=\" card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" href=\" \"><i class=\"fa fa-user\"></i></a >\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -1446,12 +1699,14 @@ var ItemEditComponent = /** @class */ (function () {
         var _this = this;
         this.sellerId = this.sharedService.user['_id'];
         this.errorFlag = false;
+        this.errorMsg = 'You have missing information';
         this.activatedRoute.params
             .subscribe(function (params) {
             _this.itemId = params['iid'];
             if (_this.itemId !== undefined) {
                 _this.itemService.findItemById(_this.itemId).subscribe(function (returnItem) {
                     _this.item = returnItem;
+                    console.log(_this.item);
                     _this.name = _this.item.name;
                     _this.color = _this.item.color;
                     _this.price = _this.item.price;
@@ -1479,16 +1734,26 @@ var ItemEditComponent = /** @class */ (function () {
         this.item.url = this.loginForm.value.url;
         this.item.category = this.loginForm.value.category;
         this.item.size = this.loginForm.value.size;
-        if (this.itemId !== undefined) {
-            return this.itemService.updateItem(this.itemId, this.item).subscribe(function (returnItem) {
-                _this.router.navigate(['/user/seller/listing'], { relativeTo: _this.activatedRoute });
-            });
+        if (this.item.name === '' || this.item.name === undefined ||
+            this.item.color === '' || this.item.color === undefined ||
+            this.item.price === '' || this.item.price === undefined ||
+            this.item.url === '' || this.item.url === undefined ||
+            this.item.category === '' || this.item.category === undefined ||
+            this.item.size === '' || this.item.size === undefined) {
+            this.errorFlag = true;
         }
         else {
-            return this.itemService.createItem(this.sellerId, this.item.name, this.item.price, this.item.color, this.item.size, this.item.category, this.item.url).subscribe(function (returnItem) {
-                _this.item = returnItem;
-                _this.router.navigate(['/user/seller']);
-            });
+            if (this.itemId !== undefined) {
+                return this.itemService.updateItem(this.itemId, this.item).subscribe(function (returnItem) {
+                    _this.router.navigate(['/user/seller/listing'], { relativeTo: _this.activatedRoute });
+                });
+            }
+            else {
+                return this.itemService.createItem(this.sellerId, this.item.name, this.item.price, this.item.color, this.item.size, this.item.category, this.item.url).subscribe(function (returnItem) {
+                    _this.item = returnItem;
+                    _this.router.navigate(['/user/seller']);
+                });
+            }
         }
     };
     ItemEditComponent.prototype.delete = function () {
@@ -1499,6 +1764,30 @@ var ItemEditComponent = /** @class */ (function () {
         }
         else {
             this.router.navigate(['/user/seller']);
+        }
+    };
+    ItemEditComponent.prototype.goFlickr = function () {
+        var _this = this;
+        this.item.name = this.loginForm.value.name;
+        this.item.color = this.loginForm.value.color;
+        this.item.price = this.loginForm.value.price;
+        this.item.category = this.loginForm.value.category;
+        this.item.size = this.loginForm.value.size;
+        // if (this.item.name === '' || this.item.name === undefined ||
+        //   this.item.color === '' || this.item.color === undefined ||
+        //   this.item.price === '' || this.item.price === undefined ||
+        //   this.item.url === '' || this.item.url === undefined ||
+        //   this.item.category === '' || this.item.category === undefined ||
+        //   this.item.size === '' || this.item.size === undefined) {
+        //   this.errorFlag = true;
+        // } else {
+        if (this.itemId !== undefined) {
+            this.router.navigate(['/user/seller/item/' + this.itemId + '/flickr']);
+        }
+        else {
+            this.itemService.createItem(this.sellerId, this.item.name, this.item.price, this.item.color, this.item.size, this.item.category, this.item.url).subscribe(function (returnItem) {
+                _this.router.navigate(['/user/seller/item/' + returnItem._id + '/flickr']);
+            });
         }
     };
     __decorate([
@@ -1526,7 +1815,7 @@ var ItemEditComponent = /** @class */ (function () {
 /***/ "./src/app/views/item/item-list/item-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Search Result</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" (click)=\"goHome()\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       (click)=\"goHome()\">S U P R E M E</a ></span>\n\n  </div>\n</nav>\n<div class=\"card black-card footer-padding\">\n  <div class=\"card-columns\" style=\"padding: 10px\">\n    <div *ngFor=\"let item of items\">\n      <div class=\"card text-center\">\n        <a (click)=\"display(item._id)\" class=\"a-no-hover\">\n          <img class=\"card-img-top\" src={{item.url}}>\n        </a >\n\n        <div class=\"card-body\" (click)=\"display(item._id)\">\n          <p class=\"card-text\">Name: {{item.name}}</p >\n          <p class=\"card-text\">Color: {{item.color}}</p >\n          <p class=\"card-text\">Size: {{item.size}}</p >\n          <p class=\"card-text\">Category: {{item.category}}</p >\n          <p class=\"card-text\">Price: ${{item.price}}</p >\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" (click)=\"profile()\"><i class=\"fa fa-user\"></i></a >\n</div>\n\n</body>\n\n</html>\n"
+module.exports = "<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" (click)=\"goHome()\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       (click)=\"goHome()\">S U P R E M E</a ></span>\n\n  </div>\n</nav>\n<div class=\"card black-card footer-padding\">\n  <div class=\"card-columns\" style=\"padding: 10px\">\n    <div *ngFor=\"let item of items\">\n      <div class=\"card text-center\">\n        <a (click)=\"display(item._id)\" class=\"a-no-hover\">\n          < img class=\"card-img-top\" src={{item.url}}>\n        </a >\n        <div class=\"card-body\" (click)=\"display(item._id)\">\n          <p class=\"card-text\">Name: {{item.name}}</p >\n          <p class=\"card-text\">Color: {{item.color}}</p >\n          <p class=\"card-text\">Size: {{item.size}}</p >\n          <p class=\"card-text\">Category: {{item.category}}</p >\n          <p class=\"card-text\">Price: ${{item.price}}</p >\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" (click)=\"profile()\"><i class=\"fa fa-user\"></i></a >\n</div>\n"
 
 /***/ }),
 
@@ -1839,7 +2128,7 @@ var LoginComponent = /** @class */ (function () {
 /***/ "./src/app/views/users/profile/buyer-profile/buyer-profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html lang=\"en\" xmlns=\"http://www.w3.org/1999/html\">\n<head>\n  <title>User Profile</title>\n</head>\n<body class=\"body-pink\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" href=\" \"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\" routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n\n  </div>\n</nav>\n\n<div class=\"supreme-font footer-padding\">\n  <form (ngSubmit)=\"update()\" #f=\"ngForm\">\n    <label class=\"center-input\" style=\"padding-top:60px\">Username</label>\n    <input\n      [(ngModel)]=\"username\"\n      name=\"username\"\n      type=\"text\"\n      class=\"form-control center-input\"\n      placeholder=\"{{username}}\"/>\n    <label class=\"center-input\">First Name</label>\n    <input [(ngModel)]=\"firstName\"\n           name=\"firstName\"\n           type=\"text\"\n           class=\"form-control center-input\"\n           placeholder=\"{{firstName}}\"/>\n    <label class=\"center-input\">Last Name</label>\n    <input [(ngModel)]=\"lastName\"\n           name=\"lastName\"\n           type=\"text\"\n           class=\"form-control center-input\"\n           placeholder=\"{{lastName}}\"/>\n    <label class=\"center-input\">Phone</label>\n    <input  [(ngModel)]=\"phone\"\n            name=\"phone\"\n            type=\"text\"\n            class=\"form-control center-input\"\n            placeholder=\"{{phone}}\"/>\n    <label class=\"center-input\">Email</label>\n    <input [(ngModel)]=\"email\"\n           name=\"email\"\n           type=\"text\"\n           class=\"form-control center-input\"\n           placeholder=\"{{email}}\"/>\n    <br>\n    <button class=\"btn btn-outline-danger btn-block center-input\" type=\"submit\" style=\"color: white\">Update</button>\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"updateCreditCard()\">Update Credit Card</a >\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"showOrderHistory()\">Order History</a >\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"logout()\">Log Out</a >\n  </form>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" routerLink=\"/user/buyer\"><i class=\"fa fa-user\"></i></a >\n</div>\n\n</body>\n"
+module.exports = "<!DOCTYPE html>\n<html lang=\"en\" xmlns=\"http://www.w3.org/1999/html\">\n<head>\n  <title>User Profile</title>\n</head>\n<body class=\"body-pink\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" href=\" \"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\" routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n\n  </div>\n</nav>\n\n<div class=\"supreme-font footer-padding\">\n  <form (ngSubmit)=\"update()\" #f=\"ngForm\">\n    <label class=\"center-input\" style=\"padding-top:60px\">Username</label>\n    <input\n      [(ngModel)]=\"username\"\n      name=\"username\"\n      type=\"text\"\n      class=\"form-control center-input\"\n      placeholder=\"{{username}}\"/>\n    <label class=\"center-input\">First Name</label>\n    <input [(ngModel)]=\"firstName\"\n           name=\"firstName\"\n           type=\"text\"\n           class=\"form-control center-input\"\n           placeholder=\"{{firstName}}\"/>\n    <label class=\"center-input\">Last Name</label>\n    <input [(ngModel)]=\"lastName\"\n           name=\"lastName\"\n           type=\"text\"\n           class=\"form-control center-input\"\n           placeholder=\"{{lastName}}\"/>\n    <label class=\"center-input\">Phone</label>\n    <input  [(ngModel)]=\"phone\"\n            name=\"phone\"\n            type=\"text\"\n            class=\"form-control center-input\"\n            placeholder=\"{{phone}}\"/>\n    <label class=\"center-input\">Email</label>\n    <input [(ngModel)]=\"email\"\n           name=\"email\"\n           type=\"text\"\n           class=\"form-control center-input\"\n           placeholder=\"{{email}}\"/>\n    <br>\n    <button class=\"btn btn-outline-danger btn-block center-input\" type=\"submit\" style=\"color: white\">Update</button>\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"updateCreditCard()\">Update Credit Card</a >\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"showOrderHistory()\">Order History</a >\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"goCart()\">My Cart</a >\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"logout()\">Log Out</a >\n  </form>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" routerLink=\"/user/buyer\"><i class=\"fa fa-user\"></i></a >\n</div>\n\n</body>\n"
 
 /***/ }),
 
@@ -1875,22 +2164,14 @@ var BuyerProfileComponent = /** @class */ (function () {
         this.router = router;
     }
     BuyerProfileComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.activatedRoute.params.subscribe(function (params) {
-            return _this.userService.findUserById(_this.sharedService.user['_id']).subscribe(function (returnUser) {
-                //    this.userId = params['uid'];
-                _this.userId = _this.sharedService.user['_id'];
-                //    this.user = returnUser;
-                _this.user = _this.sharedService.user;
-                _this.username = _this.user.username;
-                _this.email = _this.user.email;
-                _this.firstName = _this.user.firstName;
-                _this.lastName = _this.user.lastName;
-                _this.password = _this.user.password;
-                _this.phone = _this.user.phone;
-                console.log(_this.user);
-            });
-        });
+        this.userId = this.sharedService.user['_id'];
+        this.user = this.sharedService.user;
+        this.username = this.user.username;
+        this.email = this.user.email;
+        this.firstName = this.user.firstName;
+        this.lastName = this.user.lastName;
+        this.password = this.user.password;
+        this.phone = this.user.phone;
     };
     BuyerProfileComponent.prototype.logout = function () {
         var _this = this;
@@ -1916,6 +2197,9 @@ var BuyerProfileComponent = /** @class */ (function () {
     BuyerProfileComponent.prototype.showOrderHistory = function () {
         this.router.navigate(['user/buyer/history']);
     };
+    BuyerProfileComponent.prototype.goCart = function () {
+        this.router.navigate(['user/buyer/cart']);
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NgForm */])
@@ -1938,17 +2222,10 @@ var BuyerProfileComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/views/users/profile/buyer-profile/order-history/order-history.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/views/users/profile/buyer-profile/order-history/order-history.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  order-history works!\n</p>\n"
+module.exports = "<head>\n  <title>Bought History</title>\n</head>\n\n\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"..\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\" routerLink=\"loggedinhome/user\">S U P R E M E</a ></span>\n  </div>\n</nav>\n\n<p class=\"center_text supreme-font white_text text-font-size\">Order History</p >\n<div class=\"card black-card footer-padding\">\n  <div class=\"card-columns\" style=\"padding: 10px\">\n    <div *ngFor=\"let item of items\">\n      <div class=\"card text-center\">\n        < img class=\"card-img-top\" src={{item.url}}>\n        <div class=\"card-body item-text\">\n          Name: {{item.name}}<br>\n          Category: {{item.category}}<br>\n          Color: {{item.color}}<br>\n          Size: {{item.size}}<br>\n          Price: ${{item.price}}<br>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" routerLink=\"/user/buyer\"><i class=\"fa fa-user\"></i></a >\n</div>\n\n</body>\n"
 
 /***/ }),
 
@@ -1958,6 +2235,10 @@ module.exports = "<p>\n  order-history works!\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OrderHistoryComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_item_service_client__ = __webpack_require__("./src/app/services/item.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_user_service_client__ = __webpack_require__("./src/app/services/user.service.client.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1968,18 +2249,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 var OrderHistoryComponent = /** @class */ (function () {
-    function OrderHistoryComponent() {
+    function OrderHistoryComponent(itemService, userService, activatedRoute, router, sharedService) {
+        this.itemService = itemService;
+        this.userService = userService;
+        this.activatedRoute = activatedRoute;
+        this.router = router;
+        this.sharedService = sharedService;
     }
     OrderHistoryComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.userId = this.sharedService.user['_id'];
+        this.userService.findUserById(this.userId).subscribe(function (returnUser) {
+            console.log(_this.userId);
+            _this.user = returnUser;
+        });
+        console.log(this.userId);
+        this.itemService.findItemByBuyerId(this.userId)
+            .subscribe(function (data) {
+            console.log(data);
+            _this.items = data;
+            console.log(_this.items);
+        }, function (error) { return console.log(error); });
     };
     OrderHistoryComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-order-history',
             template: __webpack_require__("./src/app/views/users/profile/buyer-profile/order-history/order-history.component.html"),
-            styles: [__webpack_require__("./src/app/views/users/profile/buyer-profile/order-history/order-history.component.css")]
+            styles: [__webpack_require__("./src/app/style.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_item_service_client__["a" /* ItemService */],
+            __WEBPACK_IMPORTED_MODULE_4__services_user_service_client__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_3__services_shared_service__["a" /* SharedService */]])
     ], OrderHistoryComponent);
     return OrderHistoryComponent;
 }());
@@ -1988,17 +2295,10 @@ var OrderHistoryComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/views/users/profile/seller-profile/sale-history/sale-history.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/views/users/profile/seller-profile/sale-history/sale-history.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  sale-history works!\n</p>\n"
+module.exports = "<head>\n  <title>Sale History</title>\n</head>\n\n\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"..\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\" routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n  </div>\n</nav>\n\n<p class=\"center_text supreme-font white_text text-font-size\">Sale History</p >\n\n<div class=\"card black-card footer-padding\">\n  <div class=\"card-columns\" style=\"padding: 10px\">\n    <div *ngFor=\"let item of items\">\n      <div class=\"card text-center\">\n        < img class=\"card-img-top\" src={{item.url}}>\n        <div class=\"card-body item-text\">\n          Name: {{item.name}}<br>\n          Category: {{item.category}}<br>\n          Color: {{item.color}}<br>\n          Size: {{item.size}}<br>\n          Price: ${{item.price}}<br>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" routerLink=\"/user/seller\"><i class=\"fa fa-user\"></i></a >\n</div>\n\n</body>\n"
 
 /***/ }),
 
@@ -2008,6 +2308,10 @@ module.exports = "<p>\n  sale-history works!\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SaleHistoryComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__ = __webpack_require__("./src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_item_service_client__ = __webpack_require__("./src/app/services/item.service.client.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2018,18 +2322,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 var SaleHistoryComponent = /** @class */ (function () {
-    function SaleHistoryComponent() {
+    function SaleHistoryComponent(itemService, userService, activatedRoute, router, sharedService) {
+        this.itemService = itemService;
+        this.userService = userService;
+        this.activatedRoute = activatedRoute;
+        this.router = router;
+        this.sharedService = sharedService;
     }
     SaleHistoryComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.userId = this.sharedService.user['_id'];
+        this.userService.findUserById(this.userId).subscribe(function (returnUser) {
+            console.log(_this.userId);
+            _this.user = returnUser;
+        });
+        console.log(this.userId);
+        this.itemService.findItemBySellerId(this.userId)
+            .subscribe(function (data) {
+            console.log(data);
+            _this.items = data;
+            console.log(_this.items);
+        }, function (error) { return console.log(error); });
     };
     SaleHistoryComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-sale-history',
             template: __webpack_require__("./src/app/views/users/profile/seller-profile/sale-history/sale-history.component.html"),
-            styles: [__webpack_require__("./src/app/views/users/profile/seller-profile/sale-history/sale-history.component.css")]
+            styles: [__webpack_require__("./src/app/style.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__services_item_service_client__["a" /* ItemService */],
+            __WEBPACK_IMPORTED_MODULE_3__services_user_service_client__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_2__services_shared_service__["a" /* SharedService */]])
     ], SaleHistoryComponent);
     return SaleHistoryComponent;
 }());

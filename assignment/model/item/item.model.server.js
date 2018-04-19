@@ -52,7 +52,7 @@ function updateItem(itemId, item) {
           url: item.url,
           category: item.category,
           size: item.size,
-          url: item.imgurl
+          _buyer: item._buyer
         }
       }
     );
