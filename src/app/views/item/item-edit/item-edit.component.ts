@@ -3,6 +3,7 @@ import {NgForm} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SharedService} from '../../../services/shared.service';
 import {ItemService} from '../../../services/item.service.client';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'app-item-edit',
@@ -22,6 +23,8 @@ export class ItemEditComponent implements OnInit {
   size: String;
   errorFlag: boolean;
   errorMsg: String;
+
+  baseUrl = environment.baseUrl;
 
   constructor(private itemService: ItemService,
               private sharedService: SharedService,

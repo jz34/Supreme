@@ -89,14 +89,32 @@
         <option value="noSize">noSize</option>
       </select>
     </div>
+
+    <div class="center_input input_padding">
+      <label class="white_text supreme-font">Upload</label>
+      <form ngNoForm action="{{baseUrl}}/api/upload" method="post" enctype="multipart/form-data">
+        <input  name="myFile"   type="file" class="form-control"/>
+        <input  name="itemId" value="{{itemId}}"   style="display: none"/>
+        <input  name="sellerId" value="{{sellerId}}"   style="display: none"/>
+        <input  name="name" value="{{name}}"   style="display: none"/>
+        <input  name="color" value="{{color}}"   style="display: none"/>
+        <input  name="price" value="{{price}}"   style="display: none"/>
+        <input  name="url" value="{{url}}"   style="display: none"/>
+        <input  name="category" value="{{category}}"   style="display: none"/>
+        <input  name="size" value="{{size}}"   style="display: none"/>
+        <br>
+        <button type="submit" class="btn btn-outline-danger btn-block center_input supreme-font" style="color:white">Upload Image</button>
+      </form>
+    </div>
+
   </div>
-  <button class="btn btn-outline-danger btn-block center_input supreme-font" style="color: white">Upload Imgage</button>
-  <button class="btn btn-outline-danger btn-block center_input supreme-font white_text" style="color: white" (click)="goFlickr()">Image from Flickr</button>
-  <button class="btn btn-outline-danger btn-block center_input supreme-font white_text" style="color: white" (click)="delete()">Delete</button>
-  <button class="btn btn-outline-danger btn-block center_input supreme-font white_text" style="color: white" routerLink="../">Cancel</button>
+  <!--  <button class="btn btn-outline-danger btn-block center_input supreme-font" style="color:white">Upload Imgage</button> -->
+  <button class="btn btn-outline-danger btn-block center_input supreme-font" style="color:white" (click)="goFlickr()">Image from Flickr</button>
+  <button class="btn btn-outline-danger btn-block center_input supreme-font" style="color:white" (click)="delete()">Delete</button>
+  <button class="btn btn-outline-danger btn-block center_input supreme-font" style="color:white" routerLink="../">Cancel</button>
 </form>
 
 <div class=" card-footer footer-color fixed-bottom">
-  <a class="pull-right white_text" href=" "><i class="fa fa-user"></i></a >
+  <a class="pull-right white_text" routerLink="/user/seller"><i class="fa fa-user"></i></a >
 </div>
 </body>
