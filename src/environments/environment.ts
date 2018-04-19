@@ -4,7 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   // baseUrl: 'http://localhost:3100'
   baseUrl: 'https://web-supreme.herokuapp.com'
 };
