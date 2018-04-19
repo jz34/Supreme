@@ -48,8 +48,8 @@ const appRoutes: Routes = [
   {path: 'user/seller/creditcard', component: CreditcardComponent, canActivate: [AuthGuard]},
   {path: 'user/buyer/creditcard', component: CreditcardComponent, canActivate: [AuthGuard]},
   {path: 'user/searchresult', component: ItemListComponent, canActivate: [AuthGuard]},
-  {path: 'user/guest/searchresult', component: ItemListComponent, canActivate: [AuthGuard]},
-  {path: 'user/guest/item/:iid', component: ItemDisplayComponent, canActivate: [AuthGuard]},
+  {path: 'user/guest/searchresult', component: ItemListComponent},
+  {path: 'user/guest/item/:iid', component: ItemDisplayComponent},
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

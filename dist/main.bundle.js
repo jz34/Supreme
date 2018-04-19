@@ -259,8 +259,8 @@ var appRoutes = [
     { path: 'user/seller/creditcard', component: __WEBPACK_IMPORTED_MODULE_19__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
     { path: 'user/buyer/creditcard', component: __WEBPACK_IMPORTED_MODULE_19__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
     { path: 'user/searchresult', component: __WEBPACK_IMPORTED_MODULE_15__views_item_item_list_item_list_component__["a" /* ItemListComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
-    { path: 'user/guest/searchresult', component: __WEBPACK_IMPORTED_MODULE_15__views_item_item_list_item_list_component__["a" /* ItemListComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
-    { path: 'user/guest/item/:iid', component: __WEBPACK_IMPORTED_MODULE_6__views_item_item_display_item_display_component__["a" /* ItemDisplayComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/guest/searchresult', component: __WEBPACK_IMPORTED_MODULE_15__views_item_item_list_item_list_component__["a" /* ItemListComponent */] },
+    { path: 'user/guest/item/:iid', component: __WEBPACK_IMPORTED_MODULE_6__views_item_item_display_item_display_component__["a" /* ItemDisplayComponent */] },
 ];
 var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["c" /* RouterModule */].forRoot(appRoutes);
 
