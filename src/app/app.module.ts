@@ -32,6 +32,7 @@ import {ItemService} from './services/item.service.client';
 import { SellerListingComponent } from './views/users/profile/seller-profile/seller-listing/seller-listing.component';
 import {AuthGuard} from './services/auth-guard.service';
 import { FlickrImageComponent } from './views/item/item-edit/flickr-image/flickr-image.component';
+import {FlickrService} from './services/flickr.service.client';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,7 @@ import { FlickrImageComponent } from './views/item/item-edit/flickr-image/flickr
     HttpModule,
     routing
   ],
-  providers: [SharedService, UserService, ItemService, AuthGuard, {provide: APP_BASE_HREF, useValue: '/'}],
+  providers: [SharedService, UserService, ItemService, AuthGuard, FlickrService, {provide: APP_BASE_HREF, useValue: '/'}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
