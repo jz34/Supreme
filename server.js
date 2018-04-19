@@ -1,6 +1,6 @@
 var express = require('express');
 var mongoose = require('mongoose');
-// connectionString ='mongodb://127.0.0.1:27017/webproject';
+// var connectionString ='mongodb://127.0.0.1:27017/webproject';
 var connectionString = 'mongodb://admin:admin@ds249269.mlab.com:49269/heroku_w1d3n8km';
 mongoose.connect(connectionString);
 
