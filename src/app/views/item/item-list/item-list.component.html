@@ -12,7 +12,7 @@
     <div *ngFor="let item of items">
       <div class="card text-center">
         <a (click)="display(item._id)" class="a-no-hover">
-          < img class="card-img-top" src={{item.url}}>
+          <img class="card-img-top" src={{item.url}}>
         </a >
         <div class="card-body" (click)="display(item._id)">
           <p class="card-text">Name: {{item.name}}</p >
