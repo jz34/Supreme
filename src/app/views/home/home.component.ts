@@ -29,78 +29,85 @@ export class HomeComponent implements OnInit {
     this.itemName = this.homeForm.value.searchContent;
     this.itemService.findItemByName(this.itemName).subscribe((returnItems: any) => {
       this.sharedService.items = returnItems;
-      console.log(this.sharedService.items);
-      this.router.navigate(['user/searchresult']);
+      this.router.navigate(['user/guest/searchresult']);
     });
   }
 
   searchTop() {
     return this.itemService.findItemByCategory('Top').subscribe((returnItems: any) => {
       this.sharedService.items = returnItems;
-      this.router.navigate(['user/searchresult']);
+      this.router.navigate(['user/guest/searchresult']);
     });
   }
 
   searchSweatershirt() {
     return this.itemService.findItemByCategory('Sweatershirt').subscribe((returnItems: any) => {
       this.sharedService.items = returnItems;
-      this.router.navigate(['user/searchresult']);
+      this.router.navigate(['user/guest/searchresult']);
+
     });
   }
 
   searchAccessory() {
     return this.itemService.findItemByCategory('Accessory').subscribe((returnItems: any) => {
       this.sharedService.items = returnItems;
-      console.log(this.items);
-      this.router.navigate(['user/searchresult']);
+
+      this.router.navigate(['user/guest/searchresult']);
+
     });
   }
 
   searchJacket() {
     return this.itemService.findItemByCategory('Jacket').subscribe((returnItems: any) => {
       this.sharedService.items = returnItems;
-      console.log(this.items);
-      this.router.navigate(['user/searchresult']);
+
+      this.router.navigate(['user/guest/searchresult']);
+
     });
   }
 
   searchSkate() {
     return this.itemService.findItemByCategory('Skate').subscribe((returnItems: any) => {
       this.sharedService.items = returnItems;
-      console.log(this.items);
-      this.router.navigate(['user/searchresult']);
+
+      this.router.navigate(['user/guest/searchresult']);
+
     });
   }
 
   searchPants() {
     return this.itemService.findItemByCategory('Pants').subscribe((returnItems: any) => {
       this.sharedService.items = returnItems;
-      console.log(this.items);
-      this.router.navigate(['user/searchresult']);
+
+      this.router.navigate(['user/guest/searchresult']);
+
     });
   }
 
   searchBag() {
     return this.itemService.findItemByCategory('Bags').subscribe((returnItems: any) => {
       this.sharedService.items = returnItems;
-      console.log(this.items);
-      this.router.navigate(['user/searchresult']);
+
+      this.router.navigate(['user/guest/searchresult']);
+
     });
   }
 
   searchHat() {
     return this.itemService.findItemByCategory('Hat').subscribe((returnItems: any) => {
       this.sharedService.items = returnItems;
-      console.log(this.items);
-      this.router.navigate(['user/searchresult']);
+
+      this.router.navigate(['user/guest/searchresult']);
+
     });
   }
 
   searchShirt() {
     return this.itemService.findItemByCategory('Shirt').subscribe((returnItems: any) => {
       this.sharedService.items = returnItems;
-      console.log(this.items);
-      this.router.navigate(['user/searchresult']);
+
+      this.router.navigate(['user/guest/searchresult']);
+
     });
   }
 }
