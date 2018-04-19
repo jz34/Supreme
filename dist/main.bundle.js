@@ -952,7 +952,7 @@ var CartComponent = /** @class */ (function () {
 /***/ "./src/app/views/checkout/payment/payment.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       href=\" \">S U P R E M E</a ></span>\n\n  </div>\n</nav>\n\n<br>\n\n<div class=\"row footer-padding\">\n  <div class=\"card col-lg-6 col-md-6 col-sm-12 col-xs-12 black-card\">\n    <p class=\"center_text supreme-font white_text text-font-size\">Shipping Address</p >\n    <form>\n      <table>\n        <table class=\"table\">\n          <tbody>\n          <tr>\n            <td colspan=\"3\">\n              <label class=\"white_text supreme-font\">First Name</label>\n              <input class=\"form-control\" type=\"text\">\n            </td>\n          </tr>\n          <tr>\n            <td colspan=\"3\">\n              <label class=\"white_text supreme-font\">Last Name</label>\n              <input class=\"form-control\" type=\"text\">\n            </td>\n          </tr>\n          <tr>\n            <td colspan=\"3\">\n              <label class=\"white_text supreme-font\">Email</label>\n              <input class=\"form-control\" type=\"text\">\n            </td>\n          <tr>\n            <td colspan=\"3\">\n              <label class=\"white_text supreme-font\">Phone</label>\n              <input class=\"form-control\" type=\"text\">\n            </td>\n          </tr>\n          <tr>\n            <td colspan=\"2\">\n              <label class=\"white_text supreme-font\">Address</label>\n              <input class=\"form-control\" type=\"text\">\n            </td>\n            <td>\n              <label class=\"white_text supreme-font\">Apt, Unit, etc</label>\n              <input class=\"form-control\" type=\"text\">\n            </td>\n          </tr>\n          <tr>\n            <td><label class=\"white_text supreme-font\">Zip</label><input class=\"form-control\" type=\"text\">\n            </td>\n            <td><label class=\"white_text supreme-font\">City</label><input class=\"form-control\" type=\"text\">\n            </td>\n            <td><label class=\"white_text supreme-font\">State</label><input class=\"form-control\" type=\"text\">\n            </td>\n          </tr>\n          </tbody>\n        </table>\n      </table>\n    </form>\n    <br>\n  </div>\n\n  <div class=\"card col-lg-6 col-md-6 col-sm-12 col-xs-12 left-border black-card\">\n    <p class=\"center_text supreme-font white_text text-font-size\">Credit Card</p >\n    <div *ngIf=\"errorFlag\"\n         class=\"alert alert-danger\">\n      {{errorMsg}}\n    </div>\n    <form (ngSubmit)=\"check()\" #f=\"ngForm\">\n      <table class=\"table\">\n        <tbody>\n        <tr>\n          <td>\n            <label class=\"white_text supreme-font\">First Name</label>\n            <input\n              [(ngModel)]=\"firstName\"\n              name=\"firstName\"\n              class=\"form-control\"\n              type=\"text\"\n              placeholder=\"{{firstName}}\"/>\n          </td>\n          <td></td>\n          <td>\n            <label class=\"white_text supreme-font\">Last Name</label>\n            <input [(ngModel)]=\"lastName\"\n                   name=\"lastName\"\n                   class=\"form-control\"\n                   type=\"text\"\n                   placeholder=\"{{lastName}}\"/>\n          </td>\n        </tr>\n        <tr>\n          <td colspan=\"3\">\n            <label class=\"white_text supreme-font\">Card Number</label>\n            <input [(ngModel)]=\"cardNumber\"\n                   name=\"cardNumber\"\n                   class=\"form-control\"\n                   type=\"text\"\n                   placeholder=\"{{cardNumber}}\"/>\n          </td>\n        </tr>\n        <tr>\n          <td>\n            <label class=\"white_text supreme-font\">Expiration Date</label>\n            <input [(ngModel)]=\"expirationDate\"\n                   name=\"expirationDate\"\n                   class=\"form-control\"\n                   type=\"text\"\n                   placeholder=\"{{expirationDate}}\"/>\n          </td>\n          <td></td>\n          <td>\n            <label class=\"white_text supreme-font\">CVV</label>\n            <input [(ngModel)]=\"cvv\"\n                   name=\"cvv\"\n                   class=\"form-control\"\n                   type=\"text\"\n                   placeholder=\"{{cvv}}\"/>\n          </td>\n        </tr>\n        </tbody>\n      </table>\n      <div class=\"creditCardBtn\">\n        <button class=\"btn btn-outline-danger btn-block supreme-font white_text\">Check Out</button>\n      </div>\n    </form>\n  </div>\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" href=\" \"><i class=\"fa fa-user\"></i></a >\n</div>\n</body>\n"
+module.exports = "<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       href=\" \">S U P R E M E</a ></span>\n\n  </div>\n</nav>\n\n<br>\n<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger\">\n  {{errorMsg}}\n</div>\n<form (ngSubmit)=\"check()\" #f=\"ngForm\">\n  <div class=\"row footer-padding\">\n    <div class=\"card col-lg-6 col-md-6 col-sm-12 col-xs-12 black-card\">\n      <p class=\"center_text supreme-font white_text text-font-size\">Shipping Address</p >\n      <table>\n        <table class=\"table\">\n          <tbody>\n          <tr>\n            <td colspan=\"3\">\n              <label class=\"white_text supreme-font\">First Name</label>\n              <input\n                style=\"color: black\"\n                [(ngModel)]=\"firstName\"\n                name=\"firstName\"\n                placeholder=\"{{firstName}}\"\n                class=\"form-control supreme-font\"\n                type=\"text\">\n            </td>\n          </tr>\n          <tr>\n            <td colspan=\"3\">\n              <label class=\"white_text supreme-font\">Last Name</label>\n              <input [(ngModel)]=\"lastName\"\n                     name=\"lastName\"\n                     style=\"color: black\"\n\n                     placeholder=\"{{lastName}}\"\n                     class=\"form-control supreme-font\"\n                     type=\"text\">\n            </td>\n          </tr>\n          <tr>\n            <td colspan=\"3\">\n              <label class=\"white_text supreme-font\">Email</label>\n              <input [(ngModel)]=\"email\"\n                     style=\"color: black\"\n                     name=\"email\"\n                     placeholder=\"{{email}}\"\n                     class=\"form-control supreme-font\"\n                     type=\"text\">\n            </td>\n          <tr>\n            <td colspan=\"3\">\n              <label class=\"white_text supreme-font\">Phone</label>\n              <input [(ngModel)]=\"phone\"\n                     name=\"phone\"\n                     style=\"color: black\"\n                     placeholder=\"{{phone}}\"\n                     class=\"form-control supreme-font\"\n                     type=\"text\">\n            </td>\n          </tr>\n          <tr>\n            <td colspan=\"2\">\n              <label class=\"white_text supreme-font\">Address</label>\n              <input [(ngModel)]=\"address\"\n                     style=\"color: black\"\n                     name=\"address\"\n                     placeholder=\"{{address}}\"\n                     class=\"form-control supreme-font\"\n                     type=\"text\">\n            </td>\n            <td>\n              <label class=\"white_text supreme-font\">Apt, Unit, etc</label>\n              <input [(ngModel)]=\"unit\"\n                     name=\"unit\"\n                     style=\"color: black\"\n                     placeholder=\"{{unit}}\"\n                     class=\"form-control supreme-font\"\n                     type=\"text\">\n            </td>\n          </tr>\n          <tr>\n            <td><label class=\"white_text supreme-font\">Zip</label><input [(ngModel)]=\"zip\"\n                                                                         name=\"zip\"\n                                                                         style=\"color: black\"\n\n                                                                         placeholder=\"{{zip}}\"\n                                                                         class=\"form-control supreme-font\"\n                                                                         type=\"text\">\n            </td>\n            <td><label class=\"white_text supreme-font\">City</label><input [(ngModel)]=\"city\"\n                                                                          name=\"city\"\n                                                                          style=\"color: black\"\n\n                                                                          placeholder=\"{{city}}\"\n                                                                          class=\"form-control supreme-font\"\n                                                                          type=\"text\">\n            </td>\n            <td><label class=\"white_text supreme-font\">State</label><input [(ngModel)]=\"state\"\n                                                                           name=\"state\"\n                                                                           style=\"color: black\"\n\n                                                                           placeholder=\"{{state}}\"\n                                                                           class=\"form-control supreme-font\"\n                                                                           type=\"text\">\n            </td>\n          </tr>\n          </tbody>\n        </table>\n      </table>\n      <br>\n    </div>\n\n    <div class=\"card col-lg-6 col-md-6 col-sm-12 col-xs-12 left-border black-card\">\n      <p class=\"center_text supreme-font white_text text-font-size\">Credit Card</p >\n\n      <table class=\"table\">\n        <tbody>\n        <tr>\n          <td>\n            <label class=\"white_text supreme-font\">First Name</label>\n            <input\n              [(ngModel)]=\"firstName\"\n              name=\"firstName\"\n              class=\"form-control\"\n              type=\"text\"\n              placeholder=\"{{firstName}}\"/>\n          </td>\n          <td></td>\n          <td>\n            <label class=\"white_text supreme-font\">Last Name</label>\n            <input [(ngModel)]=\"lastName\"\n                   name=\"lastName\"\n                   class=\"form-control\"\n                   type=\"text\"\n                   placeholder=\"{{lastName}}\"/>\n          </td>\n        </tr>\n        <tr>\n          <td colspan=\"3\">\n            <label class=\"white_text supreme-font\">Card Number</label>\n            <input [(ngModel)]=\"cardNumber\"\n                   name=\"cardNumber\"\n                   class=\"form-control\"\n                   type=\"text\"\n                   placeholder=\"{{cardNumber}}\"/>\n          </td>\n        </tr>\n        <tr>\n          <td>\n            <label class=\"white_text supreme-font\">Expiration Date</label>\n            <input [(ngModel)]=\"expirationDate\"\n                   name=\"expirationDate\"\n                   class=\"form-control\"\n                   type=\"text\"\n                   placeholder=\"{{expirationDate}}\"/>\n          </td>\n          <td></td>\n          <td>\n            <label class=\"white_text supreme-font\">CVV</label>\n            <input [(ngModel)]=\"cvv\"\n                   name=\"cvv\"\n                   class=\"form-control\"\n                   type=\"text\"\n                   placeholder=\"{{cvv}}\"/>\n          </td>\n        </tr>\n        </tbody>\n      </table>\n      <div class=\"creditCardBtn\">\n        <button class=\"btn btn-outline-danger btn-block supreme-font white_text\" type=\"submit\">Check Out</button>\n      </div>\n    </div>\n  </div>\n</form>\n\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" href=\" \"><i class=\"fa fa-user\"></i></a >\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -989,11 +989,11 @@ var PaymentComponent = /** @class */ (function () {
         this.userService = userService;
         this.itemService = itemService;
         this.errorFlag = false;
-        this.errorMsg = 'Your cvv number is wrong!';
+        this.errorMsg = 'Please complete the form!';
     }
     PaymentComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.soldItem = new Array();
+        this.soldItem = [];
         this.sold = '';
         this.buyerId = this.sharedService.user['_id'];
         this.userService.findUserById(this.buyerId).subscribe(function (returnedUser) {
@@ -1003,13 +1003,41 @@ var PaymentComponent = /** @class */ (function () {
         this.lastName = this.sharedService.user['lastName'];
         this.expirationDate = this.sharedService.user['expirationDate'];
         this.cardNumber = this.sharedService.user['cardNumber'];
+        this.state = this.sharedService.user['city'];
+        this.zip = this.sharedService.user['zip'];
+        this.unit = this.sharedService.user['unit'];
+        this.address = this.sharedService.user['address'];
+        this.phone = this.sharedService.user['phone'];
+        this.email = this.sharedService.user['email'];
     };
     PaymentComponent.prototype.check = function () {
-        if (this.loginForm.value.cardNumber === this.cardNumber &&
+        this.firstName = this.loginForm.value.firstName;
+        this.lastName = this.loginForm.value.lastName;
+        this.email = this.loginForm.value.email;
+        this.phone = this.loginForm.value.phone;
+        this.address = this.loginForm.value.address;
+        this.unit = this.loginForm.value.unit;
+        this.state = this.loginForm.value.state;
+        this.city = this.loginForm.value.city;
+        this.cardNumber = this.loginForm.value.cardNumber;
+        this.expirationDate = this.loginForm.value.expirationDate;
+        this.cvv = this.loginForm.value.cvv;
+        console.log(this.firstName + ' ' +
+            this.lastName + ' ' + this.email + ' ' +
+            this.phone + ' ' + this.address + ' ' +
+            this.state + ' ' + this.city + ' ' + this.cardNumber + ' ' + this.expirationDate + ' ' + this.cvv + ' ');
+        if (!this.firstName || !this.lastName || !this.email || !this.phone || !this.state || !this.city
+            || !this.cardNumber || !this.cvv || !this.expirationDate || !this.address) {
+            this.errorFlag = true;
+            this.errorMsg = 'One or more information missing';
+        }
+        else if (this.loginForm.value.cardNumber === this.cardNumber &&
             this.loginForm.value.cvv !== this.sharedService.user['cvv']) {
             this.errorFlag = true;
+            this.errorMsg = 'Please correct your cvv number!';
         }
         else {
+            this.errorFlag = false;
             if (this.items.length !== 0) {
                 this.user = this.sharedService.user;
                 this.user['cart'] = [];
@@ -1626,7 +1654,7 @@ var FlickrImageComponent = /** @class */ (function () {
 /***/ "./src/app/views/item/item-edit/item-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n\n  </div>\n  <div>\n    <a class=\"pull-right white_text\" (click)=\"f.ngSubmit.emit()\"><i class=\"fa fa-check\"></i></a >\n  </div>\n</nav>\n\n<p class=\"center_text supreme-font white_text text-font-size\">Edit Item</p >\n<div *ngIf=\"errorFlag\" class=\"alert alert-danger\">\n  {{errorMsg}}\n</div>\n<form (ngSubmit)=\"updateOrCreate()\" #f=\"ngForm\">\n  <div class=\"form-group\">\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Name</label>\n      <input\n        [(ngModel)]=\"name\"\n        name=\"name\"\n        type=\"text\"\n        class=\"form-control supreme-font\"\n        style=\"color: black\"\n        placeholder=\"{{name}}\"\n      >\n    </div>\n\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Color</label>\n      <input [(ngModel)]=\"color\"\n             name=\"color\"\n             type=\"text\"\n             class=\"form-control supreme-font\"\n             style=\"color: black\"\n             placeholder=\"{{color}}\">\n    </div>\n\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Price</label>\n      <input [(ngModel)]=\"price\"\n             name=\"price\"\n             type=\"text\"\n             class=\"form-control supreme-font\"\n             style=\"color: black\"\n             placeholder=\"{{price}}\">\n    </div>\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Image</label>\n      <input [(ngModel)]=\"url\"\n             name=\"url\"\n             type=\"text\"\n             class=\"form-control supreme-font\"\n             style=\"color: black\"\n             placeholder=\"{{url}}\"\n      >\n    </div>\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Category</label>\n      <select [(ngModel)]=\"category\"\n              name=\"category\"\n              class=\"form-control supreme-font\"\n              style=\"color: black\">\n        <option value=\"Jacket\">Jacket</option>\n        <option value=\"Shirt\">Shirt</option>\n        <option value=\"Top\">Top</option>\n        <option value=\"Sweatshirt\">Sweatshirt</option>\n        <option value=\"Pants\">Pants</option>\n        <option value=\"Hat\">Hat</option>\n        <option value=\"Bag\">Bag</option>\n        <option value=\"Skate\">Skate</option>\n        <option value=\"Accessory\">Accessory</option>\n      </select>\n    </div>\n\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Size</label>\n      <select [(ngModel)]=\"size\"\n              name=\"size\"\n              class=\"form-control supreme-font\"\n              style=\"color: black\">\n        <option value=\"Small\">Small</option>\n        <option value=\"Medium\">Medium</option>\n        <option value=\"Large\">Large</option>\n        <option value=\"XLarge\">XLarge</option>\n        <option value=\"noSize\">noSize</option>\n      </select>\n    </div>\n\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Upload</label>\n      <form ngNoForm action=\"{{baseUrl}}/api/upload\" method=\"post\" enctype=\"multipart/form-data\">\n        <input  name=\"myFile\"   type=\"file\" class=\"form-control\"/>\n        <input  name=\"itemId\" value=\"{{itemId}}\"   style=\"display: none\"/>\n        <input  name=\"sellerId\" value=\"{{sellerId}}\"   style=\"display: none\"/>\n        <input  name=\"name\" value=\"{{name}}\"   style=\"display: none\"/>\n        <input  name=\"color\" value=\"{{color}}\"   style=\"display: none\"/>\n        <input  name=\"price\" value=\"{{price}}\"   style=\"display: none\"/>\n        <input  name=\"url\" value=\"{{url}}\"   style=\"display: none\"/>\n        <input  name=\"category\" value=\"{{category}}\"   style=\"display: none\"/>\n        <input  name=\"size\" value=\"{{size}}\"   style=\"display: none\"/>\n        <br>\n        <button type=\"submit\" class=\"btn btn-outline-danger btn-block center_input supreme-font\" style=\"color:white\">Upload Image</button>\n      </form>\n    </div>\n\n  </div>\n  <!--  <button class=\"btn btn-outline-danger btn-block center_input supreme-font\" style=\"color:white\">Upload Imgage</button> -->\n  <button class=\"btn btn-outline-danger btn-block center_input supreme-font\" style=\"color:white\" (click)=\"goFlickr()\">Image from Flickr</button>\n  <button class=\"btn btn-outline-danger btn-block center_input supreme-font\" style=\"color:white\" (click)=\"delete()\">Delete</button>\n  <button class=\"btn btn-outline-danger btn-block center_input supreme-font\" style=\"color:white\" routerLink=\"../\">Cancel</button>\n</form>\n\n<div class=\" card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" routerLink=\"/user/seller\"><i class=\"fa fa-user\"></i></a >\n</div>\n</body>\n"
+module.exports = "<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n\n  </div>\n  <div>\n    <a class=\"pull-right white_text\" (click)=\"f.ngSubmit.emit()\"><i class=\"fa fa-check\"></i></a >\n  </div>\n</nav>\n\n<p class=\"center_text supreme-font white_text text-font-size\">Edit Item</p >\n<div *ngIf=\"errorFlag\" class=\"alert alert-danger\">\n  {{errorMsg}}\n</div>\n<form (ngSubmit)=\"updateOrCreate()\" #f=\"ngForm\">\n  <div class=\"form-group\">\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Name</label>\n      <input\n        [(ngModel)]=\"name\"\n        name=\"name\"\n        type=\"text\"\n        class=\"form-control supreme-font\"\n        style=\"color: black\"\n        placeholder=\"{{name}}\"\n      >\n    </div>\n\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Color</label>\n      <input [(ngModel)]=\"color\"\n             name=\"color\"\n             type=\"text\"\n             class=\"form-control supreme-font\"\n             style=\"color: black\"\n             placeholder=\"{{color}}\">\n    </div>\n\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Price</label>\n      <input [(ngModel)]=\"price\"\n             name=\"price\"\n             type=\"text\"\n             class=\"form-control supreme-font\"\n             style=\"color: black\"\n             placeholder=\"{{price}}\">\n    </div>\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Image</label>\n      <input [(ngModel)]=\"url\"\n             name=\"url\"\n             type=\"text\"\n             class=\"form-control supreme-font\"\n             style=\"color: black\"\n             placeholder=\"{{url}}\"\n      >\n    </div>\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Category</label>\n      <select [(ngModel)] = \"category\"\n              name=\"category\"\n              class=\"form-control supreme-font\"\n              required\n              style=\"color: black\">\n        <option value=\"Jacket\">Jacket</option>\n        <option value=\"Shirt\">Shirt</option>\n        <option value=\"Top\">Top</option>\n        <option value=\"Sweatshirt\">Sweatshirt</option>\n        <option value=\"Pants\">Pants</option>\n        <option value=\"Hat\">Hat</option>\n        <option value=\"Bag\">Bag</option>\n        <option value=\"Skate\">Skate</option>\n        <option value=\"Accessory\">Accessory</option>\n      </select>\n\n    </div>\n\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Size</label>\n      <select [(ngModel)]=\"size\"\n              name=\"size\"\n              required\n              class=\"form-control supreme-font\"\n              style=\"color: black\">\n        <option value=\"Small\">Small</option>\n        <option value=\"Medium\">Medium</option>\n        <option value=\"Large\">Large</option>\n        <option value=\"XLarge\">XLarge</option>\n        <option value=\"noSize\">noSize</option>\n      </select>\n\n    </div>\n\n    <div class=\"center_input input_padding\">\n      <label class=\"white_text supreme-font\">Upload</label>\n      <form ngNoForm action=\"{{baseUrl}}/api/upload\" method=\"post\" enctype=\"multipart/form-data\">\n        <input  name=\"myFile\" type=\"file\" class=\"form-control\"/>\n        <input  name=\"itemId\" value=\"{{itemId}}\"   style=\"display: none\"/>\n        <input  name=\"sellerId\" value=\"{{sellerId}}\"   style=\"display: none\"/>\n        <input  name=\"name\" value=\"{{name}}\"   style=\"display: none\"/>\n        <input  name=\"color\" value=\"{{color}}\"   style=\"display: none\"/>\n        <input  name=\"price\" value=\"{{price}}\"   style=\"display: none\"/>\n        <input  name=\"url\" value=\"{{url}}\"   style=\"display: none\"/>\n        <input  name=\"category\" value=\"{{category}}\"   style=\"display: none\"/>\n        <input  name=\"size\" value=\"{{size}}\"   style=\"display: none\"/>\n        <br>\n        <button type=\"submit\" class=\"btn btn-outline-danger btn-block center_input supreme-font\" style=\"color:white\" [disabled]=\"!f.valid\">Upload Image</button>\n      </form>\n    </div>\n\n  </div>\n</form>\n\n<button class=\"btn btn-outline-danger btn-block center_input supreme-font\" style=\"color:white\" (click)=\"goFlickr()\">Image from Flickr</button>\n<button class=\"btn btn-outline-danger btn-block center_input supreme-font\" style=\"color:white\" (click)=\"delete()\">Delete</button>\n<button class=\"btn btn-outline-danger btn-block center_input supreme-font\" style=\"color:white\" routerLink=\"../\">Cancel</button>\n\n\n<div class=\" card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" routerLink=\"/user/seller\"><i class=\"fa fa-user\"></i></a >\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -1640,7 +1668,7 @@ module.exports = "<body class=\"body-black\">\n<nav class=\"navbar navbar-defaul
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_item_service_client__ = __webpack_require__("./src/app/services/item.service.client.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__environments_environment_prod__ = __webpack_require__("./src/environments/environment.prod.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1662,7 +1690,7 @@ var ItemEditComponent = /** @class */ (function () {
         this.sharedService = sharedService;
         this.activatedRoute = activatedRoute;
         this.router = router;
-        this.baseUrl = __WEBPACK_IMPORTED_MODULE_5__environments_environment__["a" /* environment */].baseUrl;
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_5__environments_environment_prod__["a" /* environment */].baseUrl;
     }
     ItemEditComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -1706,7 +1734,6 @@ var ItemEditComponent = /** @class */ (function () {
         if (this.item.name === '' || this.item.name === undefined ||
             this.item.color === '' || this.item.color === undefined ||
             this.item.price === '' || this.item.price === undefined ||
-            this.item.url === '' || this.item.url === undefined ||
             this.item.category === '' || this.item.category === undefined ||
             this.item.size === '' || this.item.size === undefined) {
             this.errorFlag = true;
@@ -1742,21 +1769,23 @@ var ItemEditComponent = /** @class */ (function () {
         this.item.price = this.loginForm.value.price;
         this.item.category = this.loginForm.value.category;
         this.item.size = this.loginForm.value.size;
-        // if (this.item.name === '' || this.item.name === undefined ||
-        //   this.item.color === '' || this.item.color === undefined ||
-        //   this.item.price === '' || this.item.price === undefined ||
-        //   this.item.url === '' || this.item.url === undefined ||
-        //   this.item.category === '' || this.item.category === undefined ||
-        //   this.item.size === '' || this.item.size === undefined) {
-        //   this.errorFlag = true;
-        // } else {
-        if (this.itemId !== undefined) {
-            this.router.navigate(['/user/seller/item/' + this.itemId + '/flickr']);
+        if (this.item.name === '' || this.item.name === undefined ||
+            this.item.color === '' || this.item.color === undefined ||
+            this.item.price === '' || this.item.price === undefined ||
+            this.item.category === '' || this.item.category === undefined ||
+            this.item.size === '' || this.item.size === undefined) {
+            this.errorFlag = true;
         }
         else {
-            this.itemService.createItem(this.sellerId, this.item.name, this.item.price, this.item.color, this.item.size, this.item.category, this.item.url).subscribe(function (returnItem) {
-                _this.router.navigate(['/user/seller/item/' + returnItem._id + '/flickr']);
-            });
+            if (this.itemId !== undefined) {
+                this.router.navigate(['/user/seller/item/' + this.itemId + '/flickr']);
+            }
+            else {
+                this.itemService.createItem(this.sellerId, this.item.name, this.item.price, this.item.color, this.item.size, this.item.category, this.item.url).subscribe(function (returnItem) {
+                    _this.itemId = returnItem._id;
+                    _this.router.navigate(['/user/seller/item/' + _this.itemId + '/flickr']);
+                });
+            }
         }
     };
     __decorate([
@@ -2599,6 +2628,19 @@ var RegisterComponent = /** @class */ (function () {
     return RegisterComponent;
 }());
 
+
+
+/***/ }),
+
+/***/ "./src/environments/environment.prod.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
+var environment = {
+    production: true,
+    baseUrl: 'https://web-supreme.herokuapp.com'
+};
 
 
 /***/ }),
