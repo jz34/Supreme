@@ -1022,19 +1022,11 @@ var PaymentComponent = /** @class */ (function () {
         this.cardNumber = this.loginForm.value.cardNumber;
         this.expirationDate = this.loginForm.value.expirationDate;
         this.cvv = this.loginForm.value.cvv;
-        console.log(this.firstName + ' ' +
-            this.lastName + ' ' + this.email + ' ' +
-            this.phone + ' ' + this.address + ' ' +
-            this.state + ' ' + this.city + ' ' + this.cardNumber + ' ' + this.expirationDate + ' ' + this.cvv + ' ');
+        console.log(this.sharedService.user['cvv']);
         if (!this.firstName || !this.lastName || !this.email || !this.phone || !this.state || !this.city
             || !this.cardNumber || !this.cvv || !this.expirationDate || !this.address) {
             this.errorFlag = true;
             this.errorMsg = 'One or more information missing';
-        }
-        else if (this.loginForm.value.cardNumber === this.cardNumber &&
-            this.loginForm.value.cvv !== this.sharedService.user['cvv']) {
-            this.errorFlag = true;
-            this.errorMsg = 'Please correct your cvv number!';
         }
         else {
             this.errorFlag = false;
