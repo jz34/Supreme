@@ -22,6 +22,8 @@ import { CreditcardComponent } from './views/users/creditcard/creditcard.compone
 import {SellerListingComponent} from './views/users/profile/seller-profile/seller-listing/seller-listing.component';
 import {AuthGuard} from './services/auth-guard.service';
 import {FlickrImageComponent} from './views/item/item-edit/flickr-image/flickr-image.component';
+import {AdminNewUserComponent} from './views/admin/admin-user-edit/admin-new-user/admin-new-user.component';
+import {AdminUpdateUserComponent} from './views/admin/admin-user-edit/admin-update-user/admin-update-user.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -35,6 +37,8 @@ const appRoutes: Routes = [
   {path: 'user/seller', component: SellerProfileComponent, canActivate: [AuthGuard]},
   {path: 'user/admin/edititem', component: AdminItemEditComponent, canActivate: [AuthGuard]},
   {path: 'user/admin/edituser', component: AdminUserEditComponent, canActivate: [AuthGuard]},
+  {path: 'user/admin/edituser/new', component: AdminNewUserComponent, canActivate: [AuthGuard]},
+  {path: 'user/admin/edituser/:uid', component: AdminUpdateUserComponent, canActivate: [AuthGuard]},
   {path: 'user/seller/new', component: ItemEditComponent, canActivate: [AuthGuard]},
   {path: 'user/seller/listing', component: SellerListingComponent, canActivate: [AuthGuard]},
   {path: 'user/seller/item/:iid', component: ItemEditComponent, canActivate: [AuthGuard]},

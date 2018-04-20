@@ -10,7 +10,7 @@ import {ItemService} from '../../../services/item.service.client';
   styleUrls: ['../../../style.css']
 })
 export class AdminItemEditComponent implements OnInit {
-  itemList: [{}];
+  itemList: any[];
   category: String;
   itemId: String;
   @ViewChild('f') loginForm: NgForm;
@@ -21,7 +21,7 @@ export class AdminItemEditComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.sharedService.user);
-    this.itemList = [{}];
+    this.itemList = [];
   }
 
   findCategory() {
