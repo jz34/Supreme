@@ -10,7 +10,7 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['../../../style.css']
 })
 export class AdminUserEditComponent implements OnInit {
-  userList: [{}];
+  userList: any[];
   search: String;
   userId: String;
   @ViewChild('f') loginForm: NgForm;
@@ -21,7 +21,7 @@ export class AdminUserEditComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.sharedService.user);
-    this.userList = [{}];
+    this.userList = [];
   }
 
   findAllUser() {

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <title>admin-update-user</title>
+</head>
+<body class="body-pink">
+<nav class="navbar navbar-default header-margin-bottom">
+  <div class="supreme-font">
+    <a class="white_text" routerLink="../"><i class="fa fa-chevron-left"></i></a >
+    <span class="supreme-text-logo"><a class="a-no-color a-no-hover a-no-visited" routerLink="/loggedinhome/user">S U P R E M E</a ></span>
+
+  </div>
+</nav>
+
+<div class="supreme-font footer-padding">
+  <form (ngSubmit)="update()" #f="ngForm">
+    <label class="center-input" style="padding-top:60px">Username</label>
+    <input
+      [(ngModel)]="username"
+      name="username"
+      type="text"
+      class="form-control center-input"
+      placeholder="{{username}}"/>
+    <label class="center-input">First Name</label>
+    <input [(ngModel)]="firstName"
+           name="firstName"
+           type="text"
+           class="form-control center-input"
+           placeholder="{{firstName}}"/>
+    <label class="center-input">Last Name</label>
+    <input [(ngModel)]="lastName"
+           name="lastName"
+           type="text"
+           class="form-control center-input"
+           placeholder="{{lastName}}"/>
+    <label class="center-input">Phone</label>
+    <input  [(ngModel)]="phone"
+            name="phone"
+            type="text"
+            class="form-control center-input"
+            placeholder="{{phone}}"/>
+    <label class="center-input">Email</label>
+    <input [(ngModel)]="email"
+           name="email"
+           type="text"
+           class="form-control center-input"
+           placeholder="{{email}}"/>
+    <br>
+    <button class="btn btn-outline-danger btn-block center-input" type="submit" style="color: white">Update</button>
+    <a class="btn btn-outline-danger btn-block center-input" routerLink="../">Cancel</a >
+  </form>
+
+</div>
+<div class="card-footer footer-color fixed-bottom">
+  <a class="pull-right white_text" routerLink="/user/admin"><i class="fa fa-user"></i></a >
+</div>
+
+</body>

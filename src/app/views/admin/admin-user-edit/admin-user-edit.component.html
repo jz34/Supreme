@@ -1,43 +1,50 @@
 <body class="body-black">
 <nav class="navbar navbar-default header-margin-bottom">
   <div class="supreme-font">
-    <a class="white_text" routerLink="/loggedinhome/user"><i class="fa fa-chevron-left"></i></a >
+    <a class="white_text" routerLink="../"><i class="fa fa-chevron-left"></i></a >
     <span class="supreme-text-logo"><a class="a-no-color a-no-hover a-no-visited"
                                        routerLink="/loggedinhome/user">S U P R E M E</a ></span>
   </div>
 </nav>
-
-<div class="center_text big-box row">
-  <div class="card col-lg-2 col-md-12 col-sm-12 col-xs-12 black-card full-border footer-padding">
-    <form (ngSubmit)="findUser()" #f="ngForm" class="center_input input_padding">
-      <label class="supreme-font">User Search</label>
-      <input
-        [(ngModel)]="search"
-        style="width: 100%"
-        type="text"
-        placeholder="Search.."
-        name="search"><br>
-      <br>
-      <button type="submit" class="btn-outline-danger bottom-button supreme-font" style="color: white">Search</button>
-    </form>
-    <button (click)="findAllUser()" class="btn-outline-danger bottom-button supreme-font" style="color: white">Show
-      All
-    </button>
-  </div>
-
-  <div class="card col-lg-10 col-md-12 col-sm-12 col-xs-12 black-card full-border footer-padding">
-    <div id='content'>
-      <ul id="ul1" class="list-group supreme-font list-group-flush">
-        <div *ngFor="let user of userList">
-          <li class="center_input" style="margin-top: 10px">
-            Username: {{user.username}}<br>
-            UserID: {{user._id}}<br>
-            <span (click)="delete(user._id)" class="btn btn-outline-danger btn-block center_input">Delete</span>
-          </li>
+<div class="card black-card footer-padding">
+  <div class="center_text big-box row">
+    <div class="card col-lg-4 col-md-12 col-sm-12 col-xs-12 black-card full-border">
+      <div class="row justify-content-center" style="margin-top: 10px">
+        <div class="col-8">
+          <form (ngSubmit)="findUser()" #f="ngForm">
+            <div class="input-group">
+              <input class="form-control"
+                     type="text"
+                     placeholder="Search..."
+                     name="search"
+                     [(ngModel)]="search">
+              <span class="input-group-btn">
+            <button class="btn btn-danger" type="submit">Go</button>
+          </span>
+            </div>
+          </form>
         </div>
-      </ul>
-      <div id="pagenum"><a href="#" style="color: white">1</a > <a style="color: white" href="#">2</a > <a
-        style="color: white" href="#">3</a >
+      </div>
+      <br>
+      <button (click)="findAllUser()" class="btn-outline-danger bottom-button supreme-font" style="color: white">Show
+        All
+      </button>
+      <button routerLink="/user/admin/edituser/new" class="btn-outline-danger bottom-button supreme-font" style="color: white">New User
+      </button>
+    </div>
+
+    <div class="card col-lg-8 col-md-12 col-sm-12 col-xs-12 black-card full-border">
+      <div id='content'>
+        <ul id="ul1" class="list-group supreme-font list-group-flush">
+          <div *ngFor="let user of userList">
+            <li class="center_input" style="margin-top: 10px">
+              Username: {{user.username}}<br>
+              UserID: {{user._id}}<br>
+              <span routerLink="/user/admin/edituser/{{user._id}}" class="btn btn-outline-danger btn-block center_input">Update</span>
+              <span (click)="delete(user._id)" class="btn btn-outline-danger btn-block center_input">Delete</span>
+            </li>
+          </div>
+        </ul>
       </div>
     </div>
   </div>
