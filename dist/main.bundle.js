@@ -100,12 +100,16 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__services_auth_guard_service__ = __webpack_require__("./src/app/services/auth-guard.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__views_item_item_edit_flickr_image_flickr_image_component__ = __webpack_require__("./src/app/views/item/item-edit/flickr-image/flickr-image.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__services_flickr_service_client__ = __webpack_require__("./src/app/services/flickr.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__views_admin_admin_user_edit_admin_new_user_admin_new_user_component__ = __webpack_require__("./src/app/views/admin/admin-user-edit/admin-new-user/admin-new-user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__views_admin_admin_user_edit_admin_update_user_admin_update_user_component__ = __webpack_require__("./src/app/views/admin/admin-user-edit/admin-update-user/admin-update-user.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -166,7 +170,9 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_21__views_home_loggedin_home_loggedin_home_component__["a" /* LoggedinHomeComponent */],
                 __WEBPACK_IMPORTED_MODULE_22__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */],
                 __WEBPACK_IMPORTED_MODULE_29__views_users_profile_seller_profile_seller_listing_seller_listing_component__["a" /* SellerListingComponent */],
-                __WEBPACK_IMPORTED_MODULE_31__views_item_item_edit_flickr_image_flickr_image_component__["a" /* FlickrImageComponent */]
+                __WEBPACK_IMPORTED_MODULE_31__views_item_item_edit_flickr_image_flickr_image_component__["a" /* FlickrImageComponent */],
+                __WEBPACK_IMPORTED_MODULE_33__views_admin_admin_user_edit_admin_new_user_admin_new_user_component__["a" /* AdminNewUserComponent */],
+                __WEBPACK_IMPORTED_MODULE_34__views_admin_admin_user_edit_admin_update_user_admin_update_user_component__["a" /* AdminUpdateUserComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -213,6 +219,10 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__views_users_profile_seller_profile_seller_listing_seller_listing_component__ = __webpack_require__("./src/app/views/users/profile/seller-profile/seller-listing/seller-listing.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__ = __webpack_require__("./src/app/services/auth-guard.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__views_item_item_edit_flickr_image_flickr_image_component__ = __webpack_require__("./src/app/views/item/item-edit/flickr-image/flickr-image.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__views_admin_admin_user_edit_admin_new_user_admin_new_user_component__ = __webpack_require__("./src/app/views/admin/admin-user-edit/admin-new-user/admin-new-user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__views_admin_admin_user_edit_admin_update_user_admin_update_user_component__ = __webpack_require__("./src/app/views/admin/admin-user-edit/admin-update-user/admin-update-user.component.ts");
+
+
 
 
 
@@ -248,6 +258,8 @@ var appRoutes = [
     { path: 'user/seller', component: __WEBPACK_IMPORTED_MODULE_8__views_users_profile_seller_profile_seller_profile_component__["a" /* SellerProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
     { path: 'user/admin/edititem', component: __WEBPACK_IMPORTED_MODULE_3__views_admin_admin_item_edit_admin_item_edit_component__["a" /* AdminItemEditComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
     { path: 'user/admin/edituser', component: __WEBPACK_IMPORTED_MODULE_4__views_admin_admin_user_edit_admin_user_edit_component__["a" /* AdminUserEditComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/admin/edituser/new', component: __WEBPACK_IMPORTED_MODULE_23__views_admin_admin_user_edit_admin_new_user_admin_new_user_component__["a" /* AdminNewUserComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
+    { path: 'user/admin/edituser/:uid', component: __WEBPACK_IMPORTED_MODULE_24__views_admin_admin_user_edit_admin_update_user_admin_update_user_component__["a" /* AdminUpdateUserComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
     { path: 'user/seller/new', component: __WEBPACK_IMPORTED_MODULE_5__views_item_item_edit_item_edit_component__["a" /* ItemEditComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
     { path: 'user/seller/listing', component: __WEBPACK_IMPORTED_MODULE_20__views_users_profile_seller_profile_seller_listing_seller_listing_component__["a" /* SellerListingComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
     { path: 'user/seller/item/:iid', component: __WEBPACK_IMPORTED_MODULE_5__views_item_item_edit_item_edit_component__["a" /* ItemEditComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__services_auth_guard_service__["a" /* AuthGuard */]] },
@@ -642,7 +654,7 @@ module.exports = ".navbar-default {\n    color: white;\n    background-color: #E
 /***/ "./src/app/views/admin/admin-item-edit/admin-item-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<head>\n  <title>Edit Item</title>\n</head>\n\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"/loggedinhome/user\"><i class=\"fa fa-chevron-left\"></i></a>\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/loggedinhome/user\">S U P R E M E</a></span>\n  </div>\n</nav>\n\n<!--<div class=\"footer-padding\">-->\n<div class=\"center_text big-box row\">\n  <div class=\"card col-lg-2 col-md-12 col-sm-12 col-xs-12 black-card full-border footer-padding\">\n    <div class=\"center_input input_padding\">\n      <form (ngSubmit)=\"findCategory()\" #f=\"ngForm\" class=\"center_input input_padding\">\n        <span><label class=\"supreme-font\">Category</label></span>\n        <select name=\"size\" style=\"margin-bottom: 20px\" [(ngModel)]=\"category\">\n          <option>Jacket</option>\n          <option>Shirt</option>\n          <option>Top</option>\n          <option>Sweatshirt</option>\n          <option>Pants</option>\n          <option>Hat</option>\n          <option>Bag</option>\n          <option>Skate</option>\n          <option>Accessory</option>\n        </select><br>\n        <button type=\"submit\" class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\">Search</button>\n      </form>\n      <br>\n      <button class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\" (click)=\"findAllItem()\">Show\n        All\n      </button>\n    </div>\n  </div>\n\n  <div class=\" card col-lg-10 col-md-12 col-sm-12 col-xs-12 black-card full-border footer-padding\">\n    <div class=\"card-columns\" style=\"padding: 10px\">\n      <div class=\"card text-center\" *ngFor=\"let item of itemList\">\n        <img class=\"card-img-top\" src={{item.url}} alt=\"Card image cap\">\n        <div class=\"card-body item-text\">\n          Name: {{item.name}}<br>\n          Color: {{item.color}}<br>\n          Size: {{item.size}}<br>\n          Price: ${{item.price}}<br>\n          Seller ID: {{item._seller}}<br>\n          <label class=\"btn btn-outline-danger btn-block center_input supreme-font\" (click)=\"deleteItem(item._id)\">Delete</label>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<!--</div>-->\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" routerLink=\"user/admin\"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n\n\n"
+module.exports = "<head>\n  <title>Edit Item</title>\n</head>\n\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n  </div>\n</nav>\n<div class=\"card footer-padding black-card\">\n  <div class=\"center_text big-box row justify-content-center\">\n    <div class=\"card col-lg-2 col-md-12 col-sm-12 col-xs-12 black-card full-border\">\n      <div class=\"input_padding\">\n        <form (ngSubmit)=\"findCategory()\" #f=\"ngForm\" class=\"center_input input_padding\">\n          <span><label class=\"supreme-font\">Category</label></span>\n          <select name=\"size\" style=\"margin-bottom: 20px\" [(ngModel)]=\"category\">\n            <option>Jacket</option>\n            <option>Shirt</option>\n            <option>Top</option>\n            <option>Sweatshirt</option>\n            <option>Pants</option>\n            <option>Hat</option>\n            <option>Bag</option>\n            <option>Skate</option>\n            <option>Accessory</option>\n          </select><br>\n          <button type=\"submit\" class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\">Search\n          </button>\n        </form>\n        <br>\n        <button class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\" (click)=\"findAllItem()\">Show\n          All\n        </button>\n      </div>\n    </div>\n\n    <div class=\" card col-lg-10 col-md-12 col-sm-12 col-xs-12 black-card full-border\">\n      <div class=\"card-columns\" style=\"padding: 10px\">\n        <div class=\"card text-center\" *ngFor=\"let item of itemList\">\n          <img class=\"card-img-top\" src={{item.url}}>\n          <div class=\"card-body item-text\">\n            Name: {{item.name}}<br>\n            Color: {{item.color}}<br>\n            Size: {{item.size}}<br>\n            Price: ${{item.price}}<br>\n            Category: ${{item.category}}<br>\n            Seller ID: {{item._seller}}<br>\n            <label class=\"btn btn-outline-danger btn-block center_input supreme-font\" routerLink=\"/user/admin/edititem\"\n                   (click)=\"deleteItem(item._id)\">Delete</label>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n  <!--</div>-->\n  <div class=\"card-footer footer-color fixed-bottom\">\n    <a class=\"pull-right white_text\" routerLink=\"/user/admin\"><i class=\"fa fa-user\"></i></a >\n  </div>\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -679,7 +691,7 @@ var AdminItemEditComponent = /** @class */ (function () {
     }
     AdminItemEditComponent.prototype.ngOnInit = function () {
         console.log(this.sharedService.user);
-        this.itemList = [{}];
+        this.itemList = [];
     };
     AdminItemEditComponent.prototype.findCategory = function () {
         var _this = this;
@@ -782,10 +794,179 @@ var AdminProfileComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/views/admin/admin-user-edit/admin-new-user/admin-new-user.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<head>\n  <title>admin-new-user</title>\n</head>\n<body class=\"body-black\">\n\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n  </div>\n</nav>\n<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger\">\n  {{errorMsg}}\n</div>\n<div class=\"supreme-font footer-padding\">\n  <form (ngSubmit)=\"register()\" #f=\"ngForm\">\n    <div class=\"center_text\">\n      <label for=\"sellercheck\" class=\"white_text\" style=\"word-wrap:break-word\">\n        <input\n          [(ngModel)]=\"userType\"\n          name=\"userType\"\n          id=\"sellercheck\"\n          type=\"checkbox\"\n          value=\"Seller\"\n        /> Seller\n      </label>\n    </div>\n    <label class=\"center_input white_text\">Username</label>\n    <input placeholder=\"Username\"\n           name=\"username\"\n           type=\"text\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #username=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!username.valid && username.touched\">\n      Please enter username!\n      </span>\n    <label class=\"center_input white_text\">Password</label>\n    <input placeholder=\"Password\"\n           name=\"password\"\n           type=\"password\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #password=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!password.valid && password.touched\">\n      Please enter password!\n      </span>\n    <label class=\"center_input white_text\">Verify Password</label>\n    <input placeholder=\"Verify your password\"\n           name=\"verifiedPassword\"\n           type=\"password\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #verifiedPassword=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!verifiedPassword.valid && verifiedPassword.touched\">\n      Please verify password!\n      </span>\n    <div>\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" type=\"submit\"\n              [disabled]=\"!f.valid\">\n        submit\n      </button>\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" routerLink=\"../\">Cancel\n      </button>\n    </div>\n  </form>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" routerLink=\"/user/admin\"><i class=\"fa fa-user\"></i></a >\n</div>\n</body>\n"
+
+/***/ }),
+
+/***/ "./src/app/views/admin/admin-user-edit/admin-new-user/admin-new-user.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminNewUserComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__ = __webpack_require__("./src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var AdminNewUserComponent = /** @class */ (function () {
+    function AdminNewUserComponent(userService, router, sharedService) {
+        this.userService = userService;
+        this.router = router;
+        this.sharedService = sharedService;
+    }
+    AdminNewUserComponent.prototype.register = function () {
+        var _this = this;
+        this.username = this.loginForm.value.username;
+        this.password = this.loginForm.value.password;
+        this.verifiedPassword = this.loginForm.value.verifiedPassword;
+        if (this.loginForm.value.userType) {
+            this.userType = 'Seller';
+        }
+        else {
+            this.userType = 'Buyer';
+        }
+        if (this.password !== this.verifiedPassword) {
+            this.errorFlag = true;
+        }
+        else {
+            this.userService.register(this.username, this.password, this.userType).subscribe(function (data) {
+                _this.router.navigate(['user/admin/edituser']);
+            }, function (error) {
+                _this.errorFlag = true;
+                _this.errorMsg = 'Username is in use';
+            });
+        }
+    };
+    AdminNewUserComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* NgForm */])
+    ], AdminNewUserComponent.prototype, "loginForm", void 0);
+    AdminNewUserComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-admin-new-user',
+            template: __webpack_require__("./src/app/views/admin/admin-user-edit/admin-new-user/admin-new-user.component.html"),
+            styles: [__webpack_require__("./src/app/style.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_3__services_shared_service__["a" /* SharedService */]])
+    ], AdminNewUserComponent);
+    return AdminNewUserComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/admin/admin-user-edit/admin-update-user/admin-update-user.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<!DOCTYPE html>\n<html lang=\"en\" xmlns=\"http://www.w3.org/1999/html\">\n<head>\n  <title>admin-update-user</title>\n</head>\n<body class=\"body-pink\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\" routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n\n  </div>\n</nav>\n\n<div class=\"supreme-font footer-padding\">\n  <form (ngSubmit)=\"update()\" #f=\"ngForm\">\n    <label class=\"center-input\" style=\"padding-top:60px\">Username</label>\n    <input\n      [(ngModel)]=\"username\"\n      name=\"username\"\n      type=\"text\"\n      class=\"form-control center-input\"\n      placeholder=\"{{username}}\"/>\n    <label class=\"center-input\">First Name</label>\n    <input [(ngModel)]=\"firstName\"\n           name=\"firstName\"\n           type=\"text\"\n           class=\"form-control center-input\"\n           placeholder=\"{{firstName}}\"/>\n    <label class=\"center-input\">Last Name</label>\n    <input [(ngModel)]=\"lastName\"\n           name=\"lastName\"\n           type=\"text\"\n           class=\"form-control center-input\"\n           placeholder=\"{{lastName}}\"/>\n    <label class=\"center-input\">Phone</label>\n    <input  [(ngModel)]=\"phone\"\n            name=\"phone\"\n            type=\"text\"\n            class=\"form-control center-input\"\n            placeholder=\"{{phone}}\"/>\n    <label class=\"center-input\">Email</label>\n    <input [(ngModel)]=\"email\"\n           name=\"email\"\n           type=\"text\"\n           class=\"form-control center-input\"\n           placeholder=\"{{email}}\"/>\n    <br>\n    <button class=\"btn btn-outline-danger btn-block center-input\" type=\"submit\" style=\"color: white\">Update</button>\n    <a class=\"btn btn-outline-danger btn-block center-input\" routerLink=\"../\">Cancel</a >\n  </form>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" routerLink=\"/user/admin\"><i class=\"fa fa-user\"></i></a >\n</div>\n\n</body>\n"
+
+/***/ }),
+
+/***/ "./src/app/views/admin/admin-user-edit/admin-update-user/admin-update-user.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminUpdateUserComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__ = __webpack_require__("./src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var AdminUpdateUserComponent = /** @class */ (function () {
+    function AdminUpdateUserComponent(userService, sharedService, activatedRoute, router) {
+        this.userService = userService;
+        this.sharedService = sharedService;
+        this.activatedRoute = activatedRoute;
+        this.router = router;
+    }
+    AdminUpdateUserComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.activatedRoute.params
+            .subscribe(function (params) {
+            _this.userId = params['uid'];
+            _this.userService.findUserById(_this.userId).subscribe(function (returnUser) {
+                _this.user = returnUser;
+                _this.username = _this.user.username;
+                _this.email = _this.user.email;
+                _this.firstName = _this.user.firstName;
+                _this.lastName = _this.user.lastName;
+                _this.password = _this.user.password;
+                _this.phone = _this.user.phone;
+            });
+        });
+    };
+    AdminUpdateUserComponent.prototype.update = function () {
+        var _this = this;
+        this.user.username = this.loginForm.value.username;
+        this.user.firstName = this.loginForm.value.firstName;
+        this.user.lastName = this.loginForm.value.lastName;
+        this.user.email = this.loginForm.value.email;
+        this.user.phone = this.loginForm.value.phone;
+        this.userService.updateUser(this.userId, this.user).subscribe(function (returnUser) {
+            _this.user = returnUser;
+            _this.router.navigate(['/user/admin/edituser']);
+        });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* NgForm */])
+    ], AdminUpdateUserComponent.prototype, "loginForm", void 0);
+    AdminUpdateUserComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-admin-update-user',
+            template: __webpack_require__("./src/app/views/admin/admin-user-edit/admin-update-user/admin-update-user.component.html"),
+            styles: [__webpack_require__("./src/app/style_derek.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_4__services_shared_service__["a" /* SharedService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
+    ], AdminUpdateUserComponent);
+    return AdminUpdateUserComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/views/admin/admin-user-edit/admin-user-edit.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"/loggedinhome/user\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n  </div>\n</nav>\n\n<div class=\"center_text big-box row\">\n  <div class=\"card col-lg-2 col-md-12 col-sm-12 col-xs-12 black-card full-border footer-padding\">\n    <form (ngSubmit)=\"findUser()\" #f=\"ngForm\" class=\"center_input input_padding\">\n      <label class=\"supreme-font\">User Search</label>\n      <input\n        [(ngModel)]=\"search\"\n        style=\"width: 100%\"\n        type=\"text\"\n        placeholder=\"Search..\"\n        name=\"search\"><br>\n      <br>\n      <button type=\"submit\" class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\">Search</button>\n    </form>\n    <button (click)=\"findAllUser()\" class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\">Show\n      All\n    </button>\n  </div>\n\n  <div class=\"card col-lg-10 col-md-12 col-sm-12 col-xs-12 black-card full-border footer-padding\">\n    <div id='content'>\n      <ul id=\"ul1\" class=\"list-group supreme-font list-group-flush\">\n        <div *ngFor=\"let user of userList\">\n          <li class=\"center_input\" style=\"margin-top: 10px\">\n            Username: {{user.username}}<br>\n            UserID: {{user._id}}<br>\n            <span (click)=\"delete(user._id)\" class=\"btn btn-outline-danger btn-block center_input\">Delete</span>\n          </li>\n        </div>\n      </ul>\n      <div id=\"pagenum\"><a href=\"#\" style=\"color: white\">1</a > <a style=\"color: white\" href=\"#\">2</a > <a\n        style=\"color: white\" href=\"#\">3</a >\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" href=\" \"><i class=\"fa fa-user\"></i></a >\n</div>\n</body>\n"
+module.exports = "<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n  </div>\n</nav>\n<div class=\"card black-card footer-padding\">\n  <div class=\"center_text big-box row\">\n    <div class=\"card col-lg-4 col-md-12 col-sm-12 col-xs-12 black-card full-border\">\n      <div class=\"row justify-content-center\" style=\"margin-top: 10px\">\n        <div class=\"col-8\">\n          <form (ngSubmit)=\"findUser()\" #f=\"ngForm\">\n            <div class=\"input-group\">\n              <input class=\"form-control\"\n                     type=\"text\"\n                     placeholder=\"Search...\"\n                     name=\"search\"\n                     [(ngModel)]=\"search\">\n              <span class=\"input-group-btn\">\n            <button class=\"btn btn-danger\" type=\"submit\">Go</button>\n          </span>\n            </div>\n          </form>\n        </div>\n      </div>\n      <br>\n      <button (click)=\"findAllUser()\" class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\">Show\n        All\n      </button>\n      <button routerLink=\"/user/admin/edituser/new\" class=\"btn-outline-danger bottom-button supreme-font\" style=\"color: white\">New User\n      </button>\n    </div>\n\n    <div class=\"card col-lg-8 col-md-12 col-sm-12 col-xs-12 black-card full-border\">\n      <div id='content'>\n        <ul id=\"ul1\" class=\"list-group supreme-font list-group-flush\">\n          <div *ngFor=\"let user of userList\">\n            <li class=\"center_input\" style=\"margin-top: 10px\">\n              Username: {{user.username}}<br>\n              UserID: {{user._id}}<br>\n              <span routerLink=\"/user/admin/edituser/{{user._id}}\" class=\"btn btn-outline-danger btn-block center_input\">Update</span>\n              <span (click)=\"delete(user._id)\" class=\"btn btn-outline-danger btn-block center_input\">Delete</span>\n            </li>\n          </div>\n        </ul>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" href=\" \"><i class=\"fa fa-user\"></i></a >\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -822,7 +1003,7 @@ var AdminUserEditComponent = /** @class */ (function () {
     }
     AdminUserEditComponent.prototype.ngOnInit = function () {
         console.log(this.sharedService.user);
-        this.userList = [{}];
+        this.userList = [];
     };
     AdminUserEditComponent.prototype.findAllUser = function () {
         var _this = this;
