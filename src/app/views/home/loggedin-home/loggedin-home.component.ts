@@ -133,4 +133,11 @@ export class LoggedinHomeComponent implements OnInit {
       this.router.navigate(['user/searchresult']);
     });
   }
+
+  goCart() {
+    console.log(this.user.userType);
+    if (this.user.userType === 'Buyer') {
+      this.router.navigate(['user/buyer/cart']);
+    }
+  }
 }

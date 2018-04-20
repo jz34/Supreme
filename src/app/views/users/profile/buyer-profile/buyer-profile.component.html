@@ -49,12 +49,12 @@
     <button class="btn btn-outline-danger btn-block center-input" type="submit" style="color: white">Update</button>
     <a class="btn btn-outline-danger btn-block center-input" (click)="updateCreditCard()">Update Credit Card</a >
     <a class="btn btn-outline-danger btn-block center-input" (click)="showOrderHistory()">Order History</a >
-    <a class="btn btn-outline-danger btn-block center-input" (click)="goCart()">My Cart</a >
     <a class="btn btn-outline-danger btn-block center-input" (click)="logout()">Log Out</a >
   </form>
 
 </div>
 <div class="card-footer footer-color fixed-bottom">
+  <a class="pull-left white_text" (click)="goCart()"><i class="fa fa-shopping-cart"></i></a >
   <a class="pull-right white_text" routerLink="/user/buyer"><i class="fa fa-user"></i></a >
 </div>
 

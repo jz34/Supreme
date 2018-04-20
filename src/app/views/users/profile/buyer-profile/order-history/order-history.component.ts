@@ -37,4 +37,11 @@ export class OrderHistoryComponent implements OnInit {
         (error: any) => console.log(error)
       );
   }
+
+  goCart() {
+    console.log(this.user.userType);
+    if (this.user.userType === 'Buyer') {
+      this.router.navigate(['user/buyer/cart']);
+    }
+  }
 }

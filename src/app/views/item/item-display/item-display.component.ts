@@ -104,4 +104,11 @@ export class ItemDisplayComponent implements OnInit {
 
   }
 
+  goCart() {
+    console.log(this.user.userType);
+    if (this.user.userType === 'Buyer') {
+      this.router.navigate(['user/buyer/cart']);
+    }
+  }
+
 }

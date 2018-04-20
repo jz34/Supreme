@@ -18,6 +18,7 @@ export class FlickrImageComponent implements OnInit {
   errorFlag: boolean;
   searchText: string;
 
+
   constructor(private flickrService: FlickrService,
               private itemService: ItemService,
               private router: Router,
@@ -72,5 +73,18 @@ export class FlickrImageComponent implements OnInit {
         }
       );
     }
+  }
+
+
+  profile() {
+    this.router.navigate(['user/seller']);
+  }
+
+  goHome() {
+    this.router.navigate(['loggedinhome/user']);
+  }
+
+  goLeft() {
+    this.router.navigate(['user/seller/item/', this.itemId]);
   }
 }
