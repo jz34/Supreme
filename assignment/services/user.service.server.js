@@ -1,8 +1,8 @@
 module.exports = function (app) {
   var facebookConfig = {
-    clientID     : process.env.FACEBOOK_CLIENT_ID,
-    clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
-    callbackURL  : process.env.FACEBOOK_CALLBACK_URL
+    clientID: '188336038634544',
+    clientSecret: 'd869fafb588201598a0fcc4daf1eefcc',
+    callbackURL: 'https://webproject-supreme.herokuapp.com/auth/facebook/callback'
   };
 
   app.put("/api/user/:userId", updateUser);
@@ -10,10 +10,10 @@ module.exports = function (app) {
   app.get("/api/username/:username", findUserByUsername);
   //app.get("/api/user", findUserByCredentials);
   app.post("/api/user", createUser);
-  app.post("/api/createuser", createUser);
   app.delete("/api/user/:userId", deleteUser);
   app.get("/api/users", findAllUser);
   app.get("/api/usernames/:username", findUserByUsernames);
+  app.post("/api/createuser", createUser)
 
 
   var bcrypt = require("bcrypt-nodejs");
@@ -91,7 +91,6 @@ module.exports = function (app) {
     userModel
       .findUserByUsername(user.username)
       .then(function (data) {
-        console.log(data);
         if (data) {
           res.status(400).send('Username is in use!');
           return;
@@ -168,10 +167,20 @@ module.exports = function (app) {
   }
 
   function createUser(req, res) {
-    var newUser = req.body;
-    userModel.createUser(newUser)
-      .then(function (user) {
-        res.json(user);
+    var user = req.body;
+    user.password = bcrypt.hashSync(user.password);
+    userModel
+      .findUserByUsername(user.username)
+      .then(function (data) {
+        if (data) {
+          res.status(400).send('Username is in use!');
+          return;
+        } else {
+          userModel
+            .createUser(user)
+            .then(
+              res.json(user));
+        }
       })
   }
 
@@ -218,7 +227,8 @@ module.exports = function (app) {
       res.send(users);
     });
   }
-  function findUserByUsernames(req, res){
+
+  function findUserByUsernames(req, res) {
     var username = req.params.username;
     userModel.findUserByUsernames(username).then(function (users) {
       res.send(users);
