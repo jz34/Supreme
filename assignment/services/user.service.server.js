@@ -1,8 +1,8 @@
 module.exports = function (app) {
   var facebookConfig = {
-    clientID: '188336038634544',
-    clientSecret: 'd869fafb588201598a0fcc4daf1eefcc',
-    callbackURL: 'https://webproject-supreme.herokuapp.com/auth/facebook/callback'
+    clientID     : process.env.FACEBOOK_CLIENT_ID,
+    clientSecret : process.env.FACEBOOK_CLIENT_SECRET,
+    callbackURL  : process.env.FACEBOOK_CALLBACK_URL
   };
 
   app.put("/api/user/:userId", updateUser);
