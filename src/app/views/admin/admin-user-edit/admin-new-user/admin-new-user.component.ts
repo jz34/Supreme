@@ -1,7 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {UserService} from '../../../../services/user.service.client';
 import {NgForm} from '@angular/forms';
-import {SharedService} from '../../../../services/shared.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -19,7 +18,7 @@ export class AdminNewUserComponent implements OnInit {
   errorFlag: boolean;
   errorMsg: String;
 
-  constructor(private userService: UserService, private router: Router, private sharedService: SharedService) {
+  constructor(private userService: UserService, private router: Router) {
   }
 
   register() {
@@ -34,7 +33,7 @@ export class AdminNewUserComponent implements OnInit {
     if (this.password !== this.verifiedPassword) {
       this.errorFlag = true;
     } else {
-      this.userService.register(this.username, this.password, this.userType).subscribe((data: any) => {
+      this.userService.createUser(this.username, this.password, this.userType).subscribe((data: any) => {
           this.router.navigate(['user/admin/edituser']);
         },
         (error: any) => {

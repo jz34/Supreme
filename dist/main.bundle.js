@@ -571,6 +571,18 @@ var UserService = /** @class */ (function () {
             var data = res;
         });
     };
+    UserService.prototype.createUser = function (username, password, userType) {
+        var body = {
+            username: username,
+            password: password,
+            userType: userType
+        };
+        return this.http.post(this.baseUrl + '/api/createuser', body)
+            .map(function (res) {
+            var data = res.json();
+            return data;
+        });
+    };
     UserService.prototype.register = function (username, password, userType) {
         this.options.withCredentials = true;
         var body = {
@@ -809,8 +821,7 @@ module.exports = "<head>\n  <title>admin-new-user</title>\n</head>\n<body class=
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_user_service_client__ = __webpack_require__("./src/app/services/user.service.client.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -824,12 +835,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var AdminNewUserComponent = /** @class */ (function () {
-    function AdminNewUserComponent(userService, router, sharedService) {
+    function AdminNewUserComponent(userService, router) {
         this.userService = userService;
         this.router = router;
-        this.sharedService = sharedService;
     }
     AdminNewUserComponent.prototype.register = function () {
         var _this = this;
@@ -846,7 +855,7 @@ var AdminNewUserComponent = /** @class */ (function () {
             this.errorFlag = true;
         }
         else {
-            this.userService.register(this.username, this.password, this.userType).subscribe(function (data) {
+            this.userService.createUser(this.username, this.password, this.userType).subscribe(function (data) {
                 _this.router.navigate(['user/admin/edituser']);
             }, function (error) {
                 _this.errorFlag = true;
@@ -866,7 +875,7 @@ var AdminNewUserComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/views/admin/admin-user-edit/admin-new-user/admin-new-user.component.html"),
             styles: [__webpack_require__("./src/app/style.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_3__services_shared_service__["a" /* SharedService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_user_service_client__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
     ], AdminNewUserComponent);
     return AdminNewUserComponent;
 }());

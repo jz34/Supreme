@@ -55,6 +55,22 @@ export class UserService {
       );
   }
 
+  createUser(username: String, password: String, userType: String) {
+    const body = {
+      username: username,
+      password: password,
+      userType: userType
+    };
+
+    return this.http.post(this.baseUrl + '/api/createuser', body)
+      .map(
+        (res: Response) => {
+          const data = res.json();
+          return data;
+        }
+      );
+  }
+
   register(username: String, password: String, userType: String) {
     this.options.withCredentials = true;
     const body = {
